@@ -1,0 +1,2717 @@
+/* =============================================
+   DESIGNER HERO SECTION - Screen 01
+   Desktop Target: 1440px viewport
+   Layer Model: Building Layer 1 First
+   ============================================= */
+
+/* CSS Reset & Base */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+
+/* Custom Font for Hero Name */
+@font-face {
+    font-family: 'Designer';
+    src: url('assets/fonts/designer.otf') format('opentype');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* =============================================
+   HERO SECTION - Container
+   ============================================= */
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+/* =============================================
+   LAYER 1: Base Background Content
+   z-index: 1
+   ============================================= */
+.hero-background {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 14vh;
+}
+
+/* Primary Name Text */
+.hero-name {
+    font-family: 'Designer', 'Inter', sans-serif;
+    font-size: clamp(95px, 13.5vw, 195px);
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 0.9;
+    white-space: nowrap;
+    width: 100vw;
+    max-width: none;
+    /* Warm orange gradient matching design */
+    background: linear-gradient(180deg, #FF8C00 0%, #FF6B00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Philosophy Container */
+.philosophy-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(200px, 26vw, 400px);
+    margin-top: 12px;
+    width: 100%;
+}
+
+/* Philosophy Text - Left Node */
+.philosophy-left {
+    font-size: clamp(18px, 1.5vw, 24px);
+    font-weight: 400;
+    color: #2a2a2a;
+    letter-spacing: -0.01em;
+}
+
+/* Philosophy Text - Right Node */
+.philosophy-right {
+    font-size: clamp(18px, 1.5vw, 24px);
+    font-weight: 400;
+    color: #2a2a2a;
+    letter-spacing: -0.01em;
+}
+
+.philosophy-right strong {
+    font-weight: 600;
+}
+
+/* =============================================
+   LAYER 2: Avatar Content
+   z-index: 2
+   ============================================= */
+.hero-avatar {
+    position: absolute;
+    z-index: 2;
+    top: 4vh;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    /* Animation on initial load */
+    animation: avatarFadeIn 400ms ease-out forwards;
+}
+
+.hero-avatar img {
+    width: auto;
+    height: 125%;
+    max-width: none;
+    object-fit: contain;
+    object-position: bottom center;
+}
+
+/* Avatar Animation */
+@keyframes avatarFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(12px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* =============================================
+   LAYER 3: Role Pill
+   z-index: 3
+   ============================================= */
+.role-pill {
+    position: absolute;
+    z-index: 3;
+    bottom: calc(10vh - 20px);
+    left: 50%;
+    transform: translateX(-50%);
+    /* Glass effect */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(200, 200, 200, 0.35);
+    border-radius: 18px;
+    padding: 18px 56px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1), inset 4px 4px 10px rgba(255, 255, 255, 0.5);
+    /* Animation - delayed after avatar */
+    animation: pillFadeIn 350ms ease-out 400ms forwards;
+    opacity: 0;
+}
+
+.role-pill span {
+    font-size: clamp(20px, 1.8vw, 28px);
+    font-weight: 500;
+    color: #3a3a3a;
+    letter-spacing: -0.01em;
+}
+
+/* Role Pill Animation */
+@keyframes pillFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.96);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+/* =============================================
+   ABOUT SECTION
+   ============================================= */
+.about {
+    width: 100%;
+    min-height: 100vh;
+    padding: 80px 60px;
+    background-color: #ffffff;
+}
+
+.about-cards {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    min-height: 638px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* =============================================
+   COLLAPSED STATE - CARD STYLING
+   ============================================= */
+.about-card {
+    width: 299px;
+    height: 638px;
+    position: relative;
+    background: #ffffff;
+    border-radius: 0;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+    box-shadow: -4px 0px 25px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.about-card.is-hidden {
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    flex-shrink: 1;
+}
+
+.card-collapsed {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 40px 32px;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+    background: #ffffff;
+}
+
+.about-card.is-expanded .card-collapsed {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+}
+
+.card-heading {
+    font-family: 'Manrope', sans-serif;
+    font-size: 70px;
+    font-weight: 600;
+    line-height: 109px;
+    letter-spacing: 0.5%;
+    color: #616161;
+    margin: 0;
+}
+
+.card-subtext {
+    font-family: 'Manrope', sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 55px;
+    letter-spacing: 0.5%;
+    color: #616161;
+    margin: 24px 0;
+}
+
+.card-expand-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #1a1a1a;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-end;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.card-expand-btn:hover {
+    transform: scale(1.05);
+    background: #333;
+}
+
+/* =============================================
+   EXPANDED STATE - CARD STYLING
+   ============================================= */
+.card-expanded {
+    display: none;
+    height: 100%;
+    padding: 40px;
+    opacity: 0;
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.15s;
+}
+
+.about-card.is-expanded .card-expanded {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    opacity: 1;
+}
+
+.about-card.is-expanded {
+    flex: 4;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.expanded-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.expanded-heading {
+    font-family: 'Manrope', sans-serif;
+    font-size: 60px;
+    font-weight: 600;
+    letter-spacing: 0.5%;
+    color: #616161;
+    margin: 0 0 24px 0;
+}
+
+.expanded-text {
+    font-family: 'Manrope', sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: 0.5%;
+    color: rgba(97, 97, 97, 0.6);
+    line-height: 1.5;
+    margin: 0 0 32px 0;
+    max-width: 528px;
+}
+
+.expanded-hashtag {
+    font-family: 'Manrope', sans-serif;
+    font-size: 25px;
+    font-weight: 300;
+    letter-spacing: 0.5%;
+    color: #616161;
+    font-style: normal;
+}
+
+.expanded-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.expanded-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+/* Specific positioning for What I do image */
+.about-card[data-card="whatido"] .expanded-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 400px;
+}
+
+.about-card[data-card="whatido"] .expanded-image img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    max-height: 95%;
+    object-fit: contain;
+}
+
+/* Specific positioning for Who am I image */
+.about-card[data-card="whoami"] .expanded-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.about-card[data-card="whoami"] .expanded-image img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+/* Specific positioning for How I Work image */
+.about-card[data-card="howiwork"] .expanded-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.about-card[data-card="howiwork"] .expanded-image img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+/* Specific positioning for Why Me Fits image */
+.about-card[data-card="whymefits"] .expanded-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.about-card[data-card="whymefits"] .expanded-image img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+.card-collapse-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.1);
+    color: #1a1a1a;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+.about-card.is-expanded .card-collapse-btn {
+    opacity: 1;
+}
+
+.card-collapse-btn:hover {
+    background: rgba(0, 0, 0, 0.15);
+}
+
+/* =============================================
+   NAVIGATION GATE SECTION - Screen 03
+   ============================================= */
+.nav-gate {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 120px;
+    overflow: hidden;
+}
+
+/* Decorative Diagonal Lines - REMOVED */
+.nav-gate-line {
+    display: none;
+}
+
+/* Navigation Links - Shared Styles */
+.nav-gate-link {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.nav-gate-link:hover {
+    opacity: 0.7;
+}
+
+/* Navigation Icon */
+.nav-gate-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    color: #1a1a1a;
+    transition: transform 0.3s ease;
+}
+
+.nav-gate-icon svg {
+    width: 50px;
+    height: 50px;
+}
+
+/* Case Studies icon - rotate 180deg on hover */
+.nav-gate-case-studies:hover .nav-gate-icon {
+    transform: rotate(180deg);
+}
+
+/* Projects icon - rotate -90deg on hover */
+.nav-gate-projects:hover .nav-gate-icon {
+    transform: rotate(-90deg);
+}
+
+/* Navigation Headings */
+.nav-gate-heading {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(80px, 10vw, 140px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #1a1a1a;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* Case Studies - Top Left Position */
+.nav-gate-case-studies {
+    align-self: flex-start;
+    margin-bottom: 20px;
+}
+
+/* Divider with Line */
+.nav-gate-divider {
+    position: relative;
+    width: calc(100% + 240px);
+    margin-left: -120px;
+    margin-right: -120px;
+    padding: 0 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 100px;
+}
+
+.nav-gate-divider-line {
+    position: absolute;
+    left: 151px;
+    right: 151px;
+    top: 50%;
+    height: 0.5px;
+    background-color: #c0c0c0;
+}
+
+/* Supporting Text */
+.nav-gate-subtext {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(16px, 1.4vw, 22px);
+    font-weight: 400;
+    color: #666666;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+    max-width: 700px;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 0 40px;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+}
+
+/* Projects - Bottom Right Position */
+.nav-gate-projects {
+    align-self: flex-end;
+    margin-right: 48px;
+}
+
+/* Case Studies - Position adjustment */
+.nav-gate-case-studies {
+    margin-left: 48px;
+}
+
+/* =============================================
+   CASE STUDIES LIST VIEW - Screen 04
+   ============================================= */
+.case-studies-view {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    background-color: #ffffff;
+    padding: 20px 80px 40px;
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.case-studies-view.is-visible {
+    display: block;
+    opacity: 1;
+}
+
+/* Page Title */
+.cs-page-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(48px, 6vw, 72px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #1a1a1a;
+    text-align: center;
+    margin: 0 0 40px 0;
+    text-transform: uppercase;
+}
+
+/* Timeline Container */
+.cs-timeline {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Case Study Item */
+.cs-item {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+/* Visual Block - Folder Style */
+.cs-visual {
+    display: flex;
+    justify-content: center;
+}
+
+.cs-item-left .cs-visual {
+    justify-content: center;
+    padding-left: 55px;
+}
+
+.cs-item-right .cs-visual {
+    justify-content: center;
+    padding-right: 55px;
+}
+
+.cs-folder {
+    width: 280px;
+    height: 264px;
+    position: relative;
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.08));
+}
+
+.cs-folder-tab {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 17px;
+    background: linear-gradient(135deg, #e8e8e8 0%, #d4d4d4 100%);
+    border-radius: 8px 8px 0 0;
+}
+
+.cs-folder-body {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, #f5f5f5 0%, #e8e8e8 100%);
+    border-radius: 16px;
+    padding: 120px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.cs-folder-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #4a4a4a;
+    margin: 0 0 8px 0;
+}
+
+.cs-folder-subtitle {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #888888;
+    margin: 0;
+}
+
+/* Connector / Timeline */
+.cs-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.cs-number {
+    display: none;
+}
+
+.cs-line {
+    display: none;
+}
+
+/* Timeline Curve */
+.cs-timeline-curve {
+    display: none;
+}
+
+/* Content Block */
+.cs-content {
+    max-width: 400px;
+}
+
+.cs-item-left .cs-content {
+    text-align: left;
+}
+
+.cs-item-right .cs-content {
+    text-align: right;
+    margin-left: auto;
+}
+
+.cs-time {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #888888;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.cs-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(20px, 2vw, 28px);
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 16px 0;
+    line-height: 1.3;
+}
+
+.cs-description {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #666666;
+    line-height: 1.6;
+    margin: 0 0 16px 0;
+}
+
+.cs-role {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #888888;
+    display: block;
+    margin-bottom: 24px;
+}
+
+/* Action Buttons */
+.cs-actions {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 16px;
+}
+
+.cs-item-right .cs-actions {
+    justify-content: flex-end;
+}
+
+.cs-btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 24px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cs-btn-primary {
+    background-color: #4a4a4a;
+    color: #ffffff;
+    border: none;
+}
+
+.cs-btn-primary:hover {
+    background-color: #333333;
+}
+
+.cs-btn-secondary {
+    background-color: transparent;
+    color: #4a4a4a;
+    border: 1px solid #d0d0d0;
+}
+
+.cs-btn-secondary:hover {
+    background-color: #f5f5f5;
+    border-color: #aaaaaa;
+}
+
+/* Back Button */
+.cs-back-btn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    color: #1a1a1a;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.cs-back-btn:hover {
+    background-color: #f5f5f5;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* =============================================
+   TIMELINE CONNECTOR LAYER (Background Layer)
+   Bounded to .cs-timeline container, not viewport
+   ============================================= */
+.timeline-layer {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 321px;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.timeline-svg {
+    width: 100%;
+    height: 100%;
+    /* Let SVG scale naturally to fit container height */
+}
+
+/* Number Nodes */
+.timeline-node {
+    fill: transparent;
+    stroke: #c0c0c0;
+    stroke-width: 1;
+}
+
+.timeline-node-text {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    fill: #999999;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+/* Connecting Path */
+.timeline-path {
+    fill: none;
+    stroke: #c0c0c0;
+    stroke-width: 1;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: timeline-reveal 0.6s ease-out forwards;
+}
+
+@keyframes timeline-reveal {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* =============================================
+   PREVIEW SCREEN - SmartMeet
+   ============================================= */
+/* =============================================
+   PREVIEW SCREEN - SmartMeet
+   Fixed Viewport, No Scroll
+   ============================================= */
+.preview-screen {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #ffffff;
+    padding: 30px 120px 0;
+    opacity: 0;
+    transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-direction: column;
+}
+
+.preview-screen.is-visible {
+    display: flex;
+    opacity: 1;
+}
+
+/* Header */
+.preview-header {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #1a1a1a;
+    text-align: center;
+    margin: 0 0 24px 0;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+/* Project Identity */
+.preview-identity {
+    max-width: 800px;
+    margin: 0 auto 24px;
+    text-align: left;
+    flex-shrink: 0;
+}
+
+.preview-project-name {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 4px 0;
+}
+
+.preview-descriptor {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #666666;
+    margin: 0;
+}
+
+/* Content Sections */
+.preview-section {
+    max-width: 800px;
+    margin: 0 auto 20px;
+    flex-shrink: 0;
+}
+
+.preview-section-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #888888;
+    margin: 0 0 8px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.preview-section-content {
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #4a4a4a;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Bullet List */
+.preview-list {
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #4a4a4a;
+    line-height: 1.6;
+    margin: 0;
+    padding-left: 20px;
+}
+
+.preview-list li {
+    margin-bottom: 4px;
+}
+
+/* Mockup Preview */
+.preview-mockups {
+    margin: auto auto 0;
+    display: flex;
+    justify-content: center;
+    margin-bottom: -40px;
+    /* Tuck slightly */
+    flex-shrink: 1;
+    z-index: 1;
+}
+
+.preview-mockup-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: -40px;
+    position: relative;
+    transform: scale(0.9);
+    /* Slight scale down to fit */
+    transform-origin: bottom center;
+}
+
+.preview-mockup {
+    width: 140px;
+    /* Slightly smaller base size */
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.preview-mockup-left {
+    transform: translateX(20px) rotate(-5deg);
+    z-index: 1;
+}
+
+.preview-mockup-center {
+    z-index: 3;
+    transform: scale(1.1);
+}
+
+.preview-mockup-right {
+    transform: translateX(-20px) rotate(5deg);
+    z-index: 2;
+}
+
+/* Gradient Overlay & CTA */
+.preview-gradient-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 60%, rgba(255, 255, 255, 1) 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 40px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.preview-cta {
+    text-align: center;
+    pointer-events: auto;
+    /* Re-enable clicks */
+}
+
+.preview-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: none;
+    border-radius: 32px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.preview-cta-btn:hover {
+    background-color: #333333;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.preview-cta-subtext {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #888888;
+    margin: 12px 0 0 0;
+}
+
+/* Back Button */
+.preview-back-btn {
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    color: #1a1a1a;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    z-index: 30;
+    /* Ensure on top */
+}
+
+.preview-back-btn:hover {
+    background-color: #f5f5f5;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* =============================================
+   FULL CASE STUDY VIEW - SmartMeet
+   Block 01: Fixed Header & Intro
+   ============================================= */
+.cs-full-view {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 100;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.cs-full-view.is-visible {
+    display: block;
+    opacity: 1;
+}
+
+/* Fixed Header */
+/* Fixed Header */
+.cs-fixed-header {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+    min-width: 600px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    padding: 0;
+    z-index: 1000;
+}
+
+.cs-header-back-btn {
+    position: absolute;
+    left: -100px;
+    /* Position relative to centered header */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1a1a1a;
+    transition: all 0.2s;
+}
+
+.cs-header-back-btn:hover {
+    background-color: #f5f5f5;
+}
+
+.cs-header-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: #000000;
+    margin: 0 0 16px 0;
+    text-align: center;
+}
+
+.cs-progress-nav {
+    display: flex;
+    gap: 0;
+    background-color: #ffffff;
+    padding: 4px;
+    border-radius: 30px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.cs-progress-link {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    /* Smaller, cleaner */
+    font-weight: 500;
+    color: #666666;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.cs-progress-link.active {
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 20px;
+}
+
+/* Content Container */
+.cs-content-container {
+    padding-top: 220px;
+    /* Increased for taller stacked header space */
+    width: 100%;
+    max-width: 1200px;
+    /* Tighter width for editorial feel */
+    margin: 0 auto;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 200px;
+}
+
+/* Identity & Meta Block */
+.cs-intro-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 80px;
+    /* Reduced margin */
+    gap: 60px;
+    padding-top: 20px;
+}
+
+.cs-identity-left {
+    flex: 1;
+}
+
+.cs-project-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 50px;
+    font-weight: 600;
+    color: #000000;
+    margin: 0 0 12px 0;
+    /* Tighter spacing */
+}
+
+.cs-project-subtitle {
+    font-family: 'Manrope', sans-serif;
+    font-size: 28px;
+    /* Reduced from 35px */
+    font-weight: 600;
+    color: #000000;
+    margin: 0 0 12px 0;
+    /* Tighter spacing */
+}
+
+.cs-project-desc {
+    font-family: 'Manrope', sans-serif;
+    font-size: 24px;
+    /* Reduced from 30px */
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    max-width: 700px;
+}
+
+.cs-meta-right {
+    flex: 0 0 280px;
+    text-align: left;
+    padding-top: 8px;
+    /* Visual alignment with title baseline */
+}
+
+.cs-meta-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cs-meta-list li {
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+    /* Reduced size */
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 6px;
+    line-height: 1.4;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+.cs-meta-list li::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 4px;
+    background-color: #000000;
+    border-radius: 50%;
+    opacity: 0.4;
+}
+
+/* Text Sections */
+.cs-text-section {
+    margin-bottom: 60px;
+    /* Tighter spacing between sections */
+    max-width: 800px;
+    /* Reading width */
+}
+
+.cs-section-heading {
+    font-family: 'Manrope', sans-serif;
+    font-size: 24px;
+    /* Significantly smaller per reference */
+    font-weight: 500;
+    color: #000000;
+    margin: 0 0 16px 0;
+}
+
+.cs-body-text {
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+    /* Reduced for better reading density */
+    font-weight: 400;
+    color: #4a4a4a;
+    /* Slightly softer black */
+    line-height: 1.6;
+    /* Increased breathing room */
+    margin: 0;
+}
+
+/* =============================================
+   SPLIT BLOCKS - Why it Matters / Who it Impacts
+   ============================================= */
+.cs-split-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Vertically centered */
+    gap: 40px;
+    margin-bottom: 60px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.cs-split-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.cs-split-visual {
+    flex: 0 0 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cs-split-visual img {
+    width: 100%;
+    max-width: 300px;
+    /* Fixed size assumption */
+    height: auto;
+    border-radius: 24px;
+    /* Rounded corners */
+    object-fit: contain;
+}
+
+.cs-split-list {
+    list-style-type: disc;
+    padding-left: 24px;
+    margin: 0;
+}
+
+.cs-split-list li {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    /* Semibold */
+    font-size: 20px;
+    /* Same as body bullets */
+    color: rgba(0, 0, 0, 0.6);
+    /* 60% opacity */
+    line-height: 1.6;
+    /* Relaxed */
+    margin-bottom: 12px;
+}
+
+.cs-split-list li span {
+    font-weight: 400;
+    /* Regular */
+}
+
+.cs-split-list li::marker {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+/* =============================================
+   EXISTING APPROACHES - Data Viz
+   ============================================= */
+#cs-existing-approaches {
+    margin-bottom: 30px;
+    /* Reduced to 50% */
+}
+
+.cs-stats-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+    margin-top: 40px;
+}
+
+.cs-stats-left {
+    flex: 1.2;
+    /* ~60% */
+}
+
+.cs-stats-right {
+    flex: 0.8;
+    /* ~40% */
+    transform: translateX(232px);
+}
+
+.cs-stats-subheading {
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.8);
+    margin: 0 0 32px 0;
+}
+
+/* Horizontal Bars */
+.cs-bar-row {
+    margin-bottom: 24px;
+}
+
+.cs-bar-label {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.cs-bar-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cs-bar-track {
+    width: 100%;
+    height: 8px;
+    background-color: #E6E6E6;
+    border-radius: 4px;
+    overflow: hidden;
+    flex: 1;
+    /* Take available space */
+}
+
+.cs-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    width: 0%;
+    /* Start at 0 for animation */
+    transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cs-bar-value {
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    /* 12-14px range */
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+    min-width: 30px;
+    /* Prevent jitter */
+}
+
+/* Circular Chart */
+.cs-circle-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.cs-circle-chart {
+    position: relative;
+    width: 210px;
+    /* Increased by ~30% */
+    height: 210px;
+}
+
+.cs-circle-svg {
+    transform: rotate(-90deg);
+    width: 100%;
+    height: 100%;
+}
+
+.cs-circle-bg {
+    fill: none;
+    stroke: #E6E6E6;
+    stroke-width: 12;
+    /* Thicker stroke matching visual */
+}
+
+.cs-circle-progress {
+    fill: none;
+    stroke-width: 12;
+    stroke-linecap: round;
+    stroke-dasharray: 565;
+    /* 2 * PI * 90 */
+    stroke-dashoffset: 565;
+    /* Start full offset (empty) */
+    transition: stroke-dashoffset 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cs-circle-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    /* Ensure centering works for block text */
+}
+
+.cs-circle-percentage {
+    display: block;
+    font-family: 'Manrope', sans-serif;
+    font-size: 42px;
+    /* Increased from 32px */
+    font-weight: 600;
+    color: #000000;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.cs-circle-label {
+    display: block;
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    /* Explicit 12px */
+    font-weight: 400;
+    /* Regular */
+    color: rgba(0, 0, 0, 0.6);
+    /* Implicit 60% opacity based on gray color used before, or explicit? User said "color #0000..." for BARS. For circle, just "manrope, regular, size of 12px". I'll use soft black. */
+    white-space: normal;
+    /* Allow wrap if needed, though short */
+}
+
+/* Legend */
+.cs-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cs-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    color: #4a4a4a;
+}
+
+.cs-legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.cs-legend-val {
+    margin-left: auto;
+    /* Push to right */
+    font-weight: 600;
+    color: #000000;
+    padding-left: 12px;
+}
+
+/* =============================================
+   IDEATION & PROCESS
+   ============================================= */
+#cs-process {
+    margin-top: -170px;
+    /* Moved up 200px from 30px */
+}
+
+#cs-process .cs-section-heading {
+    padding-left: 213px;
+    /* 193px + 20px */
+}
+
+.cs-process-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 120px;
+    /* Increased by 100% from 60px */
+    margin-top: 0;
+    /* logic moved to container #cs-ideation */
+    width: 100%;
+    align-items: center;
+    /* Vertically align columns */
+    padding-left: 213px;
+    /* 223px - 10px */
+}
+
+.cs-process-subheading {
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.8);
+    margin: 0 0 24px 0;
+    letter-spacing: -0.01em;
+}
+
+.cs-process-list {
+    list-style-type: none;
+    /* Custom bullets */
+    padding: 0;
+    margin: 0;
+}
+
+.cs-process-list li {
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 1.7;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    position: relative;
+    white-space: nowrap;
+    /* Prevent wrapping */
+}
+
+.cs-process-list li::before {
+    content: '○';
+    /* Hollow circle bullet */
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(0, 0, 0, 0.6);
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .cs-process-cols {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+/* =============================================
+   DESIGN EXECUTION
+   ============================================= */
+#cs-design {
+    margin-top: 60px;
+    position: relative;
+    width: 100%;
+    margin-bottom: 28px;
+    /* Further reduced by 30% from 40px */
+    padding-left: 0;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#cs-design .cs-section-heading {
+    margin-left: 165px;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -1px;
+    color: #000000;
+    margin-bottom: 24px;
+}
+
+.cs-execution-subtext {
+    margin-left: 165px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 28px;
+    /* Further reduced by 30% from 40px */
+}
+
+#cs-validation {
+    padding-top: 18px;
+    /* Further reduced by 30% from 26px */
+    padding-left: 218px;
+    width: 100%;
+}
+
+.cs-usability-group {
+    padding-bottom: 30px;
+    /* Spacing between groups */
+}
+
+.cs-usability-heading {
+    font-family: 'Manrope', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -1px;
+    color: #000000;
+    padding-bottom: 20px;
+    margin: 0;
+    text-align: left;
+}
+
+.cs-usability-question {
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+    /* Changed from 0.6 to 100% opacity */
+    padding-bottom: 5px;
+    /* Reduced from 15 to make room for description */
+    margin: 0;
+    text-align: left;
+}
+
+.cs-usability-description {
+    padding-left: 30px;
+    /* Additional left padding */
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+    /* Description usually has lower emphasis */
+    margin: 0;
+    text-align: left;
+    padding-bottom: 5px;
+    /* Reduced to 5px as per request */
+}
+
+/* BLOCK 12: FINAL OUTCOME */
+.cs-outcome-section {
+    background-color: #FFFFFF;
+    width: 100%;
+    margin-top: 80px;
+    /* Standard section spacing */
+    padding-bottom: 120px;
+}
+
+.cs-outcome-container {
+    max-width: 960px;
+    margin-left: 198px;
+    /* 168px + 30px additional padding */
+    text-align: left;
+}
+
+.cs-outcome-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #000000;
+    letter-spacing: -1px;
+    padding-top: 60px;
+    margin: 0;
+}
+
+.cs-outcome-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+    /* 20px gap below title */
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    /* 14px gap between bullets */
+}
+
+.cs-outcome-bullets li {
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+    letter-spacing: -1px;
+    position: relative;
+    padding-left: 1.25em;
+}
+
+.cs-outcome-bullets li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.cs-cta-row {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cs-cta-text {
+    font-family: 'Manrope', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #000000;
+    letter-spacing: -1px;
+    margin: 0;
+}
+
+.cs-cta-button {
+    text-decoration: none;
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #FFFFFF;
+    background-color: #000000;
+    padding: 12px 20px;
+    border-radius: 999px;
+    display: inline-block;
+}
+
+.cs-cta-button:hover {
+    opacity: 0.8;
+}
+
+/* 3-Column Grid Layout */
+.cs-exec-grid {
+    display: grid;
+    grid-template-columns: minmax(300px, 420px) 120px 1fr;
+    gap: 0;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+    position: relative;
+}
+
+/* Column 1: Mockups */
+/* Column 1: Mockups (Now Horizontal Row) */
+.cs-exec-col-mockups {
+    grid-column: 1 / -1;
+    /* Span full width */
+    display: flex;
+    flex-direction: row;
+    /* Horizontal alignment */
+    justify-content: space-between;
+    /* Equal spacing */
+    align-items: center;
+    gap: 40px;
+    padding-top: 20px;
+}
+
+.cs-mockup-wrapper {
+    width: auto;
+    /* Allow shrink */
+    display: flex;
+    justify-content: center;
+    position: relative;
+    flex: 1;
+    /* Distribute space */
+}
+
+.cs-exec-mockup {
+    width: 100%;
+    max-width: 225px;
+    /* 300px * 0.75 = 225px */
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+    /* Initial state for animation */
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Row 2: Timeline (Horizontal) */
+.cs-exec-timeline-horizontal {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    /* Same gap as mockups */
+    position: relative;
+    padding-top: 40px;
+    margin-bottom: 60px;
+}
+
+.cs-timeline-wrapper {
+    flex: 1;
+    /* Match mockup wrappers */
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.cs-timeline-node-horz {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    border: 2px solid #E6E6E6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    z-index: 2;
+}
+
+.cs-timeline-track-horz {
+    position: absolute;
+    top: 59px;
+    /* Centered relative to node height (40px) + padding-top (40px). Center = 40+20=60. 2px height -> 59px. */
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #E6E6E6;
+    z-index: 0;
+}
+
+/* Row 3: Content (Horizontal) */
+.cs-exec-row-content {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    /* Same gap */
+    margin-bottom: 80px;
+}
+
+.cs-content-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    /* Center the block relative to the column */
+}
+
+/* Reuse existing .cs-step-block styles, but maybe adjust width if needed */
+.cs-step-block {
+    width: 100%;
+    max-width: 300px;
+    /* Limit width for readability, similar to mockups */
+    text-align: left;
+    /* Keep text left aligned inside the block */
+}
+
+.cs-exec-label {
+    font-family: 'Manrope', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    /* Semibold */
+    color: #000000;
+    letter-spacing: -1px;
+    margin: 0;
+    text-align: left;
+    /* Left align */
+}
+
+.cs-label-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Left align flex items */
+}
+
+.cs-exec-sublabel {
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    /* Semibold */
+    color: #000000;
+    opacity: 0.6;
+    margin: 0;
+    padding-top: 15px;
+    /* User request */
+    text-align: left;
+    /* Left align */
+}
+
+.cs-exec-step-bullets {
+    padding: 0;
+    margin: 15px 0 0 0;
+    list-style: none;
+    text-align: left;
+    /* Left align */
+}
+
+.cs-exec-step-bullets li {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    /* Reduced to 16px */
+    font-weight: 400;
+    /* Regular */
+    color: #000000;
+    opacity: 0.6;
+    /* Added 60% opacity */
+    margin-bottom: 8px;
+}
+
+/* Specific Node Positioning - Calculated to align with Mockup Centers
+   Mockup approx height is ~600-800px depending on scaling. 
+   Assuming consistent stack. 
+   We will use Flex/Grid gap logic or simple nth-child positioning if height is fluid.
+   Better approach: Use sticky positioning or just let JS align them? 
+   User said "Timeline nodes ... aligned horizontally with Center of interaction".
+   
+   SIMPLER PURE CSS APPROACH: 
+   The mockups define the flow. 
+   Actually, the Node should probably be IN the grid row if we did row-based grid. 
+   But user asked for Column-based Grid.
+   
+   We'll use CSS spacing to match the Mockup gap. 
+   If Mockup wrapper is flexible height, this is tricky specifically in CSS only without subgrid.
+   However, we can assume the images correspond to the steps.
+   
+   Let's use `calc` based on typical mockup aspect ratio?
+   Or better: Change layout to distinct ROWS?
+   User asked: "COLUMN 1 ..., COLUMN 2 ..., COLUMN 3 ...".
+   But visual alignment is row-based.
+   
+   Safe bet: Use simple top offsets percentages or calc if we know the size.
+   Images are variable.
+   
+   Alternative: Make .cs-exec-grid have 3 rows?
+   No, user specifically described "COLUMN 1 (Left - Mockups)... Vertically stack 3 mockups".
+   
+   I will use `top` percentages for nodes as a close approximation, or standard spacing if images are uniform height.
+   Images are cs1_sm1.png (709x1439). They are uniform.
+   
+   Let's assume the mockups render at a consistent height (e.g. 600px).
+   Gap is 64px.
+   Center of 1st = 300px.
+   Center of 2nd = 600 + 64 + 300 = 964px.
+   Center of 3rd = 600 + 64 + 600 + 64 + 300 = 1628px.
+   
+   Since images are responsive, pixel values fail.
+   
+   REVISED STRATEGY for Timeline Dots:
+   I will put the dots inside the HTML structure next to the mockups or use JS to align them perfectly if CSS fails.
+   But to respect "3 Column Grid" request strictly:
+   I'll set the Timeline Col to `display: flex; flex-direction: column; justify-content: space-between; padding: [half-mockup-height] 0`.
+*/
+.cs-exec-col-timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+}
+
+/* We need to match the mockups exactly. 
+   Since `.cs-exec-col-mockups` has `gap: 64px`.
+   We'll make the discrete nodes match that spacing.
+*/
+.cs-timeline-node {
+    position: relative;
+    /* Not absolute */
+    left: auto;
+    transform: none;
+    margin-bottom: 64px;
+
+    /* Matches mockup gap */
+    /* Add top spacing to align with first mockup center.
+       Mockup max-height is variable. 
+       Let's try to center strictly by making the nodes flex items with large vertical padding 
+       that matches the mockup height? No.
+       
+       Let's use a Grid for the ITEMS effectively, even if defined as columns.
+       Actually, `display: grid` on the container allows strictly aligned rows if we simply put items in order:
+       M1 T1 C1
+       M2 T2 C2
+       M3 T3 C3
+       
+       User said: "COLUMN 1... Stack 3 mockups. COLUMN 2... Timeline. COLUMN 3... Content".
+       This implies the HTML structure I wrote (Columns).
+       
+       If I stick to 3 separate container columns, alignment is hard responsive-wise.
+       I will use CSS Grid `display: contents` or just make the `.cs-exec-grid` 
+       actually be the container of the ITEMS directly, and style them to LOOK like columns 
+       but physically be 3x3 cells.
+       
+       BUT I already wrote the HTML with 3 wrapper divs.
+       
+       Correction: I will use `display: flex` on the timeline nodes with `height` matching the mockups?
+       Images are `width: 100%`. Height varies by width.
+       
+       Solution: 
+       I will set `.cs-timeline-node` to have `flex: 0 0 auto` and use `margin-top` calculated or large.
+       
+       Actually, the most robust way with the current HTML is to make `.cs-exec-col-timeline` 
+       Use `justify-content: space-around` or similar? No.
+       
+       I will add a helper class `.cs-node-spacer` or simply rely on the fact that if I give the nodes 
+       `height: calc(mockup-height + gap)` effectively, it works.
+       
+       Let's try a tricky Grid Hack on the PARENT CSS?
+       No, `subgrid` isn't fully supported everywhere properly.
+       
+       I will trust that consistent margins on both Mockup Col and Timeline Col 
+       will keep them aligned if images don't load unexpectedly.
+       
+       Mockups: mb-64px.
+       Nodes: mb-something?
+       
+       Let's align them via `margin-top` on the nodes to push them down to the center.
+       Mockup ~ 600px height. Center ~300px.
+       Node Top ~ 300px.
+       
+       Better yet: `cs-timeline-node` wrapper that matches the mockup height exactly?
+       
+       Let's stick to the simplest visual approximation first.
+       Mockups are `max-width: 300px`. Aspect ratio ~0.5. Height ~600px.
+       I will give `.cs-timeline-node` a `margin-top: calc(300px - 12px)` roughly? 
+       And `margin-bottom: calc(300px + 64px - 12px)`?
+       
+       Wait, this is fragile.
+       
+       I'll use a `display: grid` with `grid-template-rows` on the Mockup column 
+       and try to match it in Timeline column.
+       
+       Actually, the USER requested "Layout Structure: Use a 3-column grid layout".
+       I can interpret this as the *visual result*.
+       I can easily re-write the HTML to be a flat list of 9 items if that guarantees alignment.
+       But I just wrote the HTML as 3 columns.
+       
+       I will style `.cs-mockup-wrapper` to have a consistent aspect ratio height if possible?
+       Or, use `display: flex` in the timeline column and spacers.
+       
+       Let's try this:
+       .cs-exec-col-timeline { display: flex; flex-direction: column; }
+       .cs-timeline-node-wrapper { height: [matches mockup]; display: flex; align-items: center; justify-content: center; margin-bottom: 64px; }
+       
+       I need to update HTML to add wrappers or just style the nodes.
+       
+       Let's assume the user is okay with me adjusting the HTML slightly if needed, 
+       BUT I just finished the HTML tool.
+       
+       I will use `justify-content: space-between` on the timeline content, 
+       and ensure the Mockup column has a fixed height total? No.
+       
+       Let's try standardizing the mockup heights.
+       `cs-exec-mockup { height: 600px; object-fit: cover; }`
+*/
+    .cs-exec-col-timeline {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* To distribute nodes exactly like mockups */
+        gap: 64px;
+        /* Matches mockup gap */
+        padding-top: 0;
+    }
+
+    /* We need to position the dots at the CENTER of the mockups.
+   If mockup is flow content, we need to push the dot down.
+*/
+    .cs-timeline-node {
+        /* Use margin to separate them */
+        /* If we assume mockup is ~600px tall, center is 300px. */
+        /* So first node needs top margin of ~300px? */
+        /* Let's use a spacer div methodology or relative top. */
+
+        position: relative;
+        top: 300px;
+        /* Approximately center of 600px mockup */
+        /* This implies Mockups are rendered at ~600px height. */
+    }
+
+    /* Column 3: Content */
+    .cs-exec-col-content {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        /* Matches user request */
+        padding-top: 250px;
+        /* Align text block center with mockup center approximately */
+    }
+
+    .cs-step-block {
+        min-height: 600px;
+        /* Match mockup height for rhythm */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .cs-exec-title {
+        font-family: 'Manrope', sans-serif;
+        font-size: 35px;
+        font-weight: 600;
+        /* Semibold */
+        color: #1a1a1a;
+        letter-spacing: -1px;
+        margin-bottom: 35px;
+        line-height: 1.2;
+    }
+
+    .cs-exec-subtitle {
+        font-family: 'Manrope', sans-serif;
+        font-size: 30px;
+        font-weight: 600;
+        /* Semibold */
+        color: rgba(0, 0, 0, 0.6);
+        /* 60% opacity roughly on black base, or stick to rgba */
+        letter-spacing: -1px;
+        margin-bottom: 35px;
+    }
+
+    .cs-exec-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .cs-exec-list li {
+        font-family: 'Manrope', sans-serif;
+        font-size: 30px;
+        font-weight: 400;
+        /* Regular */
+        color: rgba(0, 0, 0, 0.6);
+        /* 60% opacity */
+        letter-spacing: -1px;
+        line-height: 1.5;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        position: relative;
+    }
+
+    .cs-exec-list li::before {
+        content: '○';
+        font-size: 30px;
+        /* Match text size */
+        line-height: 1.5;
+        color: rgba(0, 0, 0, 0.6);
+        flex-shrink: 0;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        border-radius: 0;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 1024px) {
+        .cs-exec-grid {
+            grid-template-columns: 1fr;
+            gap: 60px;
+        }
+
+        .cs-exec-col-timeline {
+            display: none;
+            /* Hide timeline on tablet/mobile */
+        }
+
+        .cs-exec-col-mockups {
+            display: none;
+            /* Hide separate mockups col, maybe interleave them? */
+            /* User's request was desktop centric. 
+           Mobile usually stacks. 
+           I will hide the complex 3-col and show a simplified stack if needed, 
+           or just let them stack naturally.
+           
+           With current HTML (3 separate cols), stacking them means:
+           All Mockups -> All Timeline -> All Text. 
+           This is bad for mobile reading order.
+           
+           However, I am instructed to "Use a 3-column grid layout".
+           For mobile, I will display: none the timeline 
+           and maybe just let mockups and text stack?
+           
+           Actually, the proper way would be to change HTML to be Item-based grid.
+           But I am stuck with the HTML I just wrote (Col-based).
+           
+           I will simple stack the columns: Mockups first (visuals), then Text.
+        */
+        }
+
+        .cs-exec-col-mockups {
+            display: flex;
+        }
+
+        .cs-exec-col-content {
+            padding-top: 0;
+        }
+
+        .cs-step-block {
+            min-height: auto;
+            margin-bottom: 40px;
+        }
+    }
+}
+
+/* =============================================
+   MY PROJECTS SCREEN (D-04)
+   ============================================= */
+.projects-view {
+    background-color: #FFFFFF;
+    min-height: 100vh;
+    width: 100%;
+    padding: 40px 20px 120px 20px;
+    z-index: 900;
+    position: relative;
+}
+
+.projects-header {
+    max-width: 960px;
+    margin: 0 auto 80px auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.projects-back-btn {
+    position: absolute;
+    left: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+
+.projects-back-btn:hover {
+    opacity: 0.6;
+}
+
+.projects-page-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #000000;
+    letter-spacing: -1px;
+    margin: 0;
+}
+
+.projects-list-container {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 24px 0;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    /* Animation base state */
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.project-item.is-animated {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.project-item:hover {
+    opacity: 0.6;
+}
+
+.project-badge {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #000000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000000;
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+.project-info {
+    flex: 1;
+}
+
+.project-item-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #000000;
+    letter-spacing: -1px;
+    margin: 0 0 8px 0;
+}
+
+.project-item-desc {
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 1.4;
+    margin: 0;
+}
+
+.project-divider {
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-top: 24px;
+    width: 100%;
+}
+
+/* =============================================
+   PROJECT DETAIL VIEW (D-04.1)
+   ============================================= */
+.project-detail-view {
+    background-color: #FFFFFF;
+    min-height: 100vh;
+    width: 100%;
+    padding-bottom: 0;
+    z-index: 950;
+    position: relative;
+}
+
+.project-detail-header {
+    max-width: 960px;
+    margin: 0 auto;
+    padding-top: 32px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-detail-back-btn {
+    position: absolute;
+    left: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+
+.project-detail-back-btn:hover {
+    opacity: 0.6;
+}
+
+.project-detail-page-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #000000;
+    letter-spacing: -1px;
+    margin: 0;
+    text-align: center;
+}
+
+.project-intro {
+    text-align: center;
+    margin-top: 48px;
+    padding: 0 20px;
+}
+
+.project-detail-name {
+    font-family: 'Manrope', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: #000000;
+    letter-spacing: -1px;
+    margin: 0;
+}
+
+.project-detail-desc {
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 12px 0 0 0;
+}
+
+.core-flow-section {
+    text-align: center;
+    margin-top: 64px;
+    padding: 0 20px;
+}
+
+.detail-section-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #000000;
+    letter-spacing: -1px;
+    margin: 0;
+}
+
+.detail-section-subtext {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 8px 0 0 0;
+}
+
+.detail-cta-btn {
+    background-color: #000000;
+    color: #FFFFFF;
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 14px 22px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.detail-cta-btn:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+.ui-screens-section {
+    text-align: center;
+    margin-top: 96px;
+}
+
+.ui-screens-list {
+    max-width: 1080px;
+    margin: 64px auto 0 auto;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+    /* Large vertical spacing */
+}
+
+.ui-screen-block {
+    display: flex;
+    align-items: flex-start;
+    /* Align to the top of the content column */
+    justify-content: center;
+    gap: 30px;
+    /* Horizontal gap between image and text */
+    width: 100%;
+    /* Animation base state */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ui-screen-block.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.zigzag-right {
+    flex-direction: row;
+}
+
+.zigzag-left {
+    flex-direction: row;
+}
+
+.ui-screen-image {
+    flex: 1;
+    max-width: 45%;
+    display: flex;
+    justify-content: center;
+}
+
+.ui-screen-image img {
+    width: 100%;
+    max-width: 224px;
+    /* Reduced original 320px by 30% */
+    height: auto;
+    /* Maintain aspect ratio */
+    border-radius: 24px;
+    box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.1);
+    /* Precisely as specified x:0, y:-2, blur:15 */
+}
+
+.ui-screen-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    background-color: #ffffff;
+    /* Added white fill color */
+    padding: 20px;
+    /* Added some padding for the background */
+    border-radius: 12px;
+}
+
+/* Decorative circle node below the screen block */
+.ui-screen-node {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 0.5px solid rgba(161, 161, 161, 0.6);
+    /* 0.5px grey stroke with 60% opacity */
+    margin: 40px auto 0 auto;
+    /* Centered under the block and lines */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.zigzag-right .ui-screen-content {
+    align-items: flex-start;
+}
+
+.ui-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ui-bullets li {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    /* Medium */
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 1.6;
+    letter-spacing: normal;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.check-icon {
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+.insight-section {
+    text-align: center;
+    margin-top: 120px;
+}
+
+.insight-text {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 12px 0 120px 0;
+}
+
+@media (max-width: 768px) {
+    .ui-screen-block {
+        flex-direction: column !important;
+        gap: 40px;
+    }
+
+    .ui-screen-image {
+        max-width: 80%;
+    }
+
+    .ui-screen-content {
+        align-items: center !important;
+        text-align: center;
+    }
+
+    .ui-bullets li {
+        justify-content: center;
+    }
+}
