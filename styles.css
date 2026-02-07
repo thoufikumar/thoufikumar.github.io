@@ -168,7 +168,12 @@ body {
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(200, 200, 200, 0.35);
     border-radius: 18px;
-    padding: 18px 56px;
+    padding: 12px 24px;
+    /* Adjusted padding for layout */
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    /* Space between icon and text */
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1), inset 4px 4px 10px rgba(255, 255, 255, 0.5);
     /* Animation - delayed after avatar */
     animation: pillFadeIn 350ms ease-out 400ms forwards;
@@ -180,6 +185,22 @@ body {
     font-weight: 500;
     color: #3a3a3a;
     letter-spacing: -0.01em;
+}
+
+.role-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #2c2c2c;
+    /* Dark background for icon container */
+    border-radius: 10px;
+    /* 10px corner radius */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    /* Removed padding for full image fit */
+    overflow: hidden;
+    /* Ensure image respects border radius */
 }
 
 /* Role Pill Animation */
@@ -635,6 +656,11 @@ body {
 }
 
 /* Timeline Container */
+/* Case Studies View Container */
+.case-studies-view {
+    padding-top: 140px;
+}
+
 .cs-timeline {
     max-width: 1200px;
     margin: 0 auto;
@@ -923,7 +949,7 @@ body {
     height: 100vh;
     overflow: hidden;
     background-color: #ffffff;
-    padding: 30px 120px 0;
+    padding: 140px 120px 0;
     opacity: 0;
     transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     flex-direction: column;
@@ -934,23 +960,46 @@ body {
     opacity: 1;
 }
 
-/* Header */
+/* Header Bar */
+.preview-header-bar {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 0 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    z-index: 20;
+}
+
 .preview-header {
     font-family: 'Manrope', sans-serif;
-    font-size: clamp(24px, 3vw, 32px);
+    font-size: clamp(21.6px, 2.7vw, 28.8px);
+    /* Reduced 10% from 24px-32px */
     font-weight: 700;
     letter-spacing: -0.02em;
     color: #1a1a1a;
-    text-align: center;
-    margin: 0 0 24px 0;
     text-transform: uppercase;
-    flex-shrink: 0;
+    margin: 0;
+    flex: 1;
+    text-align: center;
+}
+
+.preview-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    transform: translateY(-10px);
+    /* Move 10px upward */
 }
 
 /* Project Identity */
 .preview-identity {
-    max-width: 800px;
-    margin: 0 auto 24px;
+    max-width: 1300px;
+    margin: 0 0 24px 0;
+    padding-left: 50px;
+    /* Additional Padding */
     text-align: left;
     flex-shrink: 0;
 }
@@ -973,8 +1022,10 @@ body {
 
 /* Content Sections */
 .preview-section {
-    max-width: 800px;
-    margin: 0 auto 20px;
+    max-width: 1300px;
+    margin: 0 0 20px 0;
+    padding-left: 50px;
+    /* Additional Padding */
     flex-shrink: 0;
 }
 
@@ -1111,30 +1162,25 @@ body {
     margin: 12px 0 0 0;
 }
 
-/* Back Button */
-.preview-back-btn {
-    position: fixed;
-    bottom: 40px;
-    left: 40px;
-    width: 56px;
-    height: 56px;
+/* Standard Circular Back Button (Preview) */
+.preview-header-back-btn {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    color: #1a1a1a;
+    border: 1.5px solid #000000;
+    background: transparent;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: all 0.2s ease;
-    z-index: 30;
-    /* Ensure on top */
+    color: #1a1a1a;
+    transition: all 0.2s;
+    position: absolute;
+    left: 200px;
 }
 
-.preview-back-btn:hover {
+.preview-header-back-btn:hover {
     background-color: #f5f5f5;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 /* =============================================
@@ -1163,45 +1209,49 @@ body {
 }
 
 /* Fixed Header */
-/* Fixed Header */
 .cs-fixed-header {
     position: fixed;
-    top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: fit-content;
-    min-width: 600px;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    padding: 0;
+    /* Allow preview-header-bar padding to define height */
+    background-color: #ffffff;
     z-index: 1000;
+    border-bottom: 1px solid #f0f0f0;
+    transform: none;
+    padding: 20px 40px !important;
+    /* Allow full width */
+    max-width: none !important;
+}
+
+/* Specific Fix for Full Case Study View (Prevents wrapping) */
+.cs-fixed-header .preview-header {
+    white-space: nowrap;
+    /* Prevent title from breaking into multiple lines */
+    padding-left: 0;
+    /* Reset extra padding since container is full width */
+    text-align: center;
+}
+
+/* Match list view centering by keeping flex: 1 on header */
+.cs-fixed-header .preview-header {
+    flex: 1;
+    text-align: center;
+    padding-left: 25px;
+    /* Adjusted to 25px (20px + 5px) as requested */
+}
+
+/* Nav on right, balanced by back button on left */
+.cs-fixed-header .cs-progress-nav {
+    margin-right: 40px;
+    z-index: 21;
 }
 
 .cs-header-back-btn {
-    position: absolute;
-    left: -100px;
-    /* Position relative to centered header */
-    top: 50%;
-    transform: translateY(-50%);
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: 1px solid #000000;
-    background: transparent;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #1a1a1a;
-    transition: all 0.2s;
-}
-
-.cs-header-back-btn:hover {
-    background-color: #f5f5f5;
+    margin-left: 25px;
+    /* Reduced by 15px from 40px */
+    z-index: 21;
 }
 
 .cs-header-title {
@@ -1243,8 +1293,8 @@ body {
 
 /* Content Container */
 .cs-content-container {
-    padding-top: 220px;
-    /* Increased for taller stacked header space */
+    padding-top: 130px;
+    /* Reduced by additional 30% from 180px */
     width: 100%;
     max-width: 1200px;
     /* Tighter width for editorial feel */
@@ -1290,12 +1340,14 @@ body {
 
 .cs-project-desc {
     font-family: 'Manrope', sans-serif;
-    font-size: 24px;
-    /* Reduced from 30px */
-    font-weight: 600;
+    font-size: 16px;
+    /* Standardized to matching usability testing */
+    font-weight: 400;
+    /* Standardized */
     color: rgba(0, 0, 0, 0.6);
     margin: 0;
     max-width: 700px;
+    line-height: 1.6;
 }
 
 .cs-meta-right {
@@ -1346,21 +1398,21 @@ body {
 .cs-section-heading {
     font-family: 'Manrope', sans-serif;
     font-size: 24px;
-    /* Significantly smaller per reference */
-    font-weight: 500;
+    font-weight: 600;
+    /* Standardized to 600 weight */
     color: #000000;
     margin: 0 0 16px 0;
+    letter-spacing: -1px;
 }
 
 .cs-body-text {
     font-family: 'Manrope', sans-serif;
-    font-size: 20px;
-    /* Reduced for better reading density */
+    font-size: 16px;
+    /* Standardized to matching usability testing */
     font-weight: 400;
-    color: #4a4a4a;
-    /* Slightly softer black */
+    color: rgba(0, 0, 0, 0.6);
+    /* Standardized softness */
     line-height: 1.6;
-    /* Increased breathing room */
     margin: 0;
 }
 
@@ -1410,8 +1462,8 @@ body {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
     /* Semibold */
-    font-size: 20px;
-    /* Same as body bullets */
+    font-size: 17px;
+    /* Reduced by 15% from 20px */
     color: rgba(0, 0, 0, 0.6);
     /* 60% opacity */
     line-height: 1.6;
@@ -1658,7 +1710,8 @@ body {
 
 .cs-process-list li {
     font-family: 'Manrope', sans-serif;
-    font-size: 20px;
+    font-size: 17px;
+    /* Reduced by 15% from 20px */
     font-weight: 400;
     color: rgba(0, 0, 0, 0.6);
     line-height: 1.7;
@@ -1722,8 +1775,18 @@ body {
 }
 
 #cs-validation {
+    margin-top: -60px;
+    /* Adjusted from -75px to move 15px downward */
     padding-top: 18px;
     /* Further reduced by 30% from 26px */
+    padding-left: 218px;
+    width: 100%;
+}
+
+#uber-validation {
+    margin-top: -60px;
+    /* Adjusted from -75px to move 15px downward */
+    padding-top: 18px;
     padding-left: 218px;
     width: 100%;
 }
@@ -1736,7 +1799,8 @@ body {
 .cs-usability-heading {
     font-family: 'Manrope', sans-serif;
     font-size: 24px;
-    font-weight: 500;
+    font-weight: 600;
+    /* Standardized to 600 */
     letter-spacing: -1px;
     color: #000000;
     padding-bottom: 20px;
@@ -1774,9 +1838,10 @@ body {
 .cs-outcome-section {
     background-color: #FFFFFF;
     width: 100%;
-    margin-top: 80px;
-    /* Standard section spacing */
-    padding-bottom: 120px;
+    margin-top: -55px;
+    /* Adjusted from 5px to move 20px upward */
+    padding-bottom: 70px;
+    /* Standardized to 70px */
 }
 
 .cs-outcome-container {
@@ -1809,10 +1874,12 @@ body {
 
 .cs-outcome-bullets li {
     font-family: 'Manrope', sans-serif;
-    font-size: 20px;
+    font-size: 16.8px;
+    /* Increased by 5% from 16px */
     font-weight: 400;
     color: rgba(0, 0, 0, 0.6);
-    letter-spacing: -1px;
+    letter-spacing: -0.9px;
+    /* Increased by 0.5% from -1px */
     position: relative;
     padding-left: 1.25em;
 }
@@ -1914,9 +1981,11 @@ body {
     justify-content: space-between;
     align-items: flex-start;
     gap: 40px;
-    /* Same gap as mockups */
+    /* Same gap    width: 100%; */
     position: relative;
-    padding-top: 40px;
+    overflow: hidden;
+    /* Lock scroll explicitly */
+    padding-top: 110px;
     margin-bottom: 60px;
 }
 
@@ -2062,7 +2131,7 @@ body {
    Images are variable.
    
    Alternative: Make .cs-exec-grid have 3 rows?
-   No, user specifically described "COLUMN 1 (Left - Mockups)... Vertically stack 3 mockups".
+   No, user specifically described "COLUMN 1... Stack 3 mockups. COLUMN 2... Timeline. COLUMN 3... Content".
    
    I will use `top` percentages for nodes as a close approximation, or standard spacing if images are uniform height.
    Images are cs1_sm1.png (709x1439). They are uniform.
@@ -2084,217 +2153,117 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* To distribute nodes exactly like mockups */
+    gap: 64px;
+    /* Matches mockup gap */
     padding-top: 0;
 }
 
-/* We need to match the mockups exactly. 
-   Since `.cs-exec-col-mockups` has `gap: 64px`.
-   We'll make the discrete nodes match that spacing.
-*/
-.cs-timeline-node {
-    position: relative;
-    /* Not absolute */
-    left: auto;
-    transform: none;
-    margin-bottom: 64px;
-
-    /* Matches mockup gap */
-    /* Add top spacing to align with first mockup center.
-       Mockup max-height is variable. 
-       Let's try to center strictly by making the nodes flex items with large vertical padding 
-       that matches the mockup height? No.
-       
-       Let's use a Grid for the ITEMS effectively, even if defined as columns.
-       Actually, `display: grid` on the container allows strictly aligned rows if we simply put items in order:
-       M1 T1 C1
-       M2 T2 C2
-       M3 T3 C3
-       
-       User said: "COLUMN 1... Stack 3 mockups. COLUMN 2... Timeline. COLUMN 3... Content".
-       This implies the HTML structure I wrote (Columns).
-       
-       If I stick to 3 separate container columns, alignment is hard responsive-wise.
-       I will use CSS Grid `display: contents` or just make the `.cs-exec-grid` 
-       actually be the container of the ITEMS directly, and style them to LOOK like columns 
-       but physically be 3x3 cells.
-       
-       BUT I already wrote the HTML with 3 wrapper divs.
-       
-       Correction: I will use `display: flex` on the timeline nodes with `height` matching the mockups?
-       Images are `width: 100%`. Height varies by width.
-       
-       Solution: 
-       I will set `.cs-timeline-node` to have `flex: 0 0 auto` and use `margin-top` calculated or large.
-       
-       Actually, the most robust way with the current HTML is to make `.cs-exec-col-timeline` 
-       Use `justify-content: space-around` or similar? No.
-       
-       I will add a helper class `.cs-node-spacer` or simply rely on the fact that if I give the nodes 
-       `height: calc(mockup-height + gap)` effectively, it works.
-       
-       Let's try a tricky Grid Hack on the PARENT CSS?
-       No, `subgrid` isn't fully supported everywhere properly.
-       
-       I will trust that consistent margins on both Mockup Col and Timeline Col 
-       will keep them aligned if images don't load unexpectedly.
-       
-       Mockups: mb-64px.
-       Nodes: mb-something?
-       
-       Let's align them via `margin-top` on the nodes to push them down to the center.
-       Mockup ~ 600px height. Center ~300px.
-       Node Top ~ 300px.
-       
-       Better yet: `cs-timeline-node` wrapper that matches the mockup height exactly?
-       
-       Let's stick to the simplest visual approximation first.
-       Mockups are `max-width: 300px`. Aspect ratio ~0.5. Height ~600px.
-       I will give `.cs-timeline-node` a `margin-top: calc(300px - 12px)` roughly? 
-       And `margin-bottom: calc(300px + 64px - 12px)`?
-       
-       Wait, this is fragile.
-       
-       I'll use a `display: grid` with `grid-template-rows` on the Mockup column 
-       and try to match it in Timeline column.
-       
-       Actually, the USER requested "Layout Structure: Use a 3-column grid layout".
-       I can interpret this as the *visual result*.
-       I can easily re-write the HTML to be a flat list of 9 items if that guarantees alignment.
-       But I just wrote the HTML as 3 columns.
-       
-       I will style `.cs-mockup-wrapper` to have a consistent aspect ratio height if possible?
-       Or, use `display: flex` in the timeline column and spacers.
-       
-       Let's try this:
-       .cs-exec-col-timeline { display: flex; flex-direction: column; }
-       .cs-timeline-node-wrapper { height: [matches mockup]; display: flex; align-items: center; justify-content: center; margin-bottom: 64px; }
-       
-       I need to update HTML to add wrappers or just style the nodes.
-       
-       Let's assume the user is okay with me adjusting the HTML slightly if needed, 
-       BUT I just finished the HTML tool.
-       
-       I will use `justify-content: space-between` on the timeline content, 
-       and ensure the Mockup column has a fixed height total? No.
-       
-       Let's try standardizing the mockup heights.
-       `cs-exec-mockup { height: 600px; object-fit: cover; }`
-*/
-    .cs-exec-col-timeline {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        /* To distribute nodes exactly like mockups */
-        gap: 64px;
-        /* Matches mockup gap */
-        padding-top: 0;
-    }
-
-    /* We need to position the dots at the CENTER of the mockups.
+/* We need to position the dots at the CENTER of the mockups.
    If mockup is flow content, we need to push the dot down.
 */
-    .cs-timeline-node {
-        /* Use margin to separate them */
-        /* If we assume mockup is ~600px tall, center is 300px. */
-        /* So first node needs top margin of ~300px? */
-        /* Let's use a spacer div methodology or relative top. */
+.cs-timeline-node {
+    /* Use margin to separate them */
+    /* If we assume mockup is ~600px tall, center is 300px. */
+    /* So first node needs top margin of ~300px? */
+    /* Let's use a spacer div methodology or relative top. */
 
-        position: relative;
-        top: 300px;
-        /* Approximately center of 600px mockup */
-        /* This implies Mockups are rendered at ~600px height. */
+    position: relative;
+    top: 300px;
+    /* Approximately center of 600px mockup */
+    /* This implies Mockups are rendered at ~600px height. */
+}
+
+/* Column 3: Content */
+.cs-exec-col-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    /* Matches user request */
+    padding-top: 250px;
+    /* Align text block center with mockup center approximately */
+}
+
+.cs-step-block {
+    min-height: 600px;
+    /* Match mockup height for rhythm */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cs-exec-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 35px;
+    font-weight: 600;
+    /* Semibold */
+    color: #1a1a1a;
+    letter-spacing: -1px;
+    margin-bottom: 35px;
+    line-height: 1.2;
+}
+
+.cs-exec-subtitle {
+    font-family: 'Manrope', sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    /* Semibold */
+    color: rgba(0, 0, 0, 0.6);
+    /* 60% opacity roughly on black base, or stick to rgba */
+    letter-spacing: -1px;
+    margin-bottom: 35px;
+}
+
+.cs-exec-list {
+    list-style: none;
+    padding: 0;
+}
+
+.cs-exec-list li {
+    font-family: 'Manrope', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    /* Regular */
+    color: rgba(0, 0, 0, 0.6);
+    /* 60% opacity */
+    letter-spacing: -1px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    position: relative;
+}
+
+.cs-exec-list li::before {
+    content: '○';
+    font-size: 30px;
+    /* Match text size */
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.6);
+    flex-shrink: 0;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    border-radius: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    .cs-exec-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
     }
 
-    /* Column 3: Content */
-    .cs-exec-col-content {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-        /* Matches user request */
-        padding-top: 250px;
-        /* Align text block center with mockup center approximately */
+    .cs-exec-col-timeline {
+        display: none;
+        /* Hide timeline on tablet/mobile */
     }
 
-    .cs-step-block {
-        min-height: 600px;
-        /* Match mockup height for rhythm */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .cs-exec-title {
-        font-family: 'Manrope', sans-serif;
-        font-size: 35px;
-        font-weight: 600;
-        /* Semibold */
-        color: #1a1a1a;
-        letter-spacing: -1px;
-        margin-bottom: 35px;
-        line-height: 1.2;
-    }
-
-    .cs-exec-subtitle {
-        font-family: 'Manrope', sans-serif;
-        font-size: 30px;
-        font-weight: 600;
-        /* Semibold */
-        color: rgba(0, 0, 0, 0.6);
-        /* 60% opacity roughly on black base, or stick to rgba */
-        letter-spacing: -1px;
-        margin-bottom: 35px;
-    }
-
-    .cs-exec-list {
-        list-style: none;
-        padding: 0;
-    }
-
-    .cs-exec-list li {
-        font-family: 'Manrope', sans-serif;
-        font-size: 30px;
-        font-weight: 400;
-        /* Regular */
-        color: rgba(0, 0, 0, 0.6);
-        /* 60% opacity */
-        letter-spacing: -1px;
-        line-height: 1.5;
-        margin-bottom: 12px;
-        display: flex;
-        align-items: flex-start;
-        gap: 16px;
-        position: relative;
-    }
-
-    .cs-exec-list li::before {
-        content: '○';
-        font-size: 30px;
-        /* Match text size */
-        line-height: 1.5;
-        color: rgba(0, 0, 0, 0.6);
-        flex-shrink: 0;
-        width: auto;
-        height: auto;
-        background-color: transparent;
-        border-radius: 0;
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 1024px) {
-        .cs-exec-grid {
-            grid-template-columns: 1fr;
-            gap: 60px;
-        }
-
-        .cs-exec-col-timeline {
-            display: none;
-            /* Hide timeline on tablet/mobile */
-        }
-
-        .cs-exec-col-mockups {
-            display: none;
-            /* Hide separate mockups col, maybe interleave them? */
-            /* User's request was desktop centric. 
+    .cs-exec-col-mockups {
+        display: none;
+        /* Hide separate mockups col, maybe interleave them? */
+        /* User's request was desktop centric. 
            Mobile usually stacks. 
            I will hide the complex 3-col and show a simplified stack if needed, 
            or just let them stack naturally.
@@ -2312,20 +2281,19 @@ body {
            
            I will simple stack the columns: Mockups first (visuals), then Text.
         */
-        }
+    }
 
-        .cs-exec-col-mockups {
-            display: flex;
-        }
+    .cs-exec-col-mockups {
+        display: flex;
+    }
 
-        .cs-exec-col-content {
-            padding-top: 0;
-        }
+    .cs-exec-col-content {
+        padding-top: 0;
+    }
 
-        .cs-step-block {
-            min-height: auto;
-            margin-bottom: 40px;
-        }
+    .cs-step-block {
+        min-height: auto;
+        margin-bottom: 40px;
     }
 }
 
@@ -2334,11 +2302,12 @@ body {
    ============================================= */
 .projects-view {
     background-color: #FFFFFF;
-    min-height: 100vh;
+    height: 100vh;
     width: 100%;
     padding: 40px 20px 120px 20px;
     z-index: 900;
     position: relative;
+    overflow: hidden;
 }
 
 .projects-header {
@@ -2460,33 +2429,92 @@ body {
     padding-bottom: 0;
     z-index: 950;
     position: relative;
+    font-family: 'Manrope', sans-serif;
+    /* Forced for all content */
+}
+
+.project-detail-view *,
+.project-detail-view h1,
+.project-detail-view h2,
+.project-detail-view h3,
+.project-detail-view p,
+.project-detail-view span,
+.project-detail-view li {
+    font-family: 'Manrope', sans-serif !important;
 }
 
 .project-detail-header {
-    max-width: 960px;
-    margin: 0 auto;
-    padding-top: 32px;
+    width: 100%;
+    padding: 32px 0 0 200px;
+    /* Left align with 200px padding */
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    /* Aligned left */
     align-items: center;
+    gap: 0;
 }
 
-.project-detail-back-btn {
+.project-detail-back-btn,
+.back-btn {
     position: absolute;
     left: 0;
-    background: none;
-    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1.5px solid #000000;
+    background: transparent;
     cursor: pointer;
-    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: opacity 0.3s ease;
+    padding: 0;
 }
 
-.project-detail-back-btn:hover {
+.project-detail-back-btn:hover,
+.back-btn:hover {
     opacity: 0.6;
+}
+
+/* Standardized Header Bar for Projects */
+.preview-header-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    /* Fixed positioning */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    /* White fill for efficiency */
+    z-index: 1000;
+    padding: 20px 200px;
+    /* Standard padding with 200px sides */
+}
+
+/* Generic Header Padding (Preview Screens & Case Studies) */
+.preview-header-bar .preview-header {
+    padding-left: 300px;
+    /* Default 300px */
+}
+
+/* Specific Override for Project Full View (+50px) */
+.project-detail-view .preview-header {
+    padding-left: 350px;
+    /* 300px + 50px = 350px */
+}
+
+/* Specific Fix for Full Case Study View (Prevents wrapping) */
+.cs-fixed-header .preview-header {
+    white-space: nowrap;
+    /* Prevent title from breaking into multiple lines */
+}
+
+/* Add padding to container to prevent content hiding behind fixed header */
+.project-detail-view {
+    padding-top: 140px;
 }
 
 .project-detail-page-title {
@@ -2501,7 +2529,8 @@ body {
 
 .project-intro {
     text-align: center;
-    margin-top: 48px;
+    margin-top: 30px;
+    /* Reduced by 50px from 80px */
     padding: 0 20px;
 }
 
@@ -2520,11 +2549,14 @@ body {
     font-weight: 400;
     color: rgba(0, 0, 0, 0.6);
     margin: 12px 0 0 0;
+    padding: 0 200px;
+    /* Added 200px padding */
 }
 
 .core-flow-section {
     text-align: center;
-    margin-top: 64px;
+    margin-top: 80px;
+    /* Standardized spacing */
     padding: 0 20px;
 }
 
@@ -2566,7 +2598,8 @@ body {
 
 .ui-screens-section {
     text-align: center;
-    margin-top: 96px;
+    margin-top: 80px;
+    /* Standardized spacing */
 }
 
 .ui-screens-list {
@@ -2685,7 +2718,10 @@ body {
 
 .insight-section {
     text-align: center;
-    margin-top: 120px;
+    margin-top: -40px;
+    /* Moved up 40px (0px -> -40px) */
+    padding: 0 200px;
+    /* Added 200px left/right padding */
 }
 
 .insight-text {
@@ -2693,7 +2729,199 @@ body {
     font-size: 16px;
     font-weight: 400;
     color: rgba(0, 0, 0, 0.6);
-    margin: 12px 0 120px 0;
+    margin: 12px 0 100px 0;
+}
+
+/* =============================================
+   T-SHIRT DESIGN PROJECTS SCREEN
+   ============================================= */
+
+.tshirt-project-view {
+    background-color: #FFFFFF;
+    height: 100vh;
+    /* Unscrollable as per request */
+    width: 100%;
+    position: relative;
+    /* Lock scroll */
+    padding-top: 110px;
+    /* Reduced from 140px to tighten gap */
+}
+
+.tshirt-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px 64px 32px;
+    /* Top padding reduced to 0 (was 64px) for 70% total gap reduction */
+    text-align: center;
+}
+
+/* Typography */
+.tshirt-section-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+}
+
+.tshirt-subtitle {
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 45px;
+    /* Reduced by 20% from 56px */
+}
+
+/* Quote Container */
+.tshirt-quote-container {
+    margin: 0 auto 56px auto;
+    /* Reduced by 20% from 70px */
+    max-width: 800px;
+}
+
+.tshirt-quote {
+    font-family: 'Manrope', sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: #000000;
+    font-style: italic;
+    line-height: 1.5;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Product Visuals Container */
+.tshirt-visuals-container {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    height: 350px;
+    /* Reduced height further (480->350px) to tighten layout */
+    margin: -40px auto 10px auto;
+    /* Reduced margin-bottom (28->10px) to pull footer up */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tshirt-product {
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+.tshirt-product img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    display: block;
+    border-radius: 30px;
+    outline: 1px solid #FFFFFF;
+    outline-offset: -1px;
+}
+
+/* Center Hoodie - Primary Focus */
+.tshirt-center img {
+    height: 300px;
+    /* Reduced by additional 25% from 400px */
+}
+
+.tshirt-center {
+    z-index: 3;
+    opacity: 0;
+    transform: translateY(15px);
+    /* Moved up: 30px -> 15px (Y-15px) */
+}
+
+.tshirt-left {
+    left: 24%;
+    /* Moved out by 4% (28->24%) to shift ~10-15px away from center */
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(15px) translateX(-20px);
+    /* Moved up: 30px -> 15px (Y-15px) */
+}
+
+.tshirt-left img {
+    height: 300px;
+    /* Matched to center image height */
+    transform: rotate(-8deg);
+}
+
+.tshirt-right {
+    right: 24%;
+    /* Moved out by 4% (28->24%) to shift ~10-15px away from center */
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(15px) translateX(20px);
+    /* Moved up: 30px -> 15px (Y-15px) */
+}
+
+.tshirt-right img {
+    height: 300px;
+    /* Matched to center image height */
+    transform: rotate(8deg);
+}
+
+/* Footer */
+.tshirt-footer {
+    margin-top: 0px;
+    /* Reduced from 20px to 0 to minimize scroll risk */
+}
+
+.tshirt-footer p {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.5);
+    font-style: italic;
+}
+
+/* =============================================
+   TRANSITION ANIMATIONS
+   ============================================= */
+
+/* Entry Transition - Fade in + Translate Up */
+@keyframes tshirtFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Quote Animation */
+.tshirt-quote.animate-in {
+    animation: tshirtFadeInUp 600ms ease-out forwards;
+}
+
+/* Product Sequential Animations */
+.tshirt-center.animate-in {
+    animation: tshirtFadeInUp 600ms ease-out 200ms forwards;
+}
+
+.tshirt-left.animate-in {
+    animation: tshirtFadeInUp 600ms ease-out 400ms forwards;
+}
+
+.tshirt-right.animate-in {
+    animation: tshirtFadeInUp 600ms ease-out 600ms forwards;
+}
+
+/* View Transition Classes */
+.tshirt-view-entering {
+    animation: tshirtFadeInUp 500ms ease-in-out forwards;
+}
+
+.tshirt-view-exiting {
+    opacity: 0.8;
+    transform: translateY(-16px);
+    transition: all 500ms ease-in-out;
 }
 
 @media (max-width: 768px) {
@@ -2714,4 +2942,364 @@ body {
     .ui-bullets li {
         justify-content: center;
     }
+}
+
+/* =============================================
+   UI SCREEN HIGHLIGHT BLOCK - LAYERED COMPOSITION
+   ============================================= */
+
+/* Container for the entire block */
+.ui-screen-highlight-block {
+    position: relative;
+    width: 100%;
+    height: 440px;
+    margin: 80px 0;
+    padding-left: 200px;
+    /* No background, no card, no shadow */
+}
+
+/* Layer 1: Anchor Circle (Structural Base) */
+.ui-anchor-circle {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    border: 2px solid rgba(207, 202, 202, 0.5);
+    top: 0;
+    left: 87px;
+    z-index: 1;
+}
+
+/* Layer 2: Feature Text Lines */
+.ui-feature-text {
+    position: absolute;
+    top: 30px;
+    left: 260px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ui-feature-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #FFFFFF;
+    padding: 12px 24px 12px 12px;
+    border-radius: 4px;
+}
+
+.ui-tick-icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.ui-feature-line span {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+}
+
+
+/* Layer 3: Mobile Mockup (Primary Visual Focus) */
+.ui-mockup-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.ui-mockup-image {
+    width: auto;
+    height: 420px;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 2px 15px rgba(0, 0, 0, 0.1));
+}
+
+/* Layer 4: Numbered Label (Glass Morphism) */
+.ui-number-label {
+    position: absolute;
+    top: -15px;
+    left: 85px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid #D9D9D9;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(151, 151, 151, 0.6);
+}
+
+/* =============================================
+   MIRRORED UI SCREEN BLOCK - RIGHT ALIGNED
+   ============================================= */
+
+.ui-screen-mirrored {
+    padding-left: 0;
+    padding-right: 200px;
+    margin-top: -380px;
+}
+
+.ui-screen-mirrored .ui-mockup-container {
+    left: auto;
+    right: 0;
+}
+
+.ui-screen-mirrored .ui-anchor-circle {
+    left: auto;
+    right: 90px;
+}
+
+.ui-screen-mirrored .ui-feature-text {
+    left: auto;
+    right: 275px;
+    top: calc(50% - 130px);
+    transform: translateY(-50%);
+}
+
+.ui-screen-mirrored .ui-number-label {
+    left: auto;
+    right: 85px;
+}
+
+/* Section Container Styling */
+.ui-screens-section {
+    background-color: #FFFFFF;
+    padding: 60px 40px 25px 40px;
+    /* Bottom padding reduced by 30% (36px -> 25px) */
+    margin-top: -10px;
+}
+
+.ui-screens-list {
+    /* Container for blocks - currently holds one */
+    width: 100%;
+}
+
+/* UI Screen Block Group Wrapper */
+.ui-screen-block-group {
+    margin-bottom: 0;
+}
+
+.ui-screen-block-group:first-child {
+    margin-top: -25px;
+}
+
+.ui-screen-block-group:nth-child(2),
+.ui-screen-block-group:nth-child(3) {
+    margin-top: -300px;
+}
+
+.ui-screen-block-group:last-child {
+    margin-bottom: 0;
+}
+
+/* =============================================
+   SECTION 1 — CREATIVE EXTENSIONS (GATEWAY)
+   ============================================= */
+.creative-extensions {
+    background-color: #ffffff;
+    padding: 120px 40px 160px 40px;
+    width: 100%;
+    margin-top: -100px;
+    /* Moved up 100px as requested */
+}
+
+.ce-section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 64px;
+    font-weight: 600;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.ce-container {
+    max-width: 960px;
+    /* Reduced by 20% from 1200px */
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+}
+
+.ce-card {
+    flex: 1;
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Card Noise Effect */
+.ce-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.ce-card:hover {
+    transform: translateY(-8px);
+}
+
+.ce-museum {
+    background: linear-gradient(135deg, #FFA574 0%, #F9B590 32%, #FF9F6B 100%);
+}
+
+.ce-flutter {
+    background: linear-gradient(135deg, #823EFF 0%, #DDA5FF 100%);
+}
+
+.ce-card-bg {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 80%;
+    height: 80%;
+    z-index: 1;
+    opacity: 0.9;
+}
+
+.ce-card-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom right;
+}
+
+.ce-card-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.ce-card-title {
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.museum-title {
+    font-family: 'Artifika', serif;
+    font-weight: 400;
+    font-size: 69px;
+}
+
+.flutter-title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 72px;
+}
+
+.ce-explore-btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #FFFFFF;
+    padding: 13.5px 27px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ce-explore-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.ce-btn-icon {
+    width: 28px;
+    height: 28px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+}
+
+/* =============================================
+   SECTION 2 — FOOTER (CONTACT CLOSURE)
+   ============================================= */
+.site-footer {
+    background-color: #ffffff;
+    padding: 80px 40px 120px 40px;
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 56px;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 24px;
+}
+
+.footer-contact-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.5);
+    margin-top: 0;
+    margin-bottom: 48px;
+}
+
+.footer-social-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.footer-social-link {
+    color: #888;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-social-link:hover {
+    color: #333;
+    transform: translateY(-4px);
 }

@@ -45,18 +45,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // =============================================
     // NAVIGATION SYSTEM
     // =============================================
-    const mainSections = document.querySelectorAll('.hero, .about, .nav-gate');
+    const mainSections = document.querySelectorAll('.hero, .about, .nav-gate, .creative-extensions, .site-footer');
     const caseStudiesView = document.getElementById('case-studies-view');
     const projectsView = document.getElementById('projects-view');
     const projectSmartMeetDetailView = document.getElementById('project-full-view-smartmeet');
+    const projectTeshartDetailView = document.getElementById('project-full-view-teshart');
+    const projectWalleyDetailView = document.getElementById('project-full-view-walley');
+    const projectTshirtDetailView = document.getElementById('project-full-view-tshirt');
     const smartmeetPreview = document.getElementById('smartmeet-preview');
     const navGateLinks = document.querySelectorAll('.nav-gate-link');
-    const backBtn = document.getElementById('cs-back-btn');
+    const backBtn = document.getElementById('cs-list-back-btn');
     const projectsBackBtn = document.getElementById('projects-back-btn');
     const projectSmartMeetBackBtn = document.getElementById('project-smartmeet-back-btn');
+    const projectTeshartBackBtn = document.getElementById('back-to-projects-teshart');
+    const projectWalleyBackBtn = document.getElementById('back-to-projects-walley');
+    const projectTshirtBackBtn = document.getElementById('back-to-projects-tshirt');
     const previewBackBtn = document.getElementById('preview-back-btn');
     const projectItems = document.querySelectorAll('.project-item');
     const smartmeetViewFullCaseStudyBtn = document.getElementById('smartmeet-view-case-study');
+    let cameFromProjectView = false; // Surgical fix: context tracking
+
+    // Creative Extensions Gateways
+    const exploreMuseumBtn = document.getElementById('explore-museum');
+    const exploreFlutterBtn = document.getElementById('explore-flutter');
 
     // Navigation Gate Click Handlers
     navGateLinks.forEach(link => {
@@ -93,12 +104,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Teshart Project Detail Back Button Handler
+    if (projectTeshartBackBtn) {
+        projectTeshartBackBtn.addEventListener('click', () => {
+            showProjectsFromDetail();
+        });
+    }
+
+    // Walley Project Detail Back Button Handler
+    if (projectWalleyBackBtn) {
+        projectWalleyBackBtn.addEventListener('click', () => {
+            showProjectsFromDetail();
+        });
+    }
+
+    // T-Shirt Project Detail Back Button Handler
+    if (projectTshirtBackBtn) {
+        projectTshirtBackBtn.addEventListener('click', () => {
+            showProjectsFromTshirt();
+        });
+    }
+
     // Project Item Click Handlers
     projectItems.forEach(item => {
         item.addEventListener('click', () => {
             const projectId = item.dataset.projectId;
             if (projectId === 'smartmeet-ui') {
                 showProjectDetail('smartmeet');
+            } else if (projectId === 'teshart') {
+                showProjectDetail('teshart');
+            } else if (projectId === 'walley') {
+                showProjectDetail('walley');
+            } else if (projectId === 'tshirt') {
+                showTshirtProject();
             }
         });
     });
@@ -107,6 +145,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (smartmeetViewFullCaseStudyBtn) {
         smartmeetViewFullCaseStudyBtn.addEventListener('click', () => {
             showFullCaseStudyFromProject('smartmeet');
+        });
+    }
+
+    // Creative Extensions Gateway Handlers
+    if (exploreMuseumBtn) {
+        exploreMuseumBtn.addEventListener('click', () => {
+            showGatewayPortfolio('museum');
+        });
+    }
+
+    if (exploreFlutterBtn) {
+        exploreFlutterBtn.addEventListener('click', () => {
+            showGatewayPortfolio('flutter');
         });
     }
 
@@ -191,6 +242,46 @@ document.addEventListener('DOMContentLoaded', () => {
                     initScrollAnimations();
                 }, 50);
             }, 350);
+        } else if (projectId === 'teshart') {
+            // Fade out
+            document.body.style.opacity = '0';
+
+            setTimeout(() => {
+                // Hide projects view
+                projectsView.style.display = 'none';
+
+                // Show Teshart detail view
+                projectTeshartDetailView.style.display = 'block';
+
+                // Reset scroll
+                window.scrollTo(0, 0);
+
+                // Fade in
+                setTimeout(() => {
+                    document.body.style.opacity = '1';
+                    initScrollAnimations();
+                }, 50);
+            }, 350);
+        } else if (projectId === 'walley') {
+            // Fade out
+            document.body.style.opacity = '0';
+
+            setTimeout(() => {
+                // Hide projects view
+                projectsView.style.display = 'none';
+
+                // Show Walley detail view
+                projectWalleyDetailView.style.display = 'block';
+
+                // Reset scroll
+                window.scrollTo(0, 0);
+
+                // Fade in
+                setTimeout(() => {
+                    document.body.style.opacity = '1';
+                    initScrollAnimations();
+                }, 50);
+            }, 350);
         }
     }
 
@@ -199,8 +290,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.opacity = '0';
 
         setTimeout(() => {
-            // Hide detail view
+            // Hide all detail views
             projectSmartMeetDetailView.style.display = 'none';
+            projectTeshartDetailView.style.display = 'none';
+            projectWalleyDetailView.style.display = 'none';
 
             // Show projects view
             projectsView.style.display = 'block';
@@ -213,6 +306,91 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.body.style.opacity = '1';
             }, 50);
         }, 350);
+    }
+
+    // T-Shirt Project Custom Transitions
+    function showTshirtProject() {
+        // Add exiting class to projects view (fade to 0.8, translate up 16px)
+        projectsView.classList.add('tshirt-view-exiting');
+
+        setTimeout(() => {
+            // Hide projects view
+            projectsView.style.display = 'none';
+            projectsView.classList.remove('tshirt-view-exiting');
+
+            // Show T-shirt view
+            projectTshirtDetailView.style.display = 'block';
+            projectTshirtDetailView.classList.add('tshirt-view-entering');
+
+            // Reset scroll
+            window.scrollTo(0, 0);
+
+            // Trigger on-load animations
+            setTimeout(() => {
+                initTshirtAnimations();
+            }, 100);
+
+            // Remove entering class after animation
+            setTimeout(() => {
+                projectTshirtDetailView.classList.remove('tshirt-view-entering');
+            }, 500);
+        }, 500);
+    }
+
+    function showProjectsFromTshirt() {
+        // Fade out T-shirt view
+        projectTshirtDetailView.style.opacity = '0';
+        projectTshirtDetailView.style.transform = 'translateY(-16px)';
+        projectTshirtDetailView.style.transition = 'all 500ms ease-in-out';
+
+        setTimeout(() => {
+            // Hide T-shirt view
+            projectTshirtDetailView.style.display = 'none';
+
+            // Reset T-shirt view styles
+            projectTshirtDetailView.style.opacity = '';
+            projectTshirtDetailView.style.transform = '';
+            projectTshirtDetailView.style.transition = '';
+
+            // Remove animation classes
+            const quote = projectTshirtDetailView.querySelector('.tshirt-quote');
+            const products = projectTshirtDetailView.querySelectorAll('.tshirt-product');
+            if (quote) quote.classList.remove('animate-in');
+            products.forEach(product => product.classList.remove('animate-in'));
+
+            // Show projects view with fade in
+            projectsView.style.display = 'block';
+            projectsView.style.opacity = '0';
+
+            setTimeout(() => {
+                projectsView.style.transition = 'opacity 500ms ease-in-out';
+                projectsView.style.opacity = '1';
+
+                setTimeout(() => {
+                    projectsView.style.transition = '';
+                }, 500);
+            }, 50);
+
+            // Reset scroll
+            window.scrollTo(0, 0);
+        }, 500);
+    }
+
+    function initTshirtAnimations() {
+        // Animate quote
+        const quote = projectTshirtDetailView.querySelector('.tshirt-quote');
+        if (quote) {
+            quote.classList.add('animate-in');
+        }
+
+        // Animate products sequentially
+        const centerProduct = projectTshirtDetailView.querySelector('.tshirt-center');
+        const leftProduct = projectTshirtDetailView.querySelector('.tshirt-left');
+        const rightProduct = projectTshirtDetailView.querySelector('.tshirt-right');
+
+        if (centerProduct) centerProduct.classList.add('animate-in');
+        if (leftProduct) leftProduct.classList.add('animate-in');
+        if (rightProduct) rightProduct.classList.add('animate-in');
     }
 
     function showFullCaseStudyFromProject(projectId) {
@@ -229,12 +407,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 mainSections.forEach(section => section.style.display = 'none');
                 projectsView.style.display = 'none';
 
-                // Show Case Study (reuse existing logic from showFullCaseStudy if possible)
-                // For simplicity here, we'll direct-toggle
-                const caseStudyFull = document.getElementById('full-case-study-smartmeet');
-                if (caseStudyFull) {
-                    caseStudyFull.style.display = 'block';
-                }
+                // Show Case Study
+                cameFromProjectView = true; // Context set
+                showFullCaseStudy('smartmeet');
 
                 window.scrollTo(0, 0);
 
@@ -263,6 +438,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }, observerOptions);
 
         revealElements.forEach(el => observer.observe(el));
+    }
+
+    function showGatewayPortfolio(gatewayId) {
+        // Fade out
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out';
+        document.body.style.transform = 'translateY(-16px)';
+
+        setTimeout(() => {
+            // Here we would normally navigate to a different portfolio page or view.
+            // For now, we'll log the navigation and simulate a return to a high-level state.
+            console.log(`Navigating to ${gatewayId === 'museum' ? 'Art' : 'Flutter'} Portfolio...`);
+
+            // Simulating navigation by resetting view (since this is a gateway)
+            // In a real multi-page app, this would be window.location.href
+
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+                document.body.style.transform = 'translateY(0)';
+                alert(`Transitioning to ${gatewayId === 'museum' ? 'Museum of Art' : 'Flutter Interface Collection'} Portfolio`);
+            }, 100);
+        }, 500);
     }
 
     // Back Button Handler (Preview → Case Studies)
@@ -394,10 +591,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const action = btn.dataset.action;
             const caseStudy = btn.dataset.case;
 
-            if (action === 'view-full' && caseStudy === 'smartmeet') {
-                showFullCaseStudy();
-            } else {
-                console.log('Full view for this case study logic pending');
+            if (action === 'view-full') {
+                showFullCaseStudy(caseStudy);
             }
         });
     });
@@ -417,51 +612,93 @@ document.addEventListener('DOMContentLoaded', () => {
                     showPreviewScreen('uber-preview');
                 }
             } else if (action === 'view-full') {
-                if (caseStudy === 'smartmeet') {
-                    showFullCaseStudy();
-                } else {
-                    console.log(`View Full Case Study: ${caseStudy} - implementation pending`);
-                }
+                showFullCaseStudy(caseStudy);
             }
         });
     });
 
-    // Full View Back Button
-    if (csFullBackBtn) {
-        csFullBackBtn.addEventListener('click', () => {
+    // Full View Back Buttons
+    const fullBackBtns = document.querySelectorAll('.cs-header-back-btn');
+    fullBackBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const currentFullView = btn.closest('.cs-full-view');
+            const projectId = currentFullView.id.replace('full-case-study-', '');
+
+            // Surgical Fix: Return to Project View if needed
+            if (projectId === 'smartmeet' && cameFromProjectView) {
+                cameFromProjectView = false;
+                // Fade out
+                document.body.style.opacity = '0';
+                setTimeout(() => {
+                    currentFullView.style.display = 'none';
+                    projectSmartMeetDetailView.style.display = 'block';
+                    window.scrollTo(0, 0);
+                    setTimeout(() => {
+                        document.body.style.opacity = '1';
+                    }, 50);
+                }, 350);
+                return;
+            }
+            // Standard Behavior: Go back to Case Studies List (Timeline View)
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                currentFullView.style.display = 'none';
+                currentFullView.classList.remove('is-visible');
+                showCaseStudies();
+            }, 350);
+        });
+    });
+
+    // Next Case Study Buttons
+    const smNextBtn = document.getElementById('next-case-study-btn');
+    if (smNextBtn) {
+        smNextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const smFullView = document.getElementById('full-case-study-smartmeet');
+            if (smFullView) {
+                smFullView.classList.remove('is-visible');
+                smFullView.style.display = 'none';
+            }
+            showFullCaseStudy('uber');
+        });
+    }
+
+    const uberNextBtn = document.getElementById('uber-next-case-study-btn');
+    if (uberNextBtn) {
+        uberNextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Loop back to SmartMeet or go to list
+            const uberFullView = document.getElementById('full-case-study-uber');
+            if (uberFullView) {
+                uberFullView.classList.remove('is-visible');
+                uberFullView.style.display = 'none';
+            }
             showPreviewScreen('smartmeet-preview');
         });
     }
 
-    // Next Case Study Button (Forward only navigation)
-    const nextCaseBtn = document.getElementById('next-case-study-btn');
-    if (nextCaseBtn) {
-        nextCaseBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            // Hide full view
-            if (fullCaseStudyView) {
-                fullCaseStudyView.classList.remove('is-visible');
-                fullCaseStudyView.style.display = 'none';
-            }
-            // Navigate to Uber Preview
-            showPreviewScreen('uber-preview');
-        });
-    }
+    // Refined Scroll Spy & Smooth Scroll (Project Agnostic)
+    const allFullViews = document.querySelectorAll('.cs-full-view');
+    allFullViews.forEach(view => {
+        const links = view.querySelectorAll('.cs-progress-link');
 
-    // Scroll Spy & Smooth Scroll
-    if (fullCaseStudyView) {
-        // Smooth Scroll
-        progressLinks.forEach(link => {
+        // Smooth Scroll + Immediate Active State feedback
+        links.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
+
+                // Immediate feedback
+                links.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+
                 const targetId = link.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
+                const targetSection = view.querySelector(`#${targetId}`);
                 if (targetSection) {
                     const headerOffset = 180;
-                    const elementPosition = targetSection.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + fullCaseStudyView.scrollTop - headerOffset;
+                    const elementPosition = targetSection.offsetTop;
+                    const offsetPosition = elementPosition - headerOffset;
 
-                    fullCaseStudyView.scrollTo({
+                    view.scrollTo({
                         top: offsetPosition,
                         behavior: "smooth"
                     });
@@ -469,45 +706,78 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Scroll Spy
-        fullCaseStudyView.addEventListener('scroll', () => {
-            let current = '';
-            const sections = document.querySelectorAll('.cs-intro-block, .cs-text-section, #cs-process, #cs-design, #cs-validation, #cs-outcome');
+        // Scroll Spy with Grouping Mapping
+        view.addEventListener('scroll', () => {
+            let currentSectionId = '';
+            // All sections that can trigger a nav highlight
+            const sections = view.querySelectorAll('[id^="cs-"], [id^="uber-"]');
 
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                if (fullCaseStudyView.scrollTop >= (sectionTop - 300)) {
-                    current = section.getAttribute('id');
+                if (view.scrollTop >= (sectionTop - 150)) {
+                    currentSectionId = section.getAttribute('id');
                 }
             });
 
-            progressLinks.forEach(link => {
+            // Mapping Object for grouped sections
+            const navMapping = {
+                // SmartMeet
+                'cs-overview': 'Overview',
+                'cs-problem': 'Problem',
+                'cs-existing-approaches': 'Process', // Grouped
+                'cs-process': 'Process', // Grouped
+                'cs-design': 'Design',
+                'cs-validation': 'Validation',
+                'cs-outcome': 'Outcome',
+                // Uber
+                'uber-overview': 'Overview',
+                'uber-problem': 'Problem',
+                'uber-existing-approaches': 'Process', // Grouped
+                'uber-process': 'Process', // Grouped
+                'uber-design': 'Design',
+                'uber-validation': 'Validation',
+                'uber-outcome': 'Outcome'
+            };
+
+            const targetLabel = navMapping[currentSectionId];
+            if (!targetLabel) return;
+
+            links.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
+                if (link.textContent.trim() === targetLabel) {
                     link.classList.add('active');
                 }
             });
         });
-    }
+    });
 
-    function showFullCaseStudy() {
+    function showFullCaseStudy(projectId) {
+        const id = projectId === 'uber' ? 'full-case-study-uber' : 'full-case-study-smartmeet';
+        const targetView = document.getElementById(id);
+
         document.body.style.opacity = '0';
 
         setTimeout(() => {
             mainSections.forEach(s => s.style.display = 'none');
             caseStudiesView.style.display = 'none';
             document.querySelectorAll('.preview-screen').forEach(p => p.style.display = 'none');
+            document.querySelectorAll('.cs-full-view').forEach(v => {
+                v.style.display = 'none';
+                v.classList.remove('is-visible');
+            });
 
-            if (fullCaseStudyView) {
-                fullCaseStudyView.style.display = 'block';
-                fullCaseStudyView.scrollTop = 0;
+            if (targetView) {
+                targetView.style.display = 'block';
+                targetView.scrollTop = 0;
 
                 setTimeout(() => {
-                    fullCaseStudyView.classList.add('is-visible');
+                    targetView.classList.add('is-visible');
                     document.body.style.opacity = '1';
 
-                    // Trigger Stats Animation when full view opens
-                    initStatsAnimation();
+                    // Trigger Stats Animation ONLY for SmartMeet
+                    if (projectId === 'smartmeet') {
+                        initStatsAnimation();
+                    }
                 }, 50);
             }
         }, 350);
