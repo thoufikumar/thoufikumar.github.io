@@ -469,20 +469,21 @@ body {
 
 .card-collapse-btn {
     position: absolute;
-    top: 24px;
+    top: 50%;
     right: 24px;
+    transform: translateY(-50%);
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: rgba(0, 0, 0, 0.1);
-    color: #1a1a1a;
+    background: #000;
+    color: #fff;
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: opacity 0.2s ease, background 0.2s ease;
+    transition: opacity 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
 
 .about-card.is-expanded .card-collapse-btn {
@@ -963,9 +964,9 @@ body {
 /* Header Bar */
 .preview-header-bar {
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 60px 0 40px;
+    margin: 0;
+    padding: 60px 24px 40px;
+    /* Reduced by 40% from 40px */
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -1176,7 +1177,7 @@ body {
     color: #1a1a1a;
     transition: all 0.2s;
     position: absolute;
-    left: 200px;
+    left: 180px;
 }
 
 .preview-header-back-btn:hover {
@@ -2490,20 +2491,21 @@ body {
     background-color: #ffffff;
     /* White fill for efficiency */
     z-index: 1000;
-    padding: 20px 200px;
-    /* Standard padding with 200px sides */
+    padding: 20px 24px;
+    /* Reduced by 40% from 40px */
 }
 
 /* Generic Header Padding (Preview Screens & Case Studies) */
 .preview-header-bar .preview-header {
-    padding-left: 300px;
-    /* Default 300px */
+    padding-left: 0;
+    margin-left: -30px;
+    /* Reduced by additional 130px from 100px */
 }
 
 /* Specific Override for Project Full View (+50px) */
 .project-detail-view .preview-header {
-    padding-left: 350px;
-    /* 300px + 50px = 350px */
+    padding-left: 20px;
+    /* Reduced by additional 130px from 150px */
 }
 
 /* Specific Fix for Full Case Study View (Prevents wrapping) */
@@ -2514,7 +2516,7 @@ body {
 
 /* Add padding to container to prevent content hiding behind fixed header */
 .project-detail-view {
-    padding-top: 140px;
+    padding-top: 100px;
 }
 
 .project-detail-page-title {
@@ -2529,8 +2531,8 @@ body {
 
 .project-intro {
     text-align: center;
-    margin-top: 30px;
-    /* Reduced by 50px from 80px */
+    margin-top: 18px;
+    /* Reduced by 40% from 30px */
     padding: 0 20px;
 }
 
@@ -3260,7 +3262,21 @@ body {
     background-color: #ffffff;
     padding: 80px 40px 120px 40px;
     text-align: center;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    /* For pseudo-element positioning */
+}
+
+.site-footer::before {
+    content: "";
+    display: block;
+    width: calc(100% - 400px);
+    /* 200px left + 200px right */
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.05);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .footer-container {

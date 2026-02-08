@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thoufik Umar | Flutter Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="flutter_hero.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+
+<body>
+    <section class="flutter-hero">
+        <button class="flutter-back-btn" id="flutter-back-btn" aria-label="Back to Main Portfolio">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </button>
+        <h1 class="flutter-hero-title">THOUFIK <span class="name-highlight">UMAR</span></h1>
+        <div class="flutter-hero-avatar">
+            <img src="assets/flutter_assets/flutter_hero_section_img/fphero_4.png" alt="Thoufik Umar Avatar">
+        </div>
+        <div class="flutter-hero-role">Flutter Developer</div>
+    </section>
+
+    <!-- BUILT WITH PASSION SECTION -->
+    <section class="passion-section">
+        <h2 class="passion-title">Built with Passion</h2>
+        <p class="passion-subtitle">(Problem hunter, solution seeker)</p>
+    </section>
+
+    <!-- TERMINAL SECTION: Interactive About Me -->
+    <section class="terminal-section">
+        <p class="terminal-manual">Click this section to select questions to ask</p>
+        <div class="terminal-outer-box">
+            <div class="terminal-header">
+                <div class="terminal-indicators">
+                    <span class="indicator red"></span>
+                    <span class="indicator yellow"></span>
+                    <span class="indicator green"></span>
+                </div>
+            </div>
+            <div class="terminal-inner-box" id="terminal" tabindex="0">
+                <div class="terminal-body">
+                    <!-- Menu View (Default State) -->
+                    <div class="terminal-menu-view" id="menu-view">
+                        <h2 class="terminal-title">Wanna know about me ?</h2>
+                        <ul class="menu-items">
+                            <li class="menu-item active" data-index="0">1. What I do?</li>
+                            <li class="menu-item" data-index="1">2. Who am I?</li>
+                            <li class="menu-item" data-index="2">3. How I work?</li>
+                            <li class="menu-item" data-index="3">4. What am I good at?</li>
+                        </ul>
+                    </div>
+
+                    <!-- Content View 1: What I do? -->
+                    <div class="terminal-content-view" id="content-0" style="display: none;">
+                        <h2 class="terminal-title">What I do?</h2>
+                        <ol class="content-list">
+                            <li>Flutter-focused mobile application developer</li>
+                            <li>Problem solver with a user-first mindset</li>
+                            <li>Passionate about clean UI and structured code</li>
+                            <li>Balanced design and development thinking</li>
+                        </ol>
+                    </div>
+
+                    <!-- Content View 2: Who am I? -->
+                    <div class="terminal-content-view" id="content-1" style="display: none;">
+                        <h2 class="terminal-title">Who am I?</h2>
+                        <ol class="content-list">
+                            <li>Design and develop Flutter mobile apps</li>
+                            <li>Implement UI from clear UX flows</li>
+                            <li>Manage application state and data</li>
+                            <li>Integrate backend and third-party services</li>
+                        </ol>
+                    </div>
+
+                    <!-- Content View 3: How I work? -->
+                    <div class="terminal-content-view" id="content-2" style="display: none;">
+                        <h2 class="terminal-title">How I work?</h2>
+                        <ol class="content-list">
+                            <li>Design-first approach from UX flows to code</li>
+                            <li>Clean and structured Flutter architectures</li>
+                            <li>Reusable state management and logic flow</li>
+                            <li>Smooth backend and third-party integrations</li>
+                        </ol>
+                    </div>
+
+                    <!-- Content View 4: What am I good at? -->
+                    <div class="terminal-content-view" id="content-3" style="display: none;">
+                        <h2 class="terminal-title">What am I good at?</h2>
+                        <ol class="content-list">
+                            <li>Building scalable Flutter UI from design concepts</li>
+                            <li>Managing app state using Provider and GetX</li>
+                            <li>Integrating Firebase and third-party services</li>
+                            <li>Turning complex problems into simple user experiences</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- Hint text outside inner box -->
+            <div class="terminal-hint-container">
+                <p class="terminal-hint menu-hint">Press Enter to continue – Esc to go back</p>
+                <p class="terminal-hint content-hint" style="display: none;">Press Esc to go back</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUTIONS GRID SECTION -->
+    <section class="solutions-section">
+        <div class="solutions-container">
+            <div class="solutions-header">
+                <h2 class="solutions-title">A few of my Solutions</h2>
+                <p class="solutions-subtitle">(Most apps are built on Dev-first use and currently undergoing Version 2
+                    upgrade)</p>
+            </div>
+
+            <div class="solutions-grid">
+                <!-- Card 1: SelfSpace -->
+                <div class="solution-card" data-project="selfspace">
+                    <div class="card-text">
+                        <h3 class="card-title">SelfSpace</h3>
+                        <p class="card-subtitle">Mental health wellness application</p>
+                    </div>
+                    <div class="card-image">
+                        <img src="assets/flutter_assets/solution_grid/1.png" alt="SelfSpace App Mockup">
+                    </div>
+                </div>
+
+                <!-- Card 2: Teshart -->
+                <div class="solution-card" data-project="teshart">
+                    <div class="card-text">
+                        <h3 class="card-title">Teshart</h3>
+                        <p class="card-subtitle">Art order managing application</p>
+                    </div>
+                    <div class="card-image">
+                        <img src="assets/flutter_assets/solution_grid/2.png" alt="Teshart App Mockup">
+                    </div>
+                </div>
+
+                <!-- Card 3: Smartmeet -->
+                <div class="solution-card" data-project="smartmeet">
+                    <div class="card-text">
+                        <h3 class="card-title">Smartmeet</h3>
+                        <p class="card-subtitle">Meeting Scheduler for Universities</p>
+                    </div>
+                    <div class="card-image">
+                        <img src="assets/flutter_assets/solution_grid/3.png" alt="Smartmeet App Mockup">
+                    </div>
+                </div>
+
+                <!-- Card 4: Walley -->
+                <div class="solution-card" data-project="walley">
+                    <div class="card-text">
+                        <h3 class="card-title">Walley</h3>
+                        <p class="card-subtitle">Personal finance & budgeting app</p>
+                    </div>
+                    <div class="card-image">
+                        <img src="assets/flutter_assets/solution_grid/4.png" alt="Walley App Mockup">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CONTACT SECTION -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-columns">
+                <!-- Left Column: Contact Info -->
+                <div class="footer-left">
+                    <h2 class="footer-heading">Let's get in touch..</h2>
+
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value">thoufikumar1011@gmail.com</span>
+                        </div>
+
+                        <div class="contact-item">
+                            <span class="contact-label">Phone</span>
+                            <span class="contact-value">8612016840</span>
+                        </div>
+
+                        <div class="contact-item">
+                            <span class="contact-label">Address</span>
+                            <span class="contact-value">439 Periyar nagar, Balakrishnapuram,<br>Dindigul, Tamil Nadu,
+                                India</span>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <span class="social-label">Follow me on</span>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon" aria-label="Instagram">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="LinkedIn">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                    </path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </a>
+                            <a href="https://github.com/thoufikumar" class="social-icon" aria-label="GitHub"
+                                target="_blank" rel="noopener noreferrer">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                    </path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Contact Form -->
+                <div class="footer-right">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Your name</label>
+                            <input type="text" id="name" class="form-input" placeholder="Enter your name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Your Email</label>
+                            <input type="email" id="email" class="form-input" placeholder="Enter your email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" class="form-textarea" rows="6" placeholder="Your message"></textarea>
+                        </div>
+
+                        <button type="submit" class="form-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Notification Popup -->
+        <div class="custom-notification" id="customNotification">
+            <div class="notification-icon-wrapper">
+                <svg class="notification-check-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="#00CB1B" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+            </div>
+            <div class="notification-text">
+                <h4 class="notification-heading">Mail received!</h4>
+                <p class="notification-subtext">We will connect soon</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Detail Screen (Hidden by default) -->
+    <section class="project-detail-screen" id="projectDetailScreen">
+        <div class="project-detail-container">
+            <!-- Header with Back Button -->
+            <div class="detail-header">
+                <button class="back-button" id="backButton">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    <span>Back</span>
+                </button>
+            </div>
+
+            <div class="detail-layout">
+                <!-- Left Column: Static Content -->
+                <div class="detail-left">
+                    <h1 class="project-detail-title" id="detailTitle">Project Title</h1>
+                    <p class="project-detail-description" id="detailDescription">Project description goes here...</p>
+
+                    <div class="detail-section">
+                        <h2 class="section-heading">Key focus</h2>
+                        <ul class="detail-list" id="detailKeyFocus">
+                            <!-- Populated by JS -->
+                        </ul>
+                    </div>
+
+                    <div class="detail-section">
+                        <h2 class="section-heading">Tech Stack</h2>
+                        <ul class="detail-list" id="detailTechStack">
+                            <!-- Populated by JS -->
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right Column: Dynamic Carousel -->
+                <div class="detail-right">
+                    <div class="carousel-container">
+                        <div class="carousel-viewport">
+                            <div class="carousel-track" id="carouselTrack">
+                                <!-- Images populated by JS -->
+                            </div>
+                        </div>
+
+                        <!-- Navigation Arrows -->
+                        <button class="carousel-arrow prev" id="prevSlide" aria-label="Previous slide">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <button class="carousel-arrow next" id="nextSlide" aria-label="Next slide">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+
+                        <!-- Pagination Dots -->
+                        <div class="carousel-dots" id="carouselDots">
+                            <!-- Dots populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transition Overlay -->
+    <div class="transition-overlay" id="transitionOverlay"></div>
+
+    <script src="flutter_hero.js"></script>
+</body>
+
+</html>

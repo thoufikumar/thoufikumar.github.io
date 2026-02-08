@@ -447,18 +447,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.transform = 'translateY(-16px)';
 
         setTimeout(() => {
-            // Here we would normally navigate to a different portfolio page or view.
-            // For now, we'll log the navigation and simulate a return to a high-level state.
-            console.log(`Navigating to ${gatewayId === 'museum' ? 'Art' : 'Flutter'} Portfolio...`);
-
-            // Simulating navigation by resetting view (since this is a gateway)
-            // In a real multi-page app, this would be window.location.href
-
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-                document.body.style.transform = 'translateY(0)';
-                alert(`Transitioning to ${gatewayId === 'museum' ? 'Museum of Art' : 'Flutter Interface Collection'} Portfolio`);
-            }, 100);
+            if (gatewayId === 'flutter') {
+                // Navigate to Flutter Portfolio Hero page
+                window.location.href = 'flutter_hero.html';
+            } else if (gatewayId === 'museum') {
+                // Navigate to Art Portfolio page
+                window.location.href = 'art_portfolio.html';
+            }
         }, 500);
     }
 

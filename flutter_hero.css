@@ -1,0 +1,1241 @@
+/* =============================================
+   FLUTTER PORTFOLIO - HERO SECTION
+   Standalone, Dark, Technical, Developer-First
+   ============================================= */
+
+/* Reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+body {
+    font-family: 'Orbitron', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* =============================================
+   BACK BUTTON
+   ============================================= */
+.flutter-back-btn {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.flutter-back-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}
+
+.flutter-back-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* =============================================
+   HERO CONTAINER
+   ============================================= */
+.flutter-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #000000;
+    overflow: hidden;
+}
+
+/* =============================================
+   PRIMARY TITLE (Top Identity)
+   ============================================= */
+.flutter-hero-title {
+    position: absolute;
+    top: calc(100vh / 3 - 90px);
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(64.512px, 8.064vw, 107.52px);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 1;
+    /* Animation */
+    opacity: 0;
+    animation: titleFadeIn 600ms ease-out forwards;
+}
+
+.name-highlight {
+    color: #00CB1B;
+}
+
+@keyframes titleFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* =============================================
+   HERO AVATAR (Center Focus)
+   ============================================= */
+.flutter-hero-avatar {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 2;
+    /* Animation */
+    opacity: 0;
+    animation: avatarFadeIn 600ms ease-out 200ms forwards;
+}
+
+.flutter-hero-avatar img {
+    width: auto;
+    height: clamp(660px, 82.5vh, 990px);
+    max-width: 135vw;
+    object-fit: contain;
+    object-position: bottom center;
+}
+
+@keyframes avatarFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* =============================================
+   ROLE LABEL (Secondary Identity)
+   ============================================= */
+.flutter-hero-role {
+    position: absolute;
+    top: calc(50% + 300px);
+    right: calc(50% - clamp(200px, 25vw, 300px) + 40px - 350px);
+    transform: translateY(-50%);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 51px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    background: linear-gradient(to right, #C7C7C7 26%, #616161 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: right;
+    z-index: 3;
+    /* Animation */
+    opacity: 0;
+    animation: roleFadeIn 600ms ease-out 400ms forwards;
+}
+
+@keyframes roleFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* =============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================= */
+@media (max-width: 768px) {
+    .flutter-hero-title {
+        top: 20vh;
+    }
+
+    .flutter-hero-role {
+        top: auto;
+        bottom: 15vh;
+        right: 50%;
+        transform: translateX(50%);
+        text-align: center;
+    }
+}
+
+/* =============================================
+   PASSION SECTION - Built with Passion
+   ============================================= */
+.passion-section {
+    width: 100%;
+    background-color: #000000;
+    padding: 80px 40px 0 200px;
+    margin-bottom: 80px;
+    text-align: left;
+}
+
+.passion-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 12px 0;
+    letter-spacing: 0.02em;
+}
+
+.passion-subtitle {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 400;
+    color: #27C93F;
+    margin: 0;
+    letter-spacing: 0.01em;
+}
+
+.terminal-section {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #000000;
+    padding: 40px 200px 100px 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.terminal-manual {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Outer Box - Contains header with dots */
+.terminal-outer-box {
+    width: 100%;
+    background-color: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 0 50px 50px 50px;
+}
+
+/* Terminal Header */
+.terminal-header {
+    background-color: #1a1a1a;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    margin: 0 -50px;
+}
+
+.terminal-indicators {
+    display: flex;
+    gap: 8px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #6B6B6B;
+}
+
+/* Inner Box - Contains questions/content only */
+.terminal-inner-box {
+    background-color: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    margin-top: 50px;
+    outline: none;
+}
+
+.terminal-inner-box:focus {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Terminal Body */
+.terminal-body {
+    padding: 40px;
+    min-height: 400px;
+}
+
+.terminal-title {
+    font-family: 'Courier New', monospace;
+    font-size: 20px;
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0 0 32px 0;
+}
+
+/* Menu Items */
+.menu-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-item {
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.4);
+    padding: 8px 0;
+    margin: 0;
+    transition: color 0.2s ease;
+}
+
+.menu-item.active {
+    color: #00CB1B;
+    position: relative;
+    padding-left: 24px;
+}
+
+.menu-item.active::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: #00CB1B;
+}
+
+/* Content Views */
+.terminal-content-view {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.terminal-content-view[style*="display: block"] {
+    opacity: 1;
+}
+
+.content-list {
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    color: #00CB1B;
+    line-height: 1.8;
+    margin: 0;
+    padding-left: 24px;
+}
+
+.content-list li {
+    margin-bottom: 12px;
+}
+
+/* Terminal Hint Container - Outside inner box */
+.terminal-hint-container {
+    margin-top: 24px;
+}
+
+/* Terminal Hint */
+.terminal-hint {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.3);
+    margin: 0;
+    text-align: center;
+}
+
+/* =============================================
+   SOLUTIONS GRID SECTION
+   ============================================= */
+.solutions-section {
+    width: 100%;
+    background-color: #000000;
+    padding: 40px 200px 120px 200px;
+}
+
+.solutions-container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* Section Header */
+.solutions-header {
+    margin-bottom: 80px;
+}
+
+.solutions-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(36px, 4.5vw, 56px);
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 16px 0;
+    letter-spacing: 0.02em;
+}
+
+.solutions-subtitle {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(14px, 1.5vw, 18px);
+    font-weight: 400;
+    color: #00CB1B;
+    margin: 0;
+    letter-spacing: 0.01em;
+}
+
+/* 2x2 Grid Layout */
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+/* Solution Card */
+.solution-card {
+    position: relative;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+    border-radius: 0;
+    padding: 40px;
+    min-height: 450px;
+    overflow: hidden;
+    transition: transform 280ms ease-in-out;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.solution-card:hover {
+    transform: scale(0.95);
+}
+
+/* Card Text (Top-left) */
+.card-text {
+    position: relative;
+    z-index: 2;
+}
+
+.card-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(24px, 2.5vw, 32px);
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 12px 0;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+}
+
+.card-subtitle {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(13px, 1.2vw, 16px);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+    max-width: 60%;
+    white-space: nowrap;
+}
+
+/* Card Image (Bottom-right, angled) */
+.card-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 65%;
+    height: auto;
+    z-index: 1;
+}
+
+.card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: rotate(-8deg) translateY(20px);
+    transform-origin: bottom right;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .solutions-section {
+        padding: 100px 100px;
+    }
+
+    .solutions-grid {
+        gap: 30px;
+    }
+
+    .solution-card {
+        min-height: 400px;
+        padding: 32px;
+    }
+}
+
+@media (max-width: 900px) {
+    .solutions-section {
+        padding: 80px 60px;
+    }
+
+    .solutions-grid {
+        gap: 24px;
+    }
+
+    .solution-card {
+        min-height: 350px;
+        padding: 28px;
+    }
+}
+
+@media (max-width: 700px) {
+    .solutions-section {
+        padding: 60px 40px;
+    }
+
+    .solutions-grid {
+        gap: 20px;
+    }
+
+    .solution-card {
+        min-height: 300px;
+        padding: 24px;
+    }
+
+    .card-subtitle {
+        max-width: 70%;
+    }
+}
+
+/* =============================================
+   FOOTER CONTACT SECTION
+   ============================================= */
+.footer-section {
+    width: 100%;
+    background-color: #000000;
+    padding: 100px 200px;
+}
+
+.footer-container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* Two-Column Layout */
+.footer-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: start;
+}
+
+/* Left Column - Contact Info */
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.footer-heading {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(32px, 3.5vw, 48px);
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 0.01em;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contact-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.contact-value {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(15px, 1.5vw, 18px);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.social-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.social-icons {
+    display: flex;
+    gap: 16px;
+}
+
+.social-icon {
+    color: rgba(255, 255, 255, 0.5);
+    transition: opacity 0.2s ease;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    opacity: 0.8;
+}
+
+.social-icon svg {
+    display: block;
+}
+
+/* Right Column - Contact Form */
+.footer-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form-input,
+.form-textarea {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 15px;
+    background-color: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 14px 18px;
+    color: #ffffff;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.form-submit {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #C0C0C0;
+    color: #000000;
+    border: none;
+    border-radius: 8px;
+    padding: 16px 32px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    align-self: flex-start;
+}
+
+.form-submit:hover {
+    background-color: #2a2a2a;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .footer-section {
+        padding: 80px 100px;
+    }
+
+
+    .solutions-grid {
+        gap: 20px;
+    }
+
+    .solution-card {
+        min-height: 300px;
+        padding: 24px;
+    }
+
+    .card-subtitle {
+        max-width: 70%;
+    }
+}
+
+/* =============================================
+   FOOTER CONTACT SECTION
+   ============================================= */
+.footer-section {
+    width: 100%;
+    background-color: #000000;
+    padding: 100px 200px;
+}
+
+.footer-container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* Two-Column Layout */
+.footer-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: start;
+}
+
+/* Left Column - Contact Info */
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.footer-heading {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(32px, 3.5vw, 48px);
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 0.01em;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contact-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.contact-value {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(15px, 1.5vw, 18px);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.social-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.social-icons {
+    display: flex;
+    gap: 16px;
+}
+
+.social-icon {
+    color: rgba(255, 255, 255, 0.5);
+    transition: opacity 0.2s ease;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    opacity: 0.8;
+}
+
+.social-icon svg {
+    display: block;
+}
+
+/* Right Column - Contact Form */
+.footer-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form-input,
+.form-textarea {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 15px;
+    background-color: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 14px 18px;
+    color: #ffffff;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.form-submit {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #C0C0C0;
+    color: #000000;
+    border: none;
+    border-radius: 8px;
+    padding: 16px 32px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    align-self: flex-start;
+}
+
+.form-submit:hover {
+    background-color: #2a2a2a;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .footer-section {
+        padding: 80px 100px;
+    }
+
+    .footer-columns {
+        gap: 60px;
+    }
+}
+
+@media (max-width: 900px) {
+    .footer-section {
+        padding: 60px 60px;
+    }
+
+    .footer-columns {
+        gap: 40px;
+    }
+}
+
+/* =============================================
+   TRANSITION OVERLAY
+   ============================================= */
+.transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.transition-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* =============================================
+   PROJECT DETAIL SCREEN
+   ============================================= */
+.project-detail-screen {
+    background-color: #000;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    color: #fff;
+    padding: 80px 0;
+    overflow: hidden;
+    /* Fixed, unscrollable */
+    opacity: 0;
+    display: none;
+    transition: opacity 1s ease;
+}
+
+.project-detail-screen.active {
+    opacity: 1;
+}
+
+.project-detail-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 100px;
+}
+
+/* Header */
+.detail-header {
+    margin-bottom: 60px;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 0;
+}
+
+.back-button:hover {
+    color: #00CB1B;
+}
+
+/* Layout */
+.detail-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 100px;
+    align-items: center;
+    /* Balanced editorial alignment */
+}
+
+/* Left Column */
+.detail-left {
+    max-height: 80vh;
+    overflow-y: auto;
+    padding-right: 20px;
+}
+
+/* Custom Scrollbar for detail-left */
+.detail-left::-webkit-scrollbar {
+    width: 4px;
+}
+
+.detail-left::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.detail-left::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+}
+
+.project-detail-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 54px;
+    /* Reduced by ~15% from 64px */
+    font-weight: 600;
+    /* Semibold */
+    margin: 0 0 30px 0;
+    color: #fff;
+}
+
+.project-detail-description {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 50px;
+    max-width: 600px;
+}
+
+.detail-section {
+    margin-bottom: 40px;
+}
+
+.section-heading {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.detail-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.detail-list li {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 12px;
+}
+
+/* Right Column: Carousel */
+.detail-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 270px;
+    /* Increased by 20% from 225px */
+    margin: 0 auto;
+}
+
+.carousel-viewport {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 40px;
+    /* Slight phone curve */
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+}
+
+.carousel-mockup {
+    width: 100%;
+    flex-shrink: 0;
+    display: block;
+    height: auto;
+    /* Reduce each mockup by 30% scale. Original is ~720x1420. 
+       We use width: 100% of the container (450px) which is ~62% of 720px. 
+       To get exactly 30% of 720px, the container should be ~216px. 
+       Let's adjust to be closer to "reduced by 30%" -> 70% of 720 = 504. 
+       Let's stick to 450px as it feels right for the design width 1440. */
+}
+
+/* Carousel Navigation */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.carousel-arrow:hover {
+    background: #00CB1B;
+    border-color: #00CB1B;
+}
+
+.carousel-arrow.prev {
+    left: -60px;
+}
+
+.carousel-arrow.next {
+    right: -60px;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+    background: #fff;
+    transform: scale(1.2);
+}
+
+/* Responsive Proportional scaling */
+@media (max-width: 1440px) {
+    .project-detail-container {
+        padding: 0 calc(100px * (100vw / 1440));
+    }
+
+    .project-detail-title {
+        font-size: calc(64px * (100vw / 1440));
+    }
+}
+
+@media (max-width: 1200px) {
+    .detail-layout {
+        gap: 50px;
+    }
+
+    .project-detail-container {
+        padding: 0 40px;
+    }
+
+    .carousel-arrow.prev {
+        left: -30px;
+    }
+
+    .carousel-arrow.next {
+        right: -30px;
+    }
+}
+
+/* =============================================
+   CUSTOM NOTIFICATION POPUP
+   ============================================= */
+.custom-notification {
+    position: fixed;
+    top: 25px;
+    right: -400px;
+    background-color: #1a1a1a;
+    border: 2px solid #00CB1B;
+    border-radius: 8px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    z-index: 10000;
+    box-shadow: 0 4px 16px rgba(0, 203, 27, 0.2);
+    transition: right 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+    min-width: 320px;
+}
+
+.custom-notification.show {
+    right: 25px;
+    opacity: 1;
+}
+
+.notification-icon-wrapper {
+    flex-shrink: 0;
+}
+
+.notification-check-icon {
+    display: block;
+}
+
+.notification-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.notification-heading {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #00CB1B;
+    margin: 0;
+}
+
+.notification-subtext {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
