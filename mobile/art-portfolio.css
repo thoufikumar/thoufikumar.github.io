@@ -1,0 +1,111 @@
+/* =============================================
+   MOBILE ART PORTFOLIO STYLES
+   ============================================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+    background: #000;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+.page-container {
+    max-width: 390px;
+    margin: 0 auto;
+    padding: 24px 16px 60px;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+/* Header Section */
+.art-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.back-button:hover {
+    color: #fff;
+    transform: translateX(-4px);
+}
+
+.back-button svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2.5;
+}
+
+.hero-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    width: 100%;
+}
+
+.gallery-card {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    background: #1a1a1a;
+    /* Placeholder bg */
+}
+
+.gallery-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Featured Works */
+.gallery-card.featured {
+    grid-column: span 2;
+}
+
+/* Interactive States */
+.gallery-card:active {
+    transform: scale(0.98);
+    transition: 0.2s ease;
+}
+
+/* Footer Section */
+.gallery-footer {
+    margin-top: 60px;
+    text-align: center;
+    color: #777;
+    font-size: 12px;
+    padding-bottom: 20px;
+}
+
+.gallery-footer p {
+    margin: 4px 0;
+}

@@ -47,6 +47,8 @@ body {
     align-items: center;
     justify-content: flex-start;
     overflow: hidden;
+    padding-left: 122px;
+    padding-right: 122px;
 }
 
 /* =============================================
@@ -66,7 +68,7 @@ body {
 /* Primary Name Text */
 .hero-name {
     font-family: 'Designer', 'Inter', sans-serif;
-    font-size: clamp(95px, 13.5vw, 195px);
+    font-size: clamp(136.8px, 19.44vw, 280.8px);
     font-weight: 900;
     font-style: italic;
     letter-spacing: 0.03em;
@@ -74,7 +76,7 @@ body {
     text-align: center;
     line-height: 0.9;
     white-space: nowrap;
-    width: 100vw;
+    width: 100%;
     max-width: none;
     /* Warm orange gradient matching design */
     background: linear-gradient(180deg, #FF8C00 0%, #FF6B00 100%);
@@ -95,7 +97,7 @@ body {
 
 /* Philosophy Text - Left Node */
 .philosophy-left {
-    font-size: clamp(18px, 1.5vw, 24px);
+    font-size: clamp(18.9px, 1.575vw, 25.2px);
     font-weight: 400;
     color: #2a2a2a;
     letter-spacing: -0.01em;
@@ -103,10 +105,11 @@ body {
 
 /* Philosophy Text - Right Node */
 .philosophy-right {
-    font-size: clamp(18px, 1.5vw, 24px);
+    font-size: clamp(18.9px, 1.575vw, 25.2px);
     font-weight: 400;
     color: #2a2a2a;
     letter-spacing: -0.01em;
+    transform: translateX(45px);
 }
 
 .philosophy-right strong {
@@ -222,7 +225,7 @@ body {
 .about {
     width: 100%;
     min-height: 100vh;
-    padding: 80px 60px;
+    padding: 80px 122px;
     background-color: #ffffff;
 }
 
@@ -239,14 +242,14 @@ body {
    COLLAPSED STATE - CARD STYLING
    ============================================= */
 .about-card {
-    width: 299px;
+    width: 344px;
     height: 638px;
     position: relative;
     background: #ffffff;
     border-radius: 0;
     overflow: hidden;
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
-    box-shadow: -4px 0px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: -4px 10px 25px rgba(0, 0, 0, 0.1);
     flex-shrink: 0;
 }
 
@@ -506,7 +509,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 80px 120px;
+    padding: 80px 122px 0;
+    /* Removed 80px bottom padding to tighten the gap */
+    margin-top: -250px;
     overflow: hidden;
 }
 
@@ -575,9 +580,9 @@ body {
 /* Divider with Line */
 .nav-gate-divider {
     position: relative;
-    width: calc(100% + 240px);
-    margin-left: -120px;
-    margin-right: -120px;
+    width: calc(100% + 244px);
+    margin-left: -122px;
+    margin-right: -122px;
     padding: 0 16px;
     display: flex;
     justify-content: center;
@@ -588,8 +593,8 @@ body {
 
 .nav-gate-divider-line {
     position: absolute;
-    left: 151px;
-    right: 151px;
+    left: 258px;
+    right: 258px;
     top: 50%;
     height: 0.5px;
     background-color: #c0c0c0;
@@ -615,12 +620,12 @@ body {
 /* Projects - Bottom Right Position */
 .nav-gate-projects {
     align-self: flex-end;
-    margin-right: 48px;
+    margin-right: 123px;
 }
 
 /* Case Studies - Position adjustment */
 .nav-gate-case-studies {
-    margin-left: 48px;
+    margin-left: 103px;
 }
 
 /* =============================================
@@ -633,7 +638,8 @@ body {
     height: 100vh;
     max-height: 100vh;
     background-color: #ffffff;
-    padding: 20px 80px 40px;
+    padding: 20px 147px 40px;
+    /* Increased horizontal padding by 25px per side */
     opacity: 0;
     overflow: hidden;
     transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -976,8 +982,8 @@ body {
 
 .preview-header {
     font-family: 'Manrope', sans-serif;
-    font-size: clamp(21.6px, 2.7vw, 28.8px);
-    /* Reduced 10% from 24px-32px */
+    font-size: clamp(31.3px, 3.86vw, 41.7px);
+    /* Increased by another 5% from clamp(29.8px, 3.68vw, 39.7px) */
     font-weight: 700;
     letter-spacing: -0.02em;
     color: #1a1a1a;
@@ -997,7 +1003,8 @@ body {
 
 /* Project Identity */
 .preview-identity {
-    max-width: 1300px;
+    max-width: none;
+    /* Expanded to allow one-line flow */
     margin: 0 0 24px 0;
     padding-left: 50px;
     /* Additional Padding */
@@ -1007,7 +1014,8 @@ body {
 
 .preview-project-name {
     font-family: 'Manrope', sans-serif;
-    font-size: clamp(24px, 3vw, 32px);
+    font-size: clamp(29px, 3.6vw, 38.6px);
+    /* Increased by another 5% from clamp(27.6px, 3.45vw, 36.8px) */
     font-weight: 700;
     color: #1a1a1a;
     margin: 0 0 4px 0;
@@ -1015,7 +1023,8 @@ body {
 
 .preview-descriptor {
     font-family: 'Manrope', sans-serif;
-    font-size: 16px;
+    font-size: 19.3px;
+    /* Increased by another 5% from 18.4px */
     font-weight: 400;
     color: #666666;
     margin: 0;
@@ -1023,7 +1032,8 @@ body {
 
 /* Content Sections */
 .preview-section {
-    max-width: 1300px;
+    max-width: none;
+    /* Expanded to allow one-line flow */
     margin: 0 0 20px 0;
     padding-left: 50px;
     /* Additional Padding */
@@ -1032,7 +1042,8 @@ body {
 
 .preview-section-title {
     font-family: 'Manrope', sans-serif;
-    font-size: 14px;
+    font-size: 16.9px;
+    /* Increased by another 5% from 16.1px */
     font-weight: 600;
     color: #888888;
     margin: 0 0 8px 0;
@@ -1042,7 +1053,8 @@ body {
 
 .preview-section-content {
     font-family: 'Manrope', sans-serif;
-    font-size: 15px;
+    font-size: 18.1px;
+    /* Increased by another 5% from 17.25px */
     font-weight: 400;
     color: #4a4a4a;
     line-height: 1.6;
@@ -1052,7 +1064,8 @@ body {
 /* Bullet List */
 .preview-list {
     font-family: 'Manrope', sans-serif;
-    font-size: 15px;
+    font-size: 18.1px;
+    /* Increased by another 5% from 17.25px */
     font-weight: 400;
     color: #4a4a4a;
     line-height: 1.6;
@@ -1215,49 +1228,56 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: auto;
-    /* Allow preview-header-bar padding to define height */
-    background-color: #ffffff;
+    height: 80px;
+    /* Standardize height */
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    /* Safari support */
     z-index: 1000;
-    border-bottom: 1px solid #f0f0f0;
-    transform: none;
-    padding: 20px 40px !important;
-    /* Allow full width */
-    max-width: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Specific Fix for Full Case Study View (Prevents wrapping) */
-.cs-fixed-header .preview-header {
-    white-space: nowrap;
-    /* Prevent title from breaking into multiple lines */
-    padding-left: 0;
-    /* Reset extra padding since container is full width */
-    text-align: center;
-}
-
-/* Match list view centering by keeping flex: 1 on header */
-.cs-fixed-header .preview-header {
-    flex: 1;
-    text-align: center;
-    padding-left: 25px;
-    /* Adjusted to 25px (20px + 5px) as requested */
-}
-
-/* Nav on right, balanced by back button on left */
 .cs-fixed-header .cs-progress-nav {
-    margin-right: 40px;
+    margin: 0;
     z-index: 21;
+}
+
+.cs-fixed-header .preview-header {
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #000000;
+    margin: 0;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
 }
 
 .cs-header-back-btn {
-    margin-left: 25px;
-    /* Reduced by 15px from 40px */
+    margin: 0;
     z-index: 21;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
 }
 
 .cs-header-title {
     font-family: 'Manrope', sans-serif;
-    font-size: 32px;
+    font-size: 38px;
     font-weight: 500;
     color: #000000;
     margin: 0 0 16px 0;
@@ -1266,17 +1286,16 @@ body {
 
 .cs-progress-nav {
     display: flex;
-    gap: 0;
-    background-color: #ffffff;
+    gap: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
     padding: 4px;
     border-radius: 30px;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .cs-progress-link {
     font-family: 'Manrope', sans-serif;
-    font-size: 14px;
+    font-size: 17px;
     /* Smaller, cleaner */
     font-weight: 500;
     color: #666666;
@@ -1297,7 +1316,7 @@ body {
     padding-top: 130px;
     /* Reduced by additional 30% from 180px */
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     /* Tighter width for editorial feel */
     margin: 0 auto;
     padding-left: 60px;
@@ -1322,30 +1341,27 @@ body {
 
 .cs-project-title {
     font-family: 'Manrope', sans-serif;
-    font-size: 50px;
-    font-weight: 600;
+    font-size: 52px;
+    font-weight: 700;
     color: #000000;
     margin: 0 0 12px 0;
-    /* Tighter spacing */
+    line-height: 1.2;
 }
 
 .cs-project-subtitle {
     font-family: 'Manrope', sans-serif;
-    font-size: 28px;
-    /* Reduced from 35px */
-    font-weight: 600;
+    font-size: 52px;
+    font-weight: 700;
     color: #000000;
     margin: 0 0 12px 0;
-    /* Tighter spacing */
+    line-height: 1.2;
 }
 
 .cs-project-desc {
     font-family: 'Manrope', sans-serif;
-    font-size: 16px;
-    /* Standardized to matching usability testing */
+    font-size: 18px;
     font-weight: 400;
-    /* Standardized */
-    color: rgba(0, 0, 0, 0.6);
+    color: #555555;
     margin: 0;
     max-width: 700px;
     line-height: 1.6;
@@ -1366,12 +1382,11 @@ body {
 
 .cs-meta-list li {
     font-family: 'Manrope', sans-serif;
-    font-size: 20px;
-    /* Reduced size */
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.6);
+    font-size: 18px;
+    font-weight: 400;
+    color: #555555;
     margin-bottom: 6px;
-    line-height: 1.4;
+    line-height: 1.6;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -1400,19 +1415,16 @@ body {
     font-family: 'Manrope', sans-serif;
     font-size: 24px;
     font-weight: 600;
-    /* Standardized to 600 weight */
-    color: #000000;
+    color: #111111;
     margin: 0 0 16px 0;
-    letter-spacing: -1px;
+    line-height: 1.3;
 }
 
 .cs-body-text {
     font-family: 'Manrope', sans-serif;
-    font-size: 16px;
-    /* Standardized to matching usability testing */
+    font-size: 18px;
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.6);
-    /* Standardized softness */
+    color: #555555;
     line-height: 1.6;
     margin: 0;
 }
@@ -1422,64 +1434,58 @@ body {
    ============================================= */
 .cs-split-block {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* Vertically centered */
+    justify-content: flex-start;
+    align-items: flex-start;
     gap: 40px;
     margin-bottom: 60px;
     width: 100%;
-    max-width: 1100px;
+    max-width: 1220px;
+    /* Matched to uber-existing-frame width */
 }
 
 .cs-split-content {
     flex: 1;
-    max-width: 600px;
-}
-
-.cs-split-visual {
-    flex: 0 0 350px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.cs-split-visual img {
-    width: 100%;
-    max-width: 300px;
-    /* Fixed size assumption */
-    height: auto;
-    border-radius: 24px;
-    /* Rounded corners */
-    object-fit: contain;
+    max-width: none;
+    /* Allow content to span the wider container */
 }
 
 .cs-split-list {
-    list-style-type: disc;
-    padding-left: 24px;
+    list-style: none;
+    /* Using custom bullets like in reference */
+    padding: 0;
     margin: 0;
 }
 
 .cs-split-list li {
+    display: flex;
+    align-items: flex-start;
     font-family: 'Manrope', sans-serif;
-    font-weight: 600;
-    /* Semibold */
-    font-size: 17px;
-    /* Reduced by 15% from 20px */
-    color: rgba(0, 0, 0, 0.6);
-    /* 60% opacity */
+    font-size: 18px;
     line-height: 1.6;
-    /* Relaxed */
-    margin-bottom: 12px;
+    margin-bottom: 24px;
 }
 
-.cs-split-list li span {
+.cs-split-list li::before {
+    content: "•";
+    margin-right: 15px;
+    font-size: 18px;
+    color: #555555;
+    margin-top: 4px;
+    font-weight: bold;
+}
+
+.cs-split-item-title {
+    font-weight: 600;
+    color: #111111;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.cs-split-item-desc {
     font-weight: 400;
-    /* Regular */
+    color: #555555;
 }
 
-.cs-split-list li::marker {
-    color: rgba(0, 0, 0, 0.6);
-}
 
 /* =============================================
    EXISTING APPROACHES - Data Viz
@@ -1510,10 +1516,11 @@ body {
 
 .cs-stats-subheading {
     font-family: 'Manrope', sans-serif;
-    font-size: 20px;
-    font-weight: 500;
-    color: rgba(0, 0, 0, 0.8);
+    font-size: 24px;
+    font-weight: 600;
+    color: #111111;
     margin: 0 0 32px 0;
+    line-height: 1.3;
 }
 
 /* Horizontal Bars */
@@ -1523,11 +1530,12 @@ body {
 
 .cs-bar-label {
     font-family: 'Manrope', sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.7);
+    color: #555555;
     margin-bottom: 8px;
     display: block;
+    line-height: 1.6;
 }
 
 .cs-bar-wrapper {
@@ -1556,12 +1564,11 @@ body {
 
 .cs-bar-value {
     font-family: 'Manrope', sans-serif;
-    font-size: 13px;
-    /* 12-14px range */
+    font-size: 18px;
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.6);
+    color: #555555;
     min-width: 30px;
-    /* Prevent jitter */
+    line-height: 1.6;
 }
 
 /* Circular Chart */
@@ -1615,10 +1622,9 @@ body {
 .cs-circle-percentage {
     display: block;
     font-family: 'Manrope', sans-serif;
-    font-size: 42px;
-    /* Increased from 32px */
+    font-size: 24px;
     font-weight: 600;
-    color: #000000;
+    color: #111111;
     line-height: 1;
     margin-bottom: 4px;
 }
@@ -1626,14 +1632,11 @@ body {
 .cs-circle-label {
     display: block;
     font-family: 'Manrope', sans-serif;
-    font-size: 12px;
-    /* Explicit 12px */
+    font-size: 18px;
     font-weight: 400;
-    /* Regular */
-    color: rgba(0, 0, 0, 0.6);
-    /* Implicit 60% opacity based on gray color used before, or explicit? User said "color #0000..." for BARS. For circle, just "manrope, regular, size of 12px". I'll use soft black. */
+    color: #555555;
     white-space: normal;
-    /* Allow wrap if needed, though short */
+    line-height: 1.6;
 }
 
 /* Legend */
@@ -1670,14 +1673,10 @@ body {
    IDEATION & PROCESS
    ============================================= */
 #cs-process {
-    margin-top: -170px;
-    /* Moved up 200px from 30px */
+    margin-top: 40px;
+    /* Adjusted from -170px to fix overlap after container nesting */
 }
 
-#cs-process .cs-section-heading {
-    padding-left: 213px;
-    /* 193px + 20px */
-}
 
 .cs-process-cols {
     display: grid;
@@ -1689,17 +1688,16 @@ body {
     width: 100%;
     align-items: center;
     /* Vertically align columns */
-    padding-left: 213px;
-    /* 223px - 10px */
+    padding-left: 0;
 }
 
 .cs-process-subheading {
     font-family: 'Manrope', sans-serif;
-    font-size: 20px;
-    font-weight: 500;
-    color: rgba(0, 0, 0, 0.8);
+    font-size: 24px;
+    font-weight: 600;
+    color: #111111;
     margin: 0 0 24px 0;
-    letter-spacing: -0.01em;
+    line-height: 1.3;
 }
 
 .cs-process-list {
@@ -1711,35 +1709,27 @@ body {
 
 .cs-process-list li {
     font-family: 'Manrope', sans-serif;
-    font-size: 17px;
-    /* Reduced by 15% from 20px */
+    font-size: 18px;
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.6);
-    line-height: 1.7;
+    color: #555555;
+    line-height: 1.6;
     margin-bottom: 12px;
     display: flex;
     align-items: flex-start;
     gap: 12px;
     position: relative;
     white-space: nowrap;
-    /* Prevent wrapping */
 }
 
 .cs-process-list li::before {
     content: '○';
-    /* Hollow circle bullet */
     font-size: 16px;
-    line-height: 1.7;
-    color: rgba(0, 0, 0, 0.6);
+    line-height: 1.6;
+    color: #555555;
     flex-shrink: 0;
 }
 
-@media (max-width: 768px) {
-    .cs-process-cols {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-}
+
 
 /* =============================================
    DESIGN EXECUTION
@@ -1756,40 +1746,35 @@ body {
     margin-right: auto;
 }
 
-#cs-design .cs-section-heading {
-    margin-left: 165px;
+#cs-design .cs-section-heading,
+#uber-design .cs-section-heading {
+    margin-left: 0;
     font-size: 24px;
-    font-weight: 500;
-    letter-spacing: -1px;
-    color: #000000;
+    font-weight: 600;
+    color: #111111;
     margin-bottom: 24px;
+    line-height: 1.3;
 }
 
 .cs-execution-subtext {
-    margin-left: 165px;
+    margin-left: 0;
     font-family: 'Manrope', sans-serif;
     font-size: 18px;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.6);
+    font-weight: 400;
+    color: #555555;
     margin-bottom: 28px;
-    /* Further reduced by 30% from 40px */
+    line-height: 1.6;
 }
 
-#cs-validation {
-    margin-top: -60px;
-    /* Adjusted from -75px to move 15px downward */
-    padding-top: 18px;
-    /* Further reduced by 30% from 26px */
-    padding-left: 218px;
-    width: 100%;
-}
-
+#cs-validation,
 #uber-validation {
     margin-top: -60px;
-    /* Adjusted from -75px to move 15px downward */
     padding-top: 18px;
-    padding-left: 218px;
+    padding-left: 0;
     width: 100%;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cs-usability-group {
@@ -1801,38 +1786,101 @@ body {
     font-family: 'Manrope', sans-serif;
     font-size: 24px;
     font-weight: 600;
-    /* Standardized to 600 */
-    letter-spacing: -1px;
-    color: #000000;
+    color: #111111;
     padding-bottom: 20px;
     margin: 0;
     text-align: left;
+    line-height: 1.3;
 }
 
 .cs-usability-question {
     font-family: 'Manrope', sans-serif;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 600;
-    color: rgba(0, 0, 0, 1.0);
-    /* Changed from 0.6 to 100% opacity */
+    color: #111111;
     padding-bottom: 5px;
-    /* Reduced from 15 to make room for description */
     margin: 0;
     text-align: left;
+    line-height: 1.3;
 }
 
 .cs-usability-description {
     padding-left: 30px;
-    /* Additional left padding */
+    padding-right: 122px;
     font-family: 'Manrope', sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.6);
-    /* Description usually has lower emphasis */
+    color: #555555;
     margin: 0;
     text-align: left;
     padding-bottom: 5px;
-    /* Reduced to 5px as per request */
+    width: 100%;
+    max-width: none;
+    line-height: 1.6;
+}
+
+/* BLOCK 10.5: FACULTY FEATURES */
+.cs-faculty-section {
+    padding: 80px 0;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.cs-faculty-grid {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 0;
+    margin-top: 60px;
+    padding-bottom: 40px;
+}
+
+.cs-faculty-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 255px;
+    /* Reduced by 15% from 300px */
+}
+
+.cs-faculty-mockup {
+    width: 100%;
+    height: auto;
+    border-radius: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.cs-faculty-item.left {
+    transform: translateX(51px) rotate(-8deg);
+    /* Reduced by 15% from 60px */
+    z-index: 1;
+}
+
+.cs-faculty-item.center {
+    transform: scale(1.1);
+    z-index: 2;
+}
+
+.cs-faculty-item.right {
+    transform: translateX(-51px) rotate(8deg);
+    /* Reduced by 15% from -60px */
+    z-index: 1;
+}
+
+.cs-faculty-label {
+    margin-top: 30px;
+    background: #FFFFFF;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #111111;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    white-space: nowrap;
 }
 
 /* BLOCK 12: FINAL OUTCOME */
@@ -1846,20 +1894,21 @@ body {
 }
 
 .cs-outcome-container {
-    max-width: 960px;
-    margin-left: 198px;
-    /* 168px + 30px additional padding */
+    max-width: 1440px;
+    margin: 0 auto;
     text-align: left;
+    padding-bottom: 48px;
+    /* Reduced by 40% from 80px */
 }
 
 .cs-outcome-title {
     font-family: 'Manrope', sans-serif;
     font-size: 24px;
     font-weight: 600;
-    color: #000000;
-    letter-spacing: -1px;
+    color: #111111;
     padding-top: 60px;
     margin: 0;
+    line-height: 1.3;
 }
 
 .cs-outcome-bullets {
@@ -1875,21 +1924,19 @@ body {
 
 .cs-outcome-bullets li {
     font-family: 'Manrope', sans-serif;
-    font-size: 16.8px;
-    /* Increased by 5% from 16px */
+    font-size: 18px;
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.6);
-    letter-spacing: -0.9px;
-    /* Increased by 0.5% from -1px */
+    color: #555555;
     position: relative;
     padding-left: 1.25em;
+    line-height: 1.6;
 }
 
 .cs-outcome-bullets li::before {
     content: "•";
     position: absolute;
     left: 0;
-    color: rgba(0, 0, 0, 0.6);
+    color: #555555;
 }
 
 .cs-cta-row {
@@ -1901,11 +1948,11 @@ body {
 
 .cs-cta-text {
     font-family: 'Manrope', sans-serif;
-    font-size: 28px;
-    font-weight: 600;
+    font-size: 52px;
+    font-weight: 700;
     color: #000000;
-    letter-spacing: -1px;
     margin: 0;
+    line-height: 1.2;
 }
 
 .cs-cta-button {
@@ -1947,7 +1994,8 @@ body {
     justify-content: space-between;
     /* Equal spacing */
     align-items: center;
-    gap: 40px;
+    gap: 44px;
+    /* Increased by 10% from 40px */
     padding-top: 20px;
 }
 
@@ -1981,12 +2029,13 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 40px;
-    /* Same gap    width: 100%; */
+    gap: 44px;
+    /* Increased by 10% from 40px */
     position: relative;
     overflow: hidden;
     /* Lock scroll explicitly */
-    padding-top: 110px;
+    padding-top: 95px;
+    /* Moved 15px above from 110px */
     margin-bottom: 60px;
 }
 
@@ -2004,7 +2053,7 @@ body {
     height: 40px;
     border-radius: 50%;
     background-color: #FFFFFF;
-    border: 2px solid #E6E6E6;
+    border: 2px solid #D9D9D9;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2017,10 +2066,11 @@ body {
 
 .cs-timeline-track-horz {
     position: absolute;
-    top: 59px;
-    /* Centered relative to node height (40px) + padding-top (40px). Center = 40+20=60. 2px height -> 59px. */
-    left: 0;
-    right: 0;
+    top: 115px;
+    /* Adjusted for 95px padding (95+20) */
+    left: 10%;
+    right: 10%;
+    /* Shortened by 20% (centered) */
     height: 2px;
     background-color: #E6E6E6;
     z-index: 0;
@@ -2033,8 +2083,8 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 40px;
-    /* Same gap */
+    gap: 44px;
+    /* Increased by 10% from 40px */
     margin-bottom: 80px;
 }
 
@@ -2054,58 +2104,293 @@ body {
     /* Keep text left aligned inside the block */
 }
 
+/* SMARTMEET DESIGN EXECUTION LABELS (20% INCREASE) */
 .cs-exec-label {
     font-family: 'Manrope', sans-serif;
     font-size: 24px;
     font-weight: 600;
-    /* Semibold */
-    color: #000000;
-    letter-spacing: -1px;
+    color: #111111;
     margin: 0;
     text-align: left;
-    /* Left align */
-}
-
-.cs-label-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    /* Left align flex items */
+    line-height: 1.3;
 }
 
 .cs-exec-sublabel {
     font-family: 'Manrope', sans-serif;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 600;
-    /* Semibold */
-    color: #000000;
-    opacity: 0.6;
+    color: #111111;
     margin: 0;
     padding-top: 15px;
-    /* User request */
     text-align: left;
-    /* Left align */
+    line-height: 1.3;
 }
 
 .cs-exec-step-bullets {
     padding: 0;
     margin: 15px 0 0 0;
-    list-style: none;
+    list-style: disc;
+    padding-left: 20px;
     text-align: left;
-    /* Left align */
 }
 
 .cs-exec-step-bullets li {
     font-family: 'Manrope', sans-serif;
-    font-size: 16px;
-    /* Reduced to 16px */
+    font-size: 18px;
     font-weight: 400;
-    /* Regular */
-    color: #000000;
-    opacity: 0.6;
-    /* Added 60% opacity */
+    color: #555555;
     margin-bottom: 8px;
+    line-height: 1.6;
 }
+
+
+/* ACADCOMP EXISTING APPROACHES CUSTOM SECTION */
+.uber-existing-frame {
+    width: 100%;
+    margin: 80px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.uber-existing-frame .cs-section-heading {
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.uber-existing-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.uber-existing-item {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    font-family: 'Manrope', sans-serif;
+    line-height: 1.6;
+}
+
+.uber-existing-item::before {
+    content: "•";
+    margin-right: 15px;
+    font-size: 18px;
+    color: #555555;
+    margin-top: 4px;
+    font-weight: bold;
+}
+
+.uber-item-title {
+    font-weight: 600;
+    font-size: 18px;
+    color: #111111;
+    margin-right: 8px;
+    flex-shrink: 0;
+    text-align: left;
+}
+
+.uber-item-desc {
+    font-weight: 400;
+    font-size: 18px;
+    color: #555555;
+    text-align: left;
+}
+
+/* DESIGN EXECUTION - Vertical Storyteller Flow */
+.cs-vertical-flow {
+    position: relative;
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 40px 0;
+}
+
+.cs-vertical-connector {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: repeating-linear-gradient(to bottom,
+            #E6E6E6,
+            #E6E6E6 10px,
+            transparent 10px,
+            transparent 20px);
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.cs-step-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 120px;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.cs-step-row.cs-step-reverse {
+    flex-direction: row-reverse;
+}
+
+.cs-step-mockup {
+    flex: 0 0 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cs-step-mockup img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 32px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease;
+}
+
+.cs-step-mockup:hover img {
+    transform: translateY(-10px);
+}
+
+.cs-mockup-dual {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+}
+
+.cs-mockup-dual img {
+    max-width: 180px;
+}
+
+.cs-step-content {
+    flex: 0 0 45%;
+    padding: 0 20px;
+}
+
+.cs-step-number {
+    width: 40px;
+    height: 40px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 20px;
+    border: 4px solid #fff;
+    box-shadow: 0 0 0 2px #E6E6E6;
+}
+
+/* Specific Node Positioning Alignment */
+.cs-step-row .cs-step-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.cs-step-row:nth-child(even) .cs-step-content {
+    align-items: flex-end;
+    text-align: right;
+}
+
+.cs-step-row:nth-child(even) .cs-step-bullets {
+    padding-left: 0;
+    padding-right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.cs-step-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #111111;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.cs-step-subtitle {
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #111111;
+    margin-bottom: 16px;
+    line-height: 1.3;
+}
+
+.cs-step-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cs-step-bullets li {
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #555555;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+.cs-step-bullets li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #555555;
+}
+
+.cs-step-row:nth-child(even) .cs-step-bullets li {
+    padding-left: 0;
+    padding-right: 20px;
+}
+
+.cs-step-row:nth-child(even) .cs-step-bullets li::before {
+    left: auto;
+    right: 0;
+}
+
+/* Header Tweaks */
+.cs-header-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.cs-fixed-header .preview-header {
+    margin: 0;
+    padding: 0;
+}
+
+/* Usability Tweaks */
+.cs-usability-group ul {
+    list-style: none;
+    padding-left: 30px;
+}
+
+.cs-usability-group ul li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.cs-usability-group ul li::before {
+    content: "→";
+    position: absolute;
+    left: -20px;
+    color: #000;
+}
+
 
 /* Specific Node Positioning - Calculated to align with Mockup Centers
    Mockup approx height is ~600-800px depending on scaling. 
@@ -2195,7 +2480,7 @@ body {
 
 .cs-exec-title {
     font-family: 'Manrope', sans-serif;
-    font-size: 35px;
+    font-size: 42px;
     font-weight: 600;
     /* Semibold */
     color: #1a1a1a;
@@ -2206,7 +2491,7 @@ body {
 
 .cs-exec-subtitle {
     font-family: 'Manrope', sans-serif;
-    font-size: 30px;
+    font-size: 36px;
     font-weight: 600;
     /* Semibold */
     color: rgba(0, 0, 0, 0.6);
@@ -2222,7 +2507,7 @@ body {
 
 .cs-exec-list li {
     font-family: 'Manrope', sans-serif;
-    font-size: 30px;
+    font-size: 36px;
     font-weight: 400;
     /* Regular */
     color: rgba(0, 0, 0, 0.6);
@@ -2250,53 +2535,7 @@ body {
 }
 
 /* Mobile Responsive */
-@media (max-width: 1024px) {
-    .cs-exec-grid {
-        grid-template-columns: 1fr;
-        gap: 60px;
-    }
 
-    .cs-exec-col-timeline {
-        display: none;
-        /* Hide timeline on tablet/mobile */
-    }
-
-    .cs-exec-col-mockups {
-        display: none;
-        /* Hide separate mockups col, maybe interleave them? */
-        /* User's request was desktop centric. 
-           Mobile usually stacks. 
-           I will hide the complex 3-col and show a simplified stack if needed, 
-           or just let them stack naturally.
-           
-           With current HTML (3 separate cols), stacking them means:
-           All Mockups -> All Timeline -> All Text. 
-           This is bad for mobile reading order.
-           
-           However, I am instructed to "Use a 3-column grid layout".
-           For mobile, I will display: none the timeline 
-           and maybe just let mockups and text stack?
-           
-           Actually, the proper way would be to change HTML to be Item-based grid.
-           But I am stuck with the HTML I just wrote (Col-based).
-           
-           I will simple stack the columns: Mockups first (visuals), then Text.
-        */
-    }
-
-    .cs-exec-col-mockups {
-        display: flex;
-    }
-
-    .cs-exec-col-content {
-        padding-top: 0;
-    }
-
-    .cs-step-block {
-        min-height: auto;
-        margin-bottom: 40px;
-    }
-}
 
 /* =============================================
    MY PROJECTS SCREEN (D-04)
@@ -2305,7 +2544,8 @@ body {
     background-color: #FFFFFF;
     height: 100vh;
     width: 100%;
-    padding: 40px 20px 120px 20px;
+    padding: 40px 147px 120px 147px;
+    /* Increased horizontal padding by 25px per side */
     z-index: 900;
     position: relative;
     overflow: hidden;
@@ -2564,19 +2804,20 @@ body {
 
 .detail-section-title {
     font-family: 'Manrope', sans-serif;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 600;
-    color: #000000;
-    letter-spacing: -1px;
+    color: #111111;
     margin: 0;
+    line-height: 1.3;
 }
 
 .detail-section-subtext {
     font-family: 'Manrope', sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.6);
+    color: #555555;
     margin: 8px 0 0 0;
+    line-height: 1.6;
 }
 
 .detail-cta-btn {
@@ -2926,25 +3167,7 @@ body {
     transition: all 500ms ease-in-out;
 }
 
-@media (max-width: 768px) {
-    .ui-screen-block {
-        flex-direction: column !important;
-        gap: 40px;
-    }
 
-    .ui-screen-image {
-        max-width: 80%;
-    }
-
-    .ui-screen-content {
-        align-items: center !important;
-        text-align: center;
-    }
-
-    .ui-bullets li {
-        justify-content: center;
-    }
-}
 
 /* =============================================
    UI SCREEN HIGHLIGHT BLOCK - LAYERED COMPOSITION
@@ -3115,152 +3338,186 @@ body {
    ============================================= */
 .creative-extensions {
     background-color: #ffffff;
-    padding: 120px 40px 160px 40px;
     width: 100%;
-    margin-top: -100px;
-    /* Moved up 100px as requested */
-}
-
-.ce-section-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 64px;
-    font-weight: 600;
-    color: #000000;
-    text-align: center;
-    margin-bottom: 80px;
-}
-
-.ce-container {
-    max-width: 960px;
-    /* Reduced by 20% from 1200px */
-    margin: 0 auto;
-    display: flex;
-    gap: 40px;
-}
-
-.ce-card {
-    flex: 1;
+    height: auto;
+    /* Allow heights to be determined by content */
+    margin-top: -138px;
+    /* Reduced gap by another 20px (total 100px reduction including padding removal) */
     position: relative;
-    aspect-ratio: 1 / 1;
-    border-radius: 30px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-/* Card Noise Effect */
-.ce-card::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.05;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.ce-card:hover {
-    transform: translateY(-8px);
-}
-
-.ce-museum {
-    background: linear-gradient(135deg, #FFA574 0%, #F9B590 32%, #FF9F6B 100%);
-}
-
-.ce-flutter {
-    background: linear-gradient(135deg, #823EFF 0%, #DDA5FF 100%);
-}
-
-.ce-card-bg {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 80%;
-    height: 80%;
     z-index: 1;
-    opacity: 0.9;
+    /* Stay above background elements */
+    overflow: hidden;
+    padding: 120px 122px 0;
+    /* 120px top padding as requested; 122px matches main layout grid */
 }
 
-.ce-card-bg img {
+.section-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 56px;
+    /* Matched to footer title size */
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 56px;
+    /* Space between title and split cards */
+    text-align: center;
+    /* Center aligned as requested */
+}
+
+.ce-split-container {
+    display: flex;
     width: 100%;
+    height: 580px;
+    /* Fixed height for the cards container */
+    position: relative;
+    z-index: 0;
+}
+
+.ce-split-card {
+    flex: 1;
     height: 100%;
-    object-fit: contain;
-    object-position: bottom right;
+    position: relative;
+    text-decoration: none;
+    transition: filter 0.3s ease;
+    display: flex;
+    padding: 60px;
+    overflow: hidden;
+    /* Each card is now a separate frame */
+}
+
+.ce-split-card:hover {
+    filter: brightness(1.05);
+}
+
+/* Left Card: Museum of Art */
+.ce-split-card.left {
+    background: linear-gradient(135deg, #FFDB94 0%, #FFBD38 100%);
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 30px 0 0 30px;
+}
+
+/* Right Card: My Flutter Interfaces */
+.ce-split-card.right {
+    background: linear-gradient(225deg, #A4B8BC 0%, #6D7D81 100%);
+    justify-content: flex-end;
+    align-items: flex-start;
+    text-align: right;
+    border-radius: 0 30px 30px 0;
 }
 
 .ce-card-content {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
+    height: 100%;
+    width: 100%;
+    z-index: 20;
+    /* Keep text above mockup images */
 }
 
-.ce-card-title {
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-    color: #FFFFFF;
+.ce-split-title {
     margin: 0;
+    max-width: 300px;
 }
 
-.museum-title {
-    font-family: 'Artifika', serif;
+.left .ce-split-title {
+    font-family: 'Italiana', serif;
+    font-size: 84px;
     font-weight: 400;
-    font-size: 69px;
-}
-
-.flutter-title {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 700;
-    font-size: 72px;
-}
-
-.ce-explore-btn {
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    line-height: 1.1;
     color: #FFFFFF;
-    padding: 13.5px 27px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 20px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
 }
 
-.ce-explore-btn:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-    border-color: rgba(255, 255, 255, 0.6);
+.right .ce-split-title {
+    font-family: 'Kode Mono', monospace;
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #000000;
+    text-transform: capitalize;
+    margin-left: auto;
+    /* Align to right with button */
+    text-align: right;
 }
 
-.ce-btn-icon {
-    width: 28px;
-    height: 28px;
-    background: #FFFFFF;
+/* Common Circular Button Style */
+.ce-split-btn {
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #000000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.ce-split-card:hover .ce-split-btn {
+    transform: scale(1.1);
+}
+
+.left .ce-split-btn {
+    background-color: #FFFFFF;
+    color: #FFBD38;
+    align-self: flex-start;
+}
+
+.right .ce-split-btn {
+    background-color: #000000;
+    color: #FFFFFF;
+    align-self: flex-end;
+}
+
+/* Fixed arrow icons to match requested direction (pointing outward) */
+.left .ce-split-btn svg {
+    transform: rotate(0deg);
+    /* Points top-right */
+}
+
+.right .ce-split-btn svg {
+    transform: rotate(270deg);
+    /* Points top-left */
+}
+
+/* Individual Card Mockups */
+.ce-card-mockup {
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.ce-img-art {
+    right: -215px;
+    /* Shifted +10px right (total -215px) */
+    height: 105%;
+    /* Increased size by 5% */
+    bottom: -45px;
+    /* Brought 30px further down (total -45px) */
+    filter: drop-shadow(-20px 20px 40px rgba(0, 0, 0, 0.15));
+}
+
+.ce-img-flutter {
+    left: -200px;
+    /* Shifted 200px left within the right frame */
+    filter: drop-shadow(20px 20px 40px rgba(0, 0, 0, 0.15));
+}
+
+/* Responsive adjustments */
+
+
+
+
 
 /* =============================================
    SECTION 2 — FOOTER (CONTACT CLOSURE)
    ============================================= */
 .site-footer {
     background-color: #ffffff;
-    padding: 80px 40px 120px 40px;
+    padding: 80px 147px 120px 147px;
+    /* Increased horizontal padding by 25px per side */
     text-align: center;
     position: relative;
     /* For pseudo-element positioning */

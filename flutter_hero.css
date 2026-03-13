@@ -178,19 +178,7 @@ body {
 /* =============================================
    RESPONSIVE ADJUSTMENTS
    ============================================= */
-@media (max-width: 768px) {
-    .flutter-hero-title {
-        top: 20vh;
-    }
 
-    .flutter-hero-role {
-        top: auto;
-        bottom: 15vh;
-        right: 50%;
-        transform: translateX(50%);
-        text-align: center;
-    }
-}
 
 /* =============================================
    PASSION SECTION - Built with Passion
@@ -473,54 +461,8 @@ body {
 }
 
 /* Responsive adjustments */
-@media (max-width: 1200px) {
-    .solutions-section {
-        padding: 100px 100px;
-    }
 
-    .solutions-grid {
-        gap: 30px;
-    }
 
-    .solution-card {
-        min-height: 400px;
-        padding: 32px;
-    }
-}
-
-@media (max-width: 900px) {
-    .solutions-section {
-        padding: 80px 60px;
-    }
-
-    .solutions-grid {
-        gap: 24px;
-    }
-
-    .solution-card {
-        min-height: 350px;
-        padding: 28px;
-    }
-}
-
-@media (max-width: 700px) {
-    .solutions-section {
-        padding: 60px 40px;
-    }
-
-    .solutions-grid {
-        gap: 20px;
-    }
-
-    .solution-card {
-        min-height: 300px;
-        padding: 24px;
-    }
-
-    .card-subtitle {
-        max-width: 70%;
-    }
-}
 
 /* =============================================
    FOOTER CONTACT SECTION
@@ -697,25 +639,7 @@ body {
 }
 
 /* Responsive adjustments */
-@media (max-width: 1200px) {
-    .footer-section {
-        padding: 80px 100px;
-    }
 
-
-    .solutions-grid {
-        gap: 20px;
-    }
-
-    .solution-card {
-        min-height: 300px;
-        padding: 24px;
-    }
-
-    .card-subtitle {
-        max-width: 70%;
-    }
-}
 
 /* =============================================
    FOOTER CONTACT SECTION
@@ -892,25 +816,9 @@ body {
 }
 
 /* Responsive adjustments */
-@media (max-width: 1200px) {
-    .footer-section {
-        padding: 80px 100px;
-    }
 
-    .footer-columns {
-        gap: 60px;
-    }
-}
 
-@media (max-width: 900px) {
-    .footer-section {
-        padding: 60px 60px;
-    }
 
-    .footer-columns {
-        gap: 40px;
-    }
-}
 
 /* =============================================
    TRANSITION OVERLAY
@@ -1156,33 +1064,9 @@ body {
 }
 
 /* Responsive Proportional scaling */
-@media (max-width: 1440px) {
-    .project-detail-container {
-        padding: 0 calc(100px * (100vw / 1440));
-    }
 
-    .project-detail-title {
-        font-size: calc(64px * (100vw / 1440));
-    }
-}
 
-@media (max-width: 1200px) {
-    .detail-layout {
-        gap: 50px;
-    }
 
-    .project-detail-container {
-        padding: 0 40px;
-    }
-
-    .carousel-arrow.prev {
-        left: -30px;
-    }
-
-    .carousel-arrow.next {
-        right: -30px;
-    }
-}
 
 /* =============================================
    CUSTOM NOTIFICATION POPUP

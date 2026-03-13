@@ -1,0 +1,287 @@
+/* =============================================
+   MOBILE CASE STUDY STYLES (390px Optimized)
+   ============================================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Italiana&family=Kode+Mono:wght@400;600&display=swap');
+
+:root {
+    --highlight-color: #ff7a18;
+    --text-color: #5a5a5a;
+    --title-color: #222;
+    --meta-color: #6a6a6a;
+    --bg-color: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-color: var(--bg-color);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.case-study-page {
+    max-width: 390px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =============================================
+   HEADER SECTION
+   ============================================= */
+.case-header {
+    margin-bottom: 24px;
+}
+
+.project-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--highlight-color);
+}
+
+.project-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--title-color);
+    line-height: 1.3;
+    margin-top: 8px;
+}
+
+.project-subtitle {
+    font-size: 15px;
+    color: var(--text-color);
+    margin-top: 8px;
+    line-height: 1.5;
+}
+
+.header-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+    color: var(--meta-color);
+    margin-top: 14px;
+    list-style: none;
+}
+
+.header-meta li {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.header-meta li::before {
+    content: none;
+}
+
+/* =============================================
+   CONTENT SECTIONS
+   ============================================= */
+.case-section {
+    margin-top: 32px;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--title-color);
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--title-color);
+    margin: 16px 0 8px;
+}
+
+.section-text {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* =============================================
+   BULLET LISTS
+   ============================================= */
+.case-list {
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+    list-style: none;
+}
+
+.case-list li {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--text-color);
+    position: relative;
+    padding-left: 14px;
+}
+
+.case-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #ccc;
+}
+
+.case-list b {
+    color: var(--title-color);
+    font-weight: 600;
+}
+
+/* =============================================
+   DESIGN EXECUTION SECTION
+   ============================================= */
+.execution-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.execution-block.img-right {
+    flex-direction: row-reverse;
+}
+
+.execution-image {
+    width: 100px;
+    flex-shrink: 0;
+}
+
+.execution-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.execution-text {
+    flex: 1;
+}
+
+.execution-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--title-color);
+    margin-bottom: 4px;
+}
+
+.execution-step {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--title-color);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.execution-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.execution-list li {
+    font-size: 12px;
+    color: var(--text-color);
+    position: relative;
+    padding-left: 14px;
+    line-height: 1.4;
+}
+
+.execution-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #ccc;
+}
+
+/* =============================================
+   OUTCOME SECTION
+   ============================================= */
+.case-outcome {
+    margin-top: 40px;
+    padding-top: 24px;
+}
+
+.outcome-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.outcome-list li {
+    font-size: 13.5px;
+    color: var(--text-color);
+    display: flex;
+    gap: 10px;
+    line-height: 1.5;
+}
+
+.outcome-list li::before {
+    content: '>';
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+/* =============================================
+   MOCKUP GALLERY (Special for AcadComp)
+   ============================================= */
+.mockup-gallery {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-start;
+    margin-top: 24px;
+    overflow-x: auto;
+    padding-bottom: 24px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.mockup-gallery::-webkit-scrollbar {
+    display: none;
+}
+
+.mockup-gallery img {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* =============================================
+   FOOTER SECTION
+   ============================================= */
+.case-end {
+    text-align: center;
+    margin-top: 64px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    padding-bottom: 80px;
+}
+
+/* Back Link */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--meta-color);
+    font-size: 13px;
+    margin-bottom: 24px;
+}

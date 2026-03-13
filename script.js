@@ -161,6 +161,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+
+
     function showProjects() {
         // Fade out
         document.body.style.opacity = '0';
@@ -658,19 +660,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const uberNextBtn = document.getElementById('uber-next-case-study-btn');
-    if (uberNextBtn) {
-        uberNextBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            // Loop back to SmartMeet or go to list
-            const uberFullView = document.getElementById('full-case-study-uber');
-            if (uberFullView) {
-                uberFullView.classList.remove('is-visible');
-                uberFullView.style.display = 'none';
-            }
-            showPreviewScreen('smartmeet-preview');
-        });
-    }
 
     // Refined Scroll Spy & Smooth Scroll (Project Agnostic)
     const allFullViews = document.querySelectorAll('.cs-full-view');
@@ -689,7 +678,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const targetId = link.getAttribute('href').substring(1);
                 const targetSection = view.querySelector(`#${targetId}`);
                 if (targetSection) {
-                    const headerOffset = 180;
+                    const headerOffset = 80; // Standardized header height
                     const elementPosition = targetSection.offsetTop;
                     const offsetPosition = elementPosition - headerOffset;
 
@@ -704,12 +693,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Scroll Spy with Grouping Mapping
         view.addEventListener('scroll', () => {
             let currentSectionId = '';
-            // All sections that can trigger a nav highlight
             const sections = view.querySelectorAll('[id^="cs-"], [id^="uber-"]');
+            const scrollPos = view.scrollTop + 100; // Offset for better detection
 
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                if (view.scrollTop >= (sectionTop - 150)) {
+                if (scrollPos >= sectionTop) {
                     currentSectionId = section.getAttribute('id');
                 }
             });
@@ -719,16 +708,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 // SmartMeet
                 'cs-overview': 'Overview',
                 'cs-problem': 'Problem',
-                'cs-existing-approaches': 'Process', // Grouped
-                'cs-process': 'Process', // Grouped
+                'cs-existing-approaches': 'Problem',
+                'cs-process': 'Process',
                 'cs-design': 'Design',
                 'cs-validation': 'Validation',
                 'cs-outcome': 'Outcome',
-                // Uber
+                // AcadComp
                 'uber-overview': 'Overview',
                 'uber-problem': 'Problem',
-                'uber-existing-approaches': 'Process', // Grouped
-                'uber-process': 'Process', // Grouped
+                'uber-existing-approaches': 'Problem',
+                'uber-process': 'Process',
                 'uber-design': 'Design',
                 'uber-validation': 'Validation',
                 'uber-outcome': 'Outcome'
@@ -738,9 +727,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!targetLabel) return;
 
             links.forEach(link => {
-                link.classList.remove('active');
                 if (link.textContent.trim() === targetLabel) {
                     link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
                 }
             });
         });
@@ -769,9 +759,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     targetView.classList.add('is-visible');
                     document.body.style.opacity = '1';
 
-                    // Trigger Stats Animation ONLY for SmartMeet
-                    if (projectId === 'smartmeet') {
-                        initStatsAnimation();
+                    // Trigger Stats Animation for both
+                    if (projectId === 'smartmeet' || projectId === 'uber') {
+                        initStatsAnimation(projectId);
                     }
                 }, 50);
             }
@@ -781,34 +771,44 @@ document.addEventListener('DOMContentLoaded', () => {
     // =============================================
     // EXISTING APPROACHES - STATS LOGIC
     // =============================================
-    const approachData = {
-        data: [
-            { label: 'Physical visits', value: 50, color: '#FFC44D' },
-            { label: 'Whatsapp / Email', value: 20, color: '#0066FF' },
-            { label: 'Phone Call', value: 20, color: '#4ADE80' },
-            { label: 'Calendar slots', value: 10, color: '#FF8A3D' }
-        ],
-        successRate: 60
+    const projectStatsData = {
+        smartmeet: {
+            data: [
+                { label: 'Physical visits', value: 50, color: '#FFC44D' },
+                { label: 'Whatsapp / Email', value: 20, color: '#0066FF' },
+                { label: 'Phone Call', value: 20, color: '#4ADE80' },
+                { label: 'Calendar slots', value: 10, color: '#FF8A3D' }
+            ],
+            successRate: 60,
+            containers: {
+                bars: 'cs-bars-container',
+                legend: 'cs-legend-container',
+                svg: '.cs-circle-svg',
+                percentage: '.cs-circle-percentage'
+            }
+        }
     };
 
-    function initStatsAnimation() {
-        renderBars();
-        renderLegend();
+    function initStatsAnimation(projectId) {
+        const stats = projectStatsData[projectId];
+        if (!stats) return;
 
-        // Slight delay to ensure DOM is ready and transition triggers
+        renderBars(stats);
+        renderLegend(stats);
+
         setTimeout(() => {
-            animateBars();
-            animateCircle();
+            animateBars(stats);
+            animateCircle(stats);
         }, 300);
     }
 
-    function renderBars() {
-        const container = document.getElementById('cs-bars-container');
+    function renderBars(stats) {
+        const container = document.getElementById(stats.containers.bars);
         if (!container) return;
 
         container.innerHTML = '';
 
-        approachData.data.forEach(item => {
+        stats.data.forEach(item => {
             const row = document.createElement('div');
             row.className = 'cs-bar-row';
 
@@ -825,13 +825,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function renderLegend() {
-        const container = document.getElementById('cs-legend-container');
+    function renderLegend(stats) {
+        const container = document.getElementById(stats.containers.legend);
         if (!container) return;
 
         container.innerHTML = '';
 
-        approachData.data.forEach(item => {
+        stats.data.forEach(item => {
             const itemDiv = document.createElement('div');
             itemDiv.className = 'cs-legend-item';
 
@@ -844,57 +844,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function animateBars() {
-        const bars = document.querySelectorAll('.cs-bar-fill');
+    function animateBars(stats) {
+        const container = document.getElementById(stats.containers.bars);
+        if (!container) return;
+
+        const bars = container.querySelectorAll('.cs-bar-fill');
         bars.forEach(bar => {
             const target = bar.getAttribute('data-target');
             bar.style.width = `${target}%`;
         });
     }
 
-    function animateCircle() {
-        const circle = document.querySelector('.cs-circle-progress');
-        const percentageText = document.querySelector('.cs-circle-percentage');
+    function animateCircle(stats) {
+        const svg = document.querySelector(stats.containers.svg);
+        const percentageText = document.querySelector(stats.containers.percentage);
 
-        if (!circle || !percentageText) return;
+        if (!svg || !percentageText) return;
 
         const radius = 90;
         const circumference = 2 * Math.PI * radius;
-        const targetPercent = approachData.successRate;
+        const targetPercent = stats.successRate;
         const offset = circumference - (targetPercent / 100) * circumference;
-
-        // Reset first
-        circle.style.strokeDasharray = `${circumference} ${circumference}`;
-        circle.style.strokeDashoffset = circumference;
-
-        // Animate stroke
-        // Use timeout to allow transition to take effect from reset
-        requestAnimationFrame(() => {
-            circle.style.strokeDashoffset = offset;
-
-            // Color the stroke based on the gradient desire or just a mix? 
-            // Visual shows multi-color segment but user said "Colors must match" and "Circle animates".
-            // For a simple single progress ring as per prompt "Circular Progress Indicator ... Center Value 60%", 
-            // usually implies one color or a gradient. 
-            // User prompt: "Progress animates from 0 -> 60%".
-            // Legend implies segments but request says "Circular Progress Indicator" (singular).
-            // However, "Color Segments (Legend-driven)" suggests a donut chart style.
-            // Given constraint "Stroke animation", implementing a true multi-segment chart with simple stroke-dashoffset is complex.
-            // I will implement a single stroke color (gradient-like or dominant) for now as a "Success Rate" indicator,
-            // OR, if I must support segments, I'd need multiple circles. 
-            // Re-reading: "Color Segments (Legend-driven)... Legend values (dynamic)... Colors must match the horizontal bars".
-            // This implies the circle should be a Donut Chart representing the breakdown?
-            // BUT, center text is "60% Meets were Successful".
-            // And standard donut charts show distribution (sum = 100%). 
-            // The values 50+20+20+10 = 100%. 
-            // So the chart should logically be the distribution of methods?
-            // But the center says "60% Successful". This is conflicting data visualization logic if the ring is the methods.
-            // Wait, "Right Column... Chances of a Successful Meet... Center Value 60%... Color Segments... Legend values 50, 20, 20, 10".
-            // It's likely the ring segments represent the distribution of methods (totalling 100%), and the HOLE contains the aggregation "60% success".
-            // I will try to support the multi-colored ring if possible, but 
-            // stroke-dasharray animation for MULTIPLE segments is tricky with just one circle.
-            // I will generate MULTIPLE circles for the donut chart effect to be accurate to "Color Segments".
-        });
 
         // Counter animation
         let start = 0;
@@ -904,10 +874,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function update(currentTime) {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
-
-            // Ease out quart
             const ease = 1 - Math.pow(1 - progress, 4);
-
             const currentVal = Math.floor(start + (targetPercent - start) * ease);
             percentageText.textContent = `${currentVal}%`;
 
@@ -917,23 +884,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         requestAnimationFrame(update);
-
-        // Re-implement Circle for Segments if possible
-        renderDonutSegments(circumference);
+        renderDonutSegments(stats, circumference);
     }
 
-    function renderDonutSegments(circumference) {
-        const svg = document.querySelector('.cs-circle-svg');
-        // Remove existing progress circle if we are doing segments, OR repurpose it.
-        // Actually, let's keep the one circle for the "Success Rate" if that was the intent, 
-        // OR build the segments.
-        // Ambiguity: "Circular Progress Indicator ... Center Value 60% ... Color Segments (Legend-driven)".
-        // If I build segments 50/20/20/10, they sum to 100.
-        // If I build one circle for 60%, it's just one circle.
-        // The Prompt says: "Progress animates from 0 -> 60%... Legend values (dynamic): Physical Visits - 50%...".
-        // It is highly likely the user wants a DONUT chart of the breakdown (50/20/20/10)
-        // AND the center text just statically (or animatedly) says "60% Successful" (which might be a separate metric).
-        // I will implement the SEGMENTED donut chart.
+    function renderDonutSegments(stats, circumference) {
+        const svg = document.querySelector(stats.containers.svg);
+        if (!svg) return;
 
         // clear dynamic circles but keep bg
         const existingSegments = svg.querySelectorAll('.cs-segment');
@@ -941,13 +897,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let cumulativePercent = 0;
 
-        // We need to render them stacked. 
-        // Only way to animate 'drawing' them is tricky.
-        // Simplified approach: Render them fixed, but animate the CONTAINER rotation or opacity?
-        // User asked for "Stroke animation using stroke-dasharray".
-        // To do this for segments: calculate dashes.
-
-        approachData.data.forEach(item => {
+        stats.data.forEach(item => {
             const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
             circle.setAttribute("class", "cs-segment");
             circle.setAttribute("cx", "100");
@@ -956,54 +906,20 @@ document.addEventListener('DOMContentLoaded', () => {
             circle.setAttribute("fill", "none");
             circle.setAttribute("stroke", item.color);
             circle.setAttribute("stroke-width", "12");
-            circle.setAttribute("stroke-linecap", "round"); // Rounded ends might look weird on full donut but requested "Rounded ends" was for bars.
+            circle.setAttribute("stroke-linecap", "round");
 
-            // Length of this segment
             const segLength = (item.value / 100) * circumference;
-            // Gap is remaining
             const gapLength = circumference - segLength;
 
-            circle.style.strokeDasharray = `${segLength} ${gapLength}`;
-
-            // Offset to rotate it to position. 
-            // SVG circles start at 3 o'clock. We rotated SVG -90deg so starts 12 o'clock.
-            // Dashoffset moves the start.
-            // We want to accumulate.
-            // CSS rotation is easier for placement.
-
-            // Initial offset for animation (hidden)
-            // It's hard to animate segments growing sequentially without complex timing.
-            // Fallback: Animate a mask OR just animate opacity?
-            // "Progress animates from 0 -> 60%"... this specific line implies the Circle represents the 60%.
-            // I will stick to the SINGLE circle representing 60% for "Success Rate" colored with a gradient or specific color,
-            // because "Legend values" matching "Bar Colors" matching "Color Segments" implies the breakdown.
-
-            // HYBRID: I will make the ring be the MULTI-COLORED segment ring (100% total)
-            // But animate the whole thing revealing?
-            // Let's look at the "Right Column" request again.
-            // "Center Value 60%... Legend values: Physical 50, Whatsapp 20... Rules: Colors must match bars... If values change... both Bars, Circle, Legend update".
-            // Okay, the circle DEFINITELY represents the Distribution (50/20/20/10). 
-            // The "0 -> 60%" animation instruction might be a misunderstanding of the text by the prompt author OR 
-            // they want the "60%" text to count up.
-            // I will generate the SEGMENTS for the breakdown.
-
-            // To animate segments: 
-            // We can set stroke-dasharray to "0 circumference" initially.
-            // Then transition to "segLength gapLength".
-            // BUT we need to rotate them to their correct start positions.
+            circle.style.strokeDasharray = `0 ${circumference}`;
 
             const startAngle = (cumulativePercent / 100) * 360;
             circle.style.transform = `rotate(${startAngle}deg)`;
             circle.style.transformOrigin = "center";
             circle.style.transition = "stroke-dasharray 1.2s ease-out";
 
-            // Initial state
-            circle.style.strokeDasharray = `0 ${circumference}`;
-
-            svg.insertBefore(circle, svg.querySelector('.cs-circle-content')); // insert before text? No context is outside svg.
             svg.appendChild(circle);
 
-            // Trigger animation
             setTimeout(() => {
                 circle.style.strokeDasharray = `${segLength} ${circumference}`;
             }, 100);
@@ -1011,10 +927,9 @@ document.addEventListener('DOMContentLoaded', () => {
             cumulativePercent += item.value;
         });
 
-        // Hide the single progress circle I added in HTML
-        const single = document.querySelector('.cs-circle-progress');
+        // Hide the single progress circle if it exists
+        const single = svg.querySelector('.cs-circle-progress');
         if (single) single.style.display = 'none';
-
     }
 });
 

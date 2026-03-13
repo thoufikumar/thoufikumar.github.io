@@ -1,0 +1,167 @@
+/* =============================================
+   MOBILE PROJECT DETAIL STYLES (390px Optimized)
+   ============================================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+    --highlight-color: #ff7a18;
+    --text-color: #5a5a5a;
+    --title-color: #222;
+    --bg-color: #ffffff;
+}
+
+body.dark-theme {
+    --highlight-color: #00CB1B;
+    /* Neon Green */
+    --text-color: #ffffff;
+    --title-color: #ffffff;
+    --bg-color: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-color: var(--bg-color);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.project-page {
+    max-width: 390px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Back Link */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+/* =============================================
+   HEADER SECTION
+   ============================================= */
+.project-header {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.project-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--highlight-color);
+}
+
+.project-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--title-color);
+    margin-top: 6px;
+    line-height: 1.25;
+}
+
+/* =============================================
+   CONTENT SECTIONS
+   ============================================= */
+.project-section {
+    margin-top: 36px;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--highlight-color);
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.section-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-color);
+    text-align: left;
+}
+
+/* =============================================
+   FLOW BLOCKS SYSTEM
+   ============================================= */
+.flow-block {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 32px;
+}
+
+/* Alternating visual rhythm */
+.flow-block:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Ensure text in even blocks doesn't mirror alignment if padding is needed */
+.flow-block:nth-child(even) .flow-text {
+    text-align: right;
+}
+
+.flow-image {
+    width: 110px;
+    flex-shrink: 0;
+}
+
+.flow-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.flow-text {
+    flex: 1;
+}
+
+.flow-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+}
+
+.flow-list li {
+    font-size: 15px;
+    color: var(--text-color);
+    line-height: 1.4;
+    position: relative;
+    padding-left: 14px;
+}
+
+/* Dot Marker */
+.flow-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--text-color);
+    opacity: 0.5;
+}
+
+/* Mirror Dot on even blocks */
+.flow-block:nth-child(even) .flow-list li {
+    padding-left: 0;
+    padding-right: 14px;
+}
+
+.flow-block:nth-child(even) .flow-list li::before {
+    left: auto;
+    right: 0;
+}

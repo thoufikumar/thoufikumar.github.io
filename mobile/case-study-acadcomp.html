@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcadComp Case Study | Mobile Portfolio</title>
+    <link rel="stylesheet" href="case-study.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Italiana&family=Kode+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <main class="case-study-page">
+        <!-- Back Navigation -->
+        <a href="mobile_index.html" class="back-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            Back to Home
+        </a>
+
+        <!-- Header -->
+        <header class="case-header">
+            <span class="project-name">AcadComp</span>
+            <h1 class="project-title">Student & Campus Companion App</h1>
+            <p class="project-subtitle">Reducing uncertainty and waiting in academic meetings.</p>
+            <ul class="header-meta">
+                <li>UX / UI Designer</li>
+                <li>Mobile App</li>
+                <li>Nov 2024</li>
+                <li>UX Case Study</li>
+            </ul>
+        </header>
+
+        <!-- Overview -->
+        <section class="case-section">
+            <h2 class="section-title">Overview</h2>
+            <p class="section-text">
+                Academic Companion is a campus utility platform that enables students, teachers, and staff to manage
+                attendance, meals, and transactions seamlessly.
+            </p>
+        </section>
+
+        <!-- Problem -->
+        <section class="case-section">
+            <h2 class="section-title">The Problem</h2>
+            <p class="section-text">
+                Campus operations struggled due to manual attendance tracking and inefficient meal transactions.
+            </p>
+
+            <h3 class="section-subtitle">Why it matters?</h3>
+            <ul class="case-list">
+                <li><b>Wasted time</b> – Manual attendance verification</li>
+                <li><b>Delayed transactions</b> – Lack of balance visibility</li>
+                <li><b>Purchase uncertainty</b> – No balance visibility</li>
+            </ul>
+
+            <h3 class="section-subtitle">Who it impacts?</h3>
+            <ul class="case-list">
+                <li><b>Students buying meals</b> – Unclear balance tracking</li>
+                <li><b>Store staff processing payments</b> – Slow manual verification</li>
+            </ul>
+        </section>
+
+        <!-- Existing Approaches -->
+        <section class="case-section">
+            <h2 class="section-title">Existing Approaches</h2>
+            <ul class="case-list">
+                <li>Manual Attendance</li>
+                <li>Unstructured Meal Access</li>
+                <li>Limited Balance Visibility</li>
+                <li>Operational Delays</li>
+                <li>Lack of Real-time Feedback</li>
+            </ul>
+        </section>
+
+        <!-- Ideation & Process -->
+        <section class="case-section">
+            <h2 class="section-title">Ideation & Process</h2>
+            <h3 class="section-subtitle">How I approached it?</h3>
+            <ul class="case-list">
+                <li>Observed real student behavior</li>
+                <li>Reviewed attendance validation process</li>
+                <li>Focused on reducing interaction uncertainty</li>
+            </ul>
+
+            <h3 class="section-subtitle">Key decisions Made</h3>
+            <ul class="case-list">
+                <li>Enabled context switching</li>
+                <li>Made scanner the primary interface</li>
+                <li>Added instant confirmations</li>
+            </ul>
+        </section>
+
+        <!-- Design Execution -->
+        <section class="case-section">
+            <h2 class="section-title">Design Execution</h2>
+            <p class="section-text">Overall app is summarized into 3 steps:</p>
+
+            <!-- Step 1: Image Left -->
+            <div class="execution-block">
+                <div class="execution-image">
+                    <img src="../assets/design_assets/kaust_case_study/attendance_qr_stud.svg"
+                        alt="Attendance QR System">
+                </div>
+                <div class="execution-text">
+                    <span class="execution-step">Attendance QR System</span>
+                    <h3 class="execution-title">A student can</h3>
+                    <ul class="execution-list">
+                        <li>View QR – Show to faculty</li>
+                        <li>QR updates every few seconds</li>
+                        <li>Track scans – See recent attendance</li>
+                        <li>Refresh manually</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Step 2: Image Right -->
+            <div class="execution-block img-right">
+                <div class="execution-image">
+                    <img src="../assets/design_assets/kaust_case_study/meal_qr_stud.svg" alt="Meal QR system">
+                </div>
+                <div class="execution-text">
+                    <span class="execution-step">Meal QR system</span>
+                    <h3 class="execution-title">A faculty can</h3>
+                    <ul class="execution-list">
+                        <li>Show QR – Present code to staff</li>
+                        <li>QR updates every few seconds</li>
+                        <li>View today's allowance usage</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Step 3: Image Left -->
+            <div class="execution-block">
+                <div class="execution-image">
+                    <img src="../assets/design_assets/kaust_case_study/transaction_history_stud.svg"
+                        alt="Balance Allowance">
+                </div>
+                <div class="execution-text">
+                    <span class="execution-step">Balance Allowance</span>
+                    <h3 class="execution-title">A student can</h3>
+                    <ul class="execution-list">
+                        <li>Check remaining program allowance</li>
+                        <li>Understand daily transaction deductions</li>
+                        <li>See snack or meal payments</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section class="case-section">
+            <h2 class="section-title">Features for Faculty & Store staff</h2>
+            <p class="section-text">Helps faculty and store staff scan attendance and track transactions efficiently.
+            </p>
+            <div class="mockup-gallery">
+                <img src="../assets/design_assets/kaust_case_study/attendance_tracking_faculty.svg" alt="Mockup">
+                <img src="../assets/design_assets/kaust_case_study/eod_store.svg" alt="Mockup">
+                <img src="../assets/design_assets/kaust_case_study/live_qr_faculty.png" alt="Mockup">
+            </div>
+        </section>
+
+        <!-- Usability Testing -->
+        <section class="case-section">
+            <h2 class="section-title">Usability testing & validation</h2>
+            <h3 class="section-subtitle">Who tested it?</h3>
+            <p class="section-text">Tested with a small group of students and faculty.</p>
+
+            <h3 class="section-subtitle">What I observed?</h3>
+            <p class="section-text">Users lacked clarity on request status and faculty responses.</p>
+
+            <h3 class="section-subtitle">What changed?</h3>
+            <p class="section-text">Added clear status updates and confirmation feedback.</p>
+        </section>
+
+        <!-- Outcome -->
+        <section class="case-section case-outcome">
+            <h2 class="section-title">Final Outcome</h2>
+            <ul class="outcome-list">
+                <li>Reduced delays in attendance validation</li>
+                <li>Improved clarity in meal transactions</li>
+                <li>Faster operational workflow for staff</li>
+            </ul>
+        </section>
+
+        <!-- End Message -->
+        <footer class="case-end">
+            I'm Glad you reached here !
+        </footer>
+    </main>
+</body>
+
+</html>

@@ -1,5 +1,5 @@
-/* Art Portfolio - Home Carousel Styling */
-/* Font: Poppins */
+/* Art Portfolio - Modern Dark Editorial Gallery */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 * {
     margin: 0;
@@ -8,359 +8,163 @@
 }
 
 body {
-    background-color: #FFFFFF;
+    background-color: #000;
     font-family: 'Poppins', sans-serif;
-    color: #000000;
+    color: #fff;
     overflow-x: hidden;
+    line-height: 1.5;
 }
 
-.art-home-carousel {
+/* 1. HERO TITLE SECTION */
+.art-gallery-hero {
     width: 100%;
-    padding: 100px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    padding: 100px 122px 40px;
+    background-color: #000;
 }
 
-/* TITLE BLOCK */
-.title-block {
-    text-align: center;
-    margin-bottom: 80px;
-    max-width: 1200px;
-    padding: 0 20px;
-}
-
-.headline {
-    font-size: 48px;
-    /* Slightly reduced to fit one line better */
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 24px;
-    letter-spacing: -0.01em;
-    white-space: nowrap;
-    /* Force one line */
-}
-
-.subtext {
-    font-size: 18px;
-    font-weight: 400;
-    color: #888888;
-    margin: 0 auto;
-    line-height: 1.6;
-}
-
-/* CAROUSEL CORE */
-.carousel-wrapper {
-    position: relative;
-    width: 100%;
+.hero-container {
     max-width: 1440px;
-    height: 480px;
-    /* Reduced by 20% from 600px */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: -30px;
-    /* Moved 30px up */
+    margin: 0 auto;
 }
 
-.carousel-container {
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    perspective: 1200px;
-    /* For depth */
-}
-
-.carousel-track {
-    position: relative;
-    width: 320px;
-    /* Reduced by 20% from 400px */
-    height: 440px;
-    /* Reduced by 20% from 550px */
-    transform-style: preserve-3d;
-}
-
-.carousel-item {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 320px;
-    /* Reduced by 20% from 400px */
-    height: 440px;
-    /* Reduced by 20% from 550px */
-    background: #eee;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.5s ease-in-out, z-index 0.5s step-end, opacity 0.5s ease-in-out;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* NAVIGATION BUTTONS */
-.nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
+.back-button {
+    background: none;
     border: none;
-    color: #000;
-    cursor: pointer;
-    z-index: 100;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
     display: flex;
     align-items: center;
-    justify-content: center;
-    transition: color 0.3s ease;
-    padding: 20px;
+    gap: 8px;
+    padding: 0;
+    margin-bottom: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
 }
 
-.nav-btn:hover {
-    color: #888;
+.back-button:hover {
+    color: #fff;
+    transform: translateX(-4px);
 }
 
-.nav-btn.prev {
-    left: 40px;
+.back-button svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2.5;
 }
 
-.nav-btn.next {
-    right: 40px;
+.gallery-title {
+    font-size: 72px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin: 0;
+    text-transform: uppercase;
 }
 
-/* SECTION 2 — ABOUT ME */
-.about-section {
-    width: 100%;
-    padding: 120px 0;
-    background-color: #FFFFFF;
-}
-
-.about-container {
+/* 2. MAIN GALLERY GRID */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px 20px;
+    /* Large vertical gaps, minimal horizontal spacing */
+    padding: 20px 122px 140px;
+    /* Reduced top padding as controls are removed */
     max-width: 1440px;
     margin: 0 auto;
-    padding: 0 100px;
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 100px;
-    align-items: center;
 }
 
-.about-left {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.section-title {
-    font-size: 42px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-}
-
-.about-content {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.about-content p {
-    font-size: 18px;
-    line-height: 1.8;
-    color: #444444;
-}
-
-.about-right {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.about-image {
+/* 4. ARTWORK CARD */
+.gallery-card {
     width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 8px;
-    /* Subtle rounding as per rule */
-    object-fit: cover;
+    break-inside: avoid;
+    opacity: 1;
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* SECTION 3 — CONTACT / FOLLOW ME */
+.card-inner {
+    position: relative;
+    width: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    background-color: #111;
+}
+
+.gallery-card img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.gallery-card:hover img {
+    transform: scale(1.05);
+}
+
+/* 5. FOOTER */
 .footer-section {
     width: 100%;
-    background-color: #000000;
-    color: #ffffff;
-    padding: 120px 0 60px 0;
+    background-color: #000;
+    padding: 40px 0 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.footer-section .footer-container {
+.footer-container {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 0 100px;
-}
-
-.footer-columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 120px;
-    align-items: flex-start;
-}
-
-.footer-left {
+    padding: 0 122px;
     display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
-
-.footer-heading {
-    font-size: 48px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-}
-
-.social-description {
-    font-size: 18px;
-    color: rgba(255, 255, 255, 0.6);
-    max-width: 450px;
-    line-height: 1.6;
-}
-
-.footer-section .social-icons {
-    display: flex;
-    gap: 24px;
-}
-
-.footer-section .social-icon {
-    color: rgba(255, 255, 255, 0.82);
-    transition: transform 0.3s ease, color 0.3s ease;
-    text-decoration: none;
-}
-
-.footer-section .social-icon:hover {
-    color: #ffffff;
-    transform: translateY(-4px);
-}
-
-/* ART CONTACT FORM */
-.footer-right {
-    display: flex;
-    flex-direction: column;
-}
-
-.art-contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.form-label {
-    font-size: 14px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.form-select,
-.form-textarea {
-    width: 100%;
-    background-color: #111111;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    padding: 18px 20px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    border-radius: 8px;
-    outline: none;
-    transition: border-color 0.3s ease-in-out;
-}
-
-.form-select:focus,
-.form-textarea:focus {
-    border-color: rgba(255, 255, 255, 0.3);
-}
-
-.form-select option {
-    background-color: #111111;
-    color: #ffffff;
-}
-
-.whatsapp-send-btn {
-    display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 12px;
-    background-color: #25D366;
-    /* WhatsApp Green */
-    color: #ffffff;
-    border: none;
-    padding: 20px 32px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
-}
-
-.whatsapp-send-btn:hover {
-    transform: translateY(-2px);
-    filter: brightness(1.1);
-}
-
-.whatsapp-icon {
-    width: 24px;
-    height: 24px;
-}
-
-.footer-bottom {
-    margin-top: 100px;
-    padding-top: 40px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .copyright {
-    font-size: 14px;
+    font-size: 12px;
     color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 0.05em;
 }
 
-/* RESPONSIVE */
-@media (max-width: 1200px) {
-    .headline {
-        font-size: 42px;
-    }
+/* 6. RESPONSIVE DESIGN DEPRECATED */
 
-    .about-container {
-        grid-template-columns: 1fr;
-        gap: 60px;
-        padding: 0 40px;
-    }
 
-    .about-right {
-        justify-content: center;
-    }
+/* 7. TOAST NOTIFICATION */
+.toast-container {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    pointer-events: none;
+}
 
-    .footer-section .footer-container {
-        padding: 0 40px;
-    }
+.toast {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+    pointer-events: auto;
+}
 
-    .footer-heading {
-        font-size: 36px;
-    }
+.toast.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.toast.fade-out {
+    opacity: 0;
+    transform: translateX(20px);
 }

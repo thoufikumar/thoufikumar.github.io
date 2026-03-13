@@ -4,13 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        if (window.innerWidth <= 768) {
+            window.location.href = 'mobile/mobile_index.html';
+        }
+    </script>
     <title>Thoufik Umar | Product Designer</title>
     <meta name="description"
         content="Thoufik Umar - Product Designer portfolio showcasing design work and creative projects.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@300;500;600&family=Artifika&family=Orbitron:wght@700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@300;500;600&family=Artifika&family=Orbitron:wght@700&family=Beau+Rivage&family=Italiana&family=Kode+Mono:wght@400..700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -21,8 +26,8 @@
         <div class="hero-background">
             <h1 class="hero-name">THOUFIK UMAR</h1>
             <div class="philosophy-container">
-                <span class="philosophy-left">Design that listens…</span>
-                <span class="philosophy-right">Design that solves.</span>
+                <span class="philosophy-left">Curious about people.</span>
+                <span class="philosophy-right">Designing meaningful experiences.</span>
             </div>
         </div>
 
@@ -210,46 +215,41 @@
 
     <!-- SECTION 1 — Creative Extensions (Gateway) -->
     <section class="creative-extensions">
-        <h2 class="ce-section-title">Creative Extensions</h2>
-        <div class="ce-container">
-            <!-- CARD 1 — Museum of Art -->
-            <div class="ce-card ce-museum" id="gate-museum">
-                <div class="ce-card-bg">
-                    <img src="assets/design_assets/creative_extension_img/ce1.png" alt="Museum of Art Background">
-                </div>
+        <h2 class="section-title">Creative Extensions</h2>
+        <div class="ce-split-container">
+            <!-- Left Card: Museum of Art -->
+            <a href="art_portfolio.html" class="ce-split-card left" id="gate-museum">
                 <div class="ce-card-content">
-                    <h2 class="ce-card-title museum-title">Museum<br>of<br>Art</h2>
-                    <button class="ce-explore-btn" id="explore-museum">
-                        <span>Explore</span>
-                        <div class="ce-btn-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                    </button>
+                    <h2 class="ce-split-title">Museum<br>of art</h2>
+                    <div class="ce-split-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
                 </div>
-            </div>
+                <!-- Mockup moved inside frame -->
+                <img src="assets/design_assets/creative_extension_img/CE_ART.png.png" alt="Museum of Art Mockup"
+                    class="ce-card-mockup ce-img-art">
+            </a>
 
-            <!-- CARD 2 — Flutter Interface Collection -->
-            <div class="ce-card ce-flutter" id="gate-flutter">
-                <div class="ce-card-bg">
-                    <img src="assets/design_assets/creative_extension_img/ce2.png"
-                        alt="Flutter Interface Collection Background">
-                </div>
+            <!-- Right Card: My Flutter Interfaces -->
+            <a href="flutter_hero.html" class="ce-split-card right" id="gate-flutter">
                 <div class="ce-card-content">
-                    <h2 class="ce-card-title flutter-title">Flutter<br>Interface<br>Collection</h2>
-                    <button class="ce-explore-btn" id="explore-flutter">
-                        <span>Explore</span>
-                        <div class="ce-btn-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                    </button>
+                    <h2 class="ce-split-title">My Flutter<br>solutions</h2>
+                    <div class="ce-split-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
                 </div>
-            </div>
+                <!-- Mockup moved inside frame -->
+                <img src="assets/design_assets/creative_extension_img/CE_FLUTTER.png.png" alt="Flutter Solutions Mockup"
+                    class="ce-card-mockup ce-img-flutter">
+            </a>
+
+
         </div>
     </section>
 
@@ -1151,7 +1151,7 @@
                             </svg>
                         </button>
                         <button class="cs-btn cs-btn-primary" data-action="view-full" data-case="smartmeet">
-                            View Full Case Study
+                            View in Detail
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                                 <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round" />
@@ -1167,11 +1167,11 @@
             <!-- Case Study 2: Uber -->
             <article class="cs-item cs-item-right">
                 <div class="cs-content">
-                    <span class="cs-time">Current</span>
-                    <h2 class="cs-title">Uber Driver Confirmation Fix</h2>
-                    <p class="cs-description">Reducing user uncertainty during the driver-finding stage of ride booking
+                    <span class="cs-time">Feb 2026</span>
+                    <h2 class="cs-title">Academic Companion</h2>
+                    <p class="cs-description">QR-based attendance and meal allowance management for academic programs
                     </p>
-                    <span class="cs-role">UX Case Study</span>
+                    <span class="cs-role">UI/UX Case Study</span>
 
                     <div class="cs-actions">
                         <button class="cs-btn cs-btn-secondary" data-action="preview" data-case="uber">
@@ -1182,7 +1182,7 @@
                             </svg>
                         </button>
                         <button class="cs-btn cs-btn-primary" data-action="view-full" data-case="uber">
-                            UX problem exploration
+                            View in Detail
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                                 <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round" />
@@ -1200,8 +1200,8 @@
                     <div class="cs-folder">
                         <div class="cs-folder-tab"></div>
                         <div class="cs-folder-body">
-                            <h3 class="cs-folder-title">Uber</h3>
-                            <p class="cs-folder-subtitle">Concept Redesign - Mobile</p>
+                            <h3 class="cs-folder-title">AcadComp</h3>
+                            <p class="cs-folder-subtitle">Personal Case Study - Mobile</p>
                         </div>
                     </div>
                 </div>
@@ -1278,7 +1278,7 @@
         <div class="preview-gradient-overlay">
             <div class="preview-cta">
                 <button class="preview-cta-btn" data-action="view-full" data-case="smartmeet">
-                    View Full Case Study
+                    View in detail
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                         <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" />
@@ -1306,17 +1306,18 @@
         <div class="preview-content-wrapper">
             <!-- Project Identity -->
             <div class="preview-identity">
-                <h2 class="preview-project-name">Uber - Driver Confirmation Flow</h2>
-                <p class="preview-descriptor">UX Problem Exploration - In Progress</p>
+                <h2 class="preview-project-name">AcadComp – Academic Companion System</h2>
+                <p class="preview-descriptor">UX Case Study – Completed</p>
             </div>
 
             <!-- Problem Section -->
             <div class="preview-section">
                 <h3 class="preview-section-title">Problem:</h3>
                 <p class="preview-section-content">
-                    Users experience prolonged loading on the "Finding nearby drivers" screen with no feedback, leading
-                    to
-                    confusion, frustration, and app abandonment.
+                    Students, faculty, and operational staff experienced uncertainty and delays when performing
+                    time-sensitive tasks such as attendance validation and meal transactions. Lack of real-time
+                    feedback, unclear system responses, and navigation interruptions created operational friction during
+                    short but high-pressure interactions.
                 </p>
             </div>
 
@@ -1324,9 +1325,14 @@
             <div class="preview-section">
                 <h3 class="preview-section-title">What I Did:</h3>
                 <ul class="preview-list">
-                    <li>Conducted user interviews with frequent ride-hailing users</li>
-                    <li>Analyzed app reviews and online discussions for recurring pain points</li>
-                    <li>Identified lack of feedback, timeout handling, and fallback responses</li>
+                    <li>Studied the operational workflows of the KAUST Academy program system to understand real-world
+                        constraints</li>
+                    <li>Mapped scenario-based journeys for students, faculty, and store staff during attendance and meal
+                        processes</li>
+                    <li>Created empathy maps and affinity clusters to identify recurring behavioral and emotional pain
+                        points</li>
+                    <li>Designed context-aware interaction flows focused on real-time feedback and minimal navigation
+                        during critical tasks</li>
                 </ul>
             </div>
 
@@ -1334,21 +1340,22 @@
             <div class="preview-section">
                 <h3 class="preview-section-title">Current Status:</h3>
                 <p class="preview-section-content">
-                    This case study is an ongoing exploration focused on problem framing and flow ideation. Visual
-                    design
-                    and validation are currently in progress.
+                    The design exploration and interface prototypes for the system have been completed. The case study
+                    documents the full UX process including research, problem definition, and interaction design. User
+                    feedback and stakeholder testimonials are currently being collected as part of the final validation
+                    stage.
                 </p>
             </div>
 
             <!-- Mockup Preview (Placeholders) -->
             <div class="preview-mockups">
                 <div class="preview-mockup-container">
-                    <img src="assets/design_assets/smartmeet_img/cs1_sm1.png" alt="Uber Screen 1"
-                        class="preview-mockup preview-mockup-left" style="opacity: 0.5; filter: grayscale(100%);">
-                    <img src="assets/design_assets/smartmeet_img/cs1_sm2.png" alt="Uber Screen 2"
-                        class="preview-mockup preview-mockup-center" style="opacity: 1.0; filter: grayscale(100%);">
-                    <img src="assets/design_assets/smartmeet_img/cs1_sm3.png" alt="Uber Screen 3"
-                        class="preview-mockup preview-mockup-right" style="opacity: 0.5; filter: grayscale(100%);">
+                    <img src="assets/design_assets/kaust_case_study/attendance_qr_stud.svg" alt="AcadComp Attendance QR"
+                        class="preview-mockup preview-mockup-left">
+                    <img src="assets/design_assets/kaust_case_study/meal_qr_stud.svg" alt="AcadComp Meal QR"
+                        class="preview-mockup preview-mockup-center">
+                    <img src="assets/design_assets/kaust_case_study/transaction_history_stud.svg"
+                        alt="AcadComp Transaction History" class="preview-mockup preview-mockup-right">
                 </div>
             </div>
         </div>
@@ -1357,7 +1364,7 @@
         <div class="preview-gradient-overlay">
             <div class="preview-cta">
                 <button class="preview-cta-btn" data-action="view-full" data-case="uber">
-                    View Full Case Study
+                    View in detail
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                         <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" />
@@ -1372,9 +1379,8 @@
     <!-- FULL CASE STUDY VIEW (SMARTMEET) -->
     <section class="cs-full-view" id="full-case-study-smartmeet" style="display: none;">
 
-        <!-- BLOCK 01: FIXED TOP NAVIGATION -->
-        <header class="preview-header-bar cs-fixed-header">
-            <button class="preview-header-back-btn cs-header-back-btn" id="cs-full-back-btn" aria-label="Back">
+        <header class="cs-fixed-header">
+            <button class="cs-header-back-btn" id="cs-full-back-btn" aria-label="Back">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round" />
@@ -1398,7 +1404,7 @@
             <div class="cs-intro-block" id="cs-overview">
                 <div class="cs-identity-left">
                     <h2 class="cs-project-title">SmartMeet</h2>
-                    <h3 class="cs-project-subtitle">Student–Faculty Appointment Scheduling App</h3>
+                    <h3 class="cs-project-subtitle">Academic Meeting Scheduler</h3>
                     <p class="cs-project-desc">Reducing uncertainty and waiting in academic meetings.</p>
                 </div>
 
@@ -1434,13 +1440,16 @@
                 <div class="cs-split-content">
                     <h3 class="cs-section-heading">Why it matters ?</h3>
                     <ul class="cs-split-list">
-                        <li>Wasted time – <span>Unclear faculty availability</span></li>
-                        <li>Missed meetings – <span>Lack of confirmation flow</span></li>
-                        <li>Anxiety around follow-ups – <span>No status visibility</span></li>
+                        <li><span class="cs-split-item-title">Wasted time —</span> <span
+                                class="cs-split-item-desc">Students repeatedly checked for faculty availability without
+                                a clear scheduling system</span></li>
+                        <li><span class="cs-split-item-title">Missed meetings —</span> <span
+                                class="cs-split-item-desc">Lack of structured confirmation caused confusion about
+                                approved meeting requests</span></li>
+                        <li><span class="cs-split-item-title">Follow-up anxiety —</span> <span
+                                class="cs-split-item-desc">Students were unsure whether faculty had seen or responded to
+                                requests</span></li>
                     </ul>
-                </div>
-                <div class="cs-split-visual">
-                    <img src="assets/design_assets/smartmeet_img/whyitmatters.png" alt="Why it matters illustration">
                 </div>
             </div>
 
@@ -1449,12 +1458,13 @@
                 <div class="cs-split-content">
                     <h3 class="cs-section-heading">Who it impacts ?</h3>
                     <ul class="cs-split-list">
-                        <li>Students seeking guidance – <span>Unstructured meeting requests</span></li>
-                        <li>Faculty managing requests – <span>Overlapping, unmanaged schedules</span></li>
+                        <li><span class="cs-split-item-title">Students seeking academic guidance —</span> <span
+                                class="cs-split-item-desc">Needed a reliable way to request and track faculty
+                                meetings</span></li>
+                        <li><span class="cs-split-item-title">Faculty managing requests —</span> <span
+                                class="cs-split-item-desc">Faced overlapping meeting requests and unstructured
+                                communication channels</span></li>
                     </ul>
-                </div>
-                <div class="cs-split-visual">
-                    <img src="assets/design_assets/smartmeet_img/whoitimpacts.png" alt="Who it impacts illustration">
                 </div>
             </div>
 
@@ -1494,159 +1504,163 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- BLOCK 09: IDEATION & PROCESS -->
-        <div class="cs-text-section" id="cs-process">
-            <h3 class="cs-section-heading">Ideation & Process</h3>
+            <!-- BLOCK 09: IDEATION & PROCESS -->
+            <div class="cs-text-section" id="cs-process">
+                <h3 class="cs-section-heading">Ideation & Process</h3>
 
-            <div class="cs-process-cols">
-                <!-- Left Column -->
-                <div class="cs-process-col">
-                    <h4 class="cs-process-subheading">How I approached it</h4>
-                    <ul class="cs-process-list">
-                        <li>Observed real student behavior</li>
-                        <li>Studied existing scheduling patterns</li>
-                        <li>Focused on reducing decision friction</li>
+                <div class="cs-process-cols">
+                    <!-- Left Column -->
+                    <div class="cs-process-col">
+                        <h4 class="cs-process-subheading">How I approached it</h4>
+                        <ul class="cs-process-list">
+                            <li>Observed real student behavior</li>
+                            <li>Studied existing scheduling patterns</li>
+                            <li>Focused on reducing decision friction</li>
+                        </ul>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="cs-process-col">
+                        <h4 class="cs-process-subheading">Key decisions Made</h4>
+                        <ul class="cs-process-list">
+                            <li>Removed fixed-time requirement</li>
+                            <li>Made faculty the final confirmer</li>
+                            <li>Prioritized status visibility</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BLOCK 10: DESIGN EXECUTION -->
+            <div class="cs-text-section" id="cs-design">
+                <!-- Header spanning full width -->
+                <h3 class="cs-section-heading">Design Execution</h3>
+                <p class="cs-execution-subtext">Overall App is summarized to 3 main steps:</p>
+
+
+                <div class="cs-exec-grid">
+                    <!-- Row 1: Mockups (Horizontal) -->
+                    <div class="cs-exec-col-mockups">
+                        <div class="cs-mockup-wrapper">
+                            <img src="assets/design_assets/smartmeet_img/cs1_sm1.png" alt="Step 1 Mockup"
+                                class="cs-exec-mockup">
+                        </div>
+                        <div class="cs-mockup-wrapper">
+                            <img src="assets/design_assets/smartmeet_img/cs1_sm2.png" alt="Step 2 Mockup"
+                                class="cs-exec-mockup">
+                        </div>
+                        <div class="cs-mockup-wrapper">
+                            <img src="assets/design_assets/smartmeet_img/cs1_sm3.png" alt="Step 3 Mockup"
+                                class="cs-exec-mockup">
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Timeline (Horizontal) -->
+                    <div class="cs-exec-timeline-horizontal">
+                        <div class="cs-timeline-track-horz"></div>
+                        <div class="cs-timeline-wrapper">
+                            <div class="cs-timeline-node-horz">1</div>
+                        </div>
+                        <div class="cs-timeline-wrapper">
+                            <div class="cs-timeline-node-horz">2</div>
+                        </div>
+                        <div class="cs-timeline-wrapper">
+                            <div class="cs-timeline-node-horz">3</div>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Content (Horizontal Labels) -->
+                    <div class="cs-exec-row-content">
+                        <div class="cs-content-wrapper">
+                            <div class="cs-label-group">
+                                <h4 class="cs-exec-label">New meeting request</h4>
+                                <p class="cs-exec-sublabel">A Student can..</p>
+                                <ul class="cs-exec-step-bullets">
+                                    <li>Search faculty – Apply filters</li>
+                                    <li>Choose reason for the meet</li>
+                                    <li>See Preview Card</li>
+                                    <li>Submit Request</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="cs-content-wrapper">
+                            <div class="cs-label-group">
+                                <h4 class="cs-exec-label">Faculty Receives the Request</h4>
+                                <p class="cs-exec-sublabel">A Faculty can</p>
+                                <ul class="cs-exec-step-bullets">
+                                    <li>View urgent, pending, and new requests</li>
+                                    <li>View today’s meetings</li>
+                                    <li>Set time & venue for the meet</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="cs-content-wrapper">
+                            <div class="cs-label-group">
+                                <h4 class="cs-exec-label">Student gets Notified</h4>
+                                <p class="cs-exec-sublabel">A Student gets</p>
+                                <ul class="cs-exec-step-bullets">
+                                    <li>Meeting scheduled details</li>
+                                    <li>Timely reminders</li>
+                                    <li>Option to cancel the meet</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BLOCK 11: USABILITY TESTING -->
+            <div class="cs-text-section" id="cs-validation">
+                <h3 class="cs-usability-heading">Usability Testing & Validation</h3>
+                <div class="cs-usability-group">
+                    <p class="cs-usability-question">Who tested it ?</p>
+                    <p class="cs-usability-description">Tested with a small group of college students and faculty
+                        members.
+                    </p>
+                </div>
+                <div class="cs-usability-group">
+                    <p class="cs-usability-question">What I observed ?</p>
+                    <p class="cs-usability-description">Early tests showed confusion around request status and response
+                        expectations, especially after sending a meeting request.</p>
+                </div>
+                <div class="cs-usability-group">
+                    <p class="cs-usability-question">What changed ?</p>
+                    <p class="cs-usability-description">I introduced clearer status indicators, confirmation messages,
+                        and
+                        improved feedback after faculty actions.</p>
+                </div>
+            </div>
+
+
+            <!-- BLOCK 12: FINAL OUTCOME -->
+            <div class="cs-outcome-section" id="cs-outcome">
+                <div class="cs-outcome-container">
+                    <h3 class="cs-outcome-title">Final Outcome – The solution focused on clarity, not control.</h3>
+                    <ul class="cs-outcome-bullets">
+                        <li>Reduced unnecessary in-person visits</li>
+                        <li>Improved clarity around meeting status</li>
+                        <li>Positive feedback from test users</li>
                     </ul>
-                </div>
-
-                <!-- Right Column -->
-                <div class="cs-process-col">
-                    <h4 class="cs-process-subheading">Key decisions Made</h4>
-                    <ul class="cs-process-list">
-                        <li>Removed fixed-time requirement</li>
-                        <li>Made faculty the final confirmer</li>
-                        <li>Prioritized status visibility</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- BLOCK 10: DESIGN EXECUTION -->
-        <div class="cs-text-section" id="cs-design">
-            <!-- Header spanning full width -->
-            <h3 class="cs-section-heading">Design Execution</h3>
-            <p class="cs-execution-subtext">Overall App is summarized to 3 main steps:</p>
-
-
-            <div class="cs-exec-grid">
-                <!-- Row 1: Mockups (Horizontal) -->
-                <div class="cs-exec-col-mockups">
-                    <div class="cs-mockup-wrapper">
-                        <img src="assets/design_assets/smartmeet_img/cs1_sm1.png" alt="Step 1 Mockup"
-                            class="cs-exec-mockup">
-                    </div>
-                    <div class="cs-mockup-wrapper">
-                        <img src="assets/design_assets/smartmeet_img/cs1_sm2.png" alt="Step 2 Mockup"
-                            class="cs-exec-mockup">
-                    </div>
-                    <div class="cs-mockup-wrapper">
-                        <img src="assets/design_assets/smartmeet_img/cs1_sm3.png" alt="Step 3 Mockup"
-                            class="cs-exec-mockup">
-                    </div>
-                </div>
-
-                <!-- Row 2: Timeline (Horizontal) -->
-                <div class="cs-exec-timeline-horizontal">
-                    <div class="cs-timeline-track-horz"></div>
-                    <div class="cs-timeline-wrapper">
-                        <div class="cs-timeline-node-horz">1</div>
-                    </div>
-                    <div class="cs-timeline-wrapper">
-                        <div class="cs-timeline-node-horz">2</div>
-                    </div>
-                    <div class="cs-timeline-wrapper">
-                        <div class="cs-timeline-node-horz">3</div>
-                    </div>
-                </div>
-
-                <!-- Row 3: Content (Horizontal Labels) -->
-                <div class="cs-exec-row-content">
-                    <div class="cs-content-wrapper">
-                        <div class="cs-label-group">
-                            <h4 class="cs-exec-label">New meeting request</h4>
-                            <p class="cs-exec-sublabel">A Student can..</p>
-                            <ul class="cs-exec-step-bullets">
-                                <li>Search faculty – Apply filters</li>
-                                <li>Choose reason for the meet</li>
-                                <li>See Preview Card</li>
-                                <li>Submit Request</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="cs-content-wrapper">
-                        <div class="cs-label-group">
-                            <h4 class="cs-exec-label">Faculty Receives the Request</h4>
-                            <p class="cs-exec-sublabel">A Faculty can</p>
-                            <ul class="cs-exec-step-bullets">
-                                <li>View urgent, pending, and new requests</li>
-                                <li>View today’s meetings</li>
-                                <li>Set time & venue for the meet</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="cs-content-wrapper">
-                        <div class="cs-label-group">
-                            <h4 class="cs-exec-label">Student gets Notified</h4>
-                            <p class="cs-exec-sublabel">A Student gets</p>
-                            <ul class="cs-exec-step-bullets">
-                                <li>Meeting scheduled details</li>
-                                <li>Timely reminders</li>
-                                <li>Option to cancel the meet</li>
-                            </ul>
-                        </div>
+                    <div class="cs-cta-row">
+                        <h2 class="cs-cta-text">I’m glad you reached here !</h2>
+                        <a href="#" class="cs-cta-button" id="next-case-study-btn">View Next Case Study</a>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- BLOCK 11: USABILITY TESTING -->
-        <div class="cs-text-section" id="cs-validation">
-            <h3 class="cs-usability-heading">Usability Testing & Validation</h3>
-            <div class="cs-usability-group">
-                <p class="cs-usability-question">Who tested it ?</p>
-                <p class="cs-usability-description">Tested with a small group of college students and faculty members.
-                </p>
-            </div>
-            <div class="cs-usability-group">
-                <p class="cs-usability-question">What I observed ?</p>
-                <p class="cs-usability-description">Early tests showed confusion around request status and response
-                    expectations, especially after sending a meeting request.</p>
-            </div>
-            <div class="cs-usability-group">
-                <p class="cs-usability-question">What changed ?</p>
-                <p class="cs-usability-description">I introduced clearer status indicators, confirmation messages, and
-                    improved feedback after faculty actions.</p>
-            </div>
-        </div>
-
-
-        <!-- BLOCK 12: FINAL OUTCOME -->
-        <div class="cs-outcome-section" id="cs-outcome">
-            <div class="cs-outcome-container">
-                <h3 class="cs-outcome-title">Final Outcome – The solution focused on clarity, not control.</h3>
-                <ul class="cs-outcome-bullets">
-                    <li>Reduced unnecessary in-person visits</li>
-                    <li>Improved clarity around meeting status</li>
-                    <li>Positive feedback from test users</li>
-                </ul>
-                <div class="cs-cta-row">
-                    <h2 class="cs-cta-text">I’m glad you reached here !</h2>
-                    <a href="#" class="cs-cta-button" id="next-case-study-btn">View Next Case Study</a>
-                </div>
-            </div>
-        </div>
 
         </div>
     </section>
 
-    <!-- FULL CASE STUDY VIEW (UBER) [DUPLICATED] -->
+
+
+
+
+    <!-- FULL CASE STUDY VIEW (ACADCOMP) -->
     <section class="cs-full-view" id="full-case-study-uber" style="display: none;">
 
-        <!-- BLOCK 01: FIXED TOP NAVIGATION -->
-        <header class="preview-header-bar cs-fixed-header">
-            <button class="preview-header-back-btn cs-header-back-btn" id="uber-cs-full-back-btn" aria-label="Back">
+        <header class="cs-fixed-header">
+            <button class="cs-header-back-btn" id="uber-cs-full-back-btn" aria-label="Back">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round" />
@@ -1669,18 +1683,17 @@
             <!-- BLOCK 02 & 03: IDENTITY & META -->
             <div class="cs-intro-block" id="uber-overview">
                 <div class="cs-identity-left">
-                    <h2 class="cs-project-title">Uber - Driver Confirmation Flow</h2>
-                    <h3 class="cs-project-subtitle">UX Problem Exploration - In Progress</h3>
-                    <p class="cs-project-desc">Reducing user uncertainty during the driver-finding stage of ride
-                        booking.</p>
+                    <h2 class="cs-project-title">AcadComp</h2>
+                    <h3 class="cs-project-subtitle">KAUST Program Companion</h3>
+                    <p class="cs-project-desc">Reducing uncertainty in attendance validation and meal transactions.</p>
                 </div>
 
                 <div class="cs-meta-right">
                     <ul class="cs-meta-list">
-                        <li>UX Researcher</li>
+                        <li>UX / UI Designer</li>
                         <li>Mobile App</li>
-                        <li>Feb 2025</li>
                         <li>Concept Exploration</li>
+                        <li>Personal Case Study</li>
                     </ul>
                 </div>
             </div>
@@ -1689,8 +1702,9 @@
             <div class="cs-text-section">
                 <h3 class="cs-section-heading">Overview</h3>
                 <p class="cs-body-text">
-                    This case study explores the friction users experience while waiting for driver confirmation in the
-                    Uber app, specifically focusing on the "Finding nearby drivers" state.
+                    AcadComp is an operational system designed for KAUST Academy programs that helps students, faculty,
+                    and store staff manage attendance validation and meal transactions efficiently during short-term
+                    academic programs.
                 </p>
             </div>
 
@@ -1698,9 +1712,8 @@
             <div class="cs-text-section" id="uber-problem">
                 <h3 class="cs-section-heading">The problem</h3>
                 <p class="cs-body-text">
-                    Users experience prolonged loading on the "Finding nearby drivers" screen with no feedback, leading
-                    to
-                    confusion, frustration, and app abandonment.
+                    Students, faculty, and store staff experienced operational friction during attendance scanning and
+                    meal purchases due to unclear feedback, slow interactions, and navigation interruptions.
                 </p>
             </div>
 
@@ -1709,14 +1722,16 @@
                 <div class="cs-split-content">
                     <h3 class="cs-section-heading">Why it matters ?</h3>
                     <ul class="cs-split-list">
-                        <li>High Drop-off – <span>Users cancel due to perceived inactivity</span></li>
-                        <li>Brand Trust – <span>Lack of transparency reduces confidence</span></li>
-                        <li>Anxiety – <span>No feedback on search progress</span></li>
+                        <li><span class="cs-split-item-title">Attendance uncertainty —</span> <span
+                                class="cs-split-item-desc">Students lacked confirmation that their session attendance
+                                was successfully recorded</span></li>
+                        <li><span class="cs-split-item-title">Operational delays —</span> <span
+                                class="cs-split-item-desc">Manual verification slowed attendance tracking and meal
+                                service during busy program hours</span></li>
+                        <li><span class="cs-split-item-title">Balance confusion —</span> <span
+                                class="cs-split-item-desc">Students could not clearly track remaining meal allowance
+                                after transactions</span></li>
                     </ul>
-                </div>
-                <div class="cs-split-visual">
-                    <img src="assets/design_assets/smartmeet_img/whyitmatters.png" alt="Uber Why it matters"
-                        style="filter: grayscale(100%);">
                 </div>
             </div>
 
@@ -1725,158 +1740,210 @@
                 <div class="cs-split-content">
                     <h3 class="cs-section-heading">Who it impacts ?</h3>
                     <ul class="cs-split-list">
-                        <li>Time-sensitive users – <span>Need immediate assurance</span></li>
-                        <li>New app users – <span>Unfamiliar with long wait times</span></li>
+                        <li><span class="cs-split-item-title">Students attending academy programs —</span> <span
+                                class="cs-split-item-desc">Needed quick QR validation for attendance and meal
+                                access</span></li>
+                        <li><span class="cs-split-item-title">Faculty conducting sessions —</span> <span
+                                class="cs-split-item-desc">Required uninterrupted scanning to record attendance for
+                                large student groups</span></li>
+                        <li><span class="cs-split-item-title">Store staff processing meals —</span> <span
+                                class="cs-split-item-desc">Needed fast QR transactions to handle high-volume meal
+                                purchases</span></li>
                     </ul>
-                </div>
-                <div class="cs-split-visual">
-                    <img src="assets/design_assets/smartmeet_img/whoitimpacts.png" alt="Uber Who it impacts"
-                        style="filter: grayscale(100%);">
                 </div>
             </div>
 
-            <!-- BLOCK 08: EXISTING APPROACHES -->
-            <div class="cs-text-section" id="uber-existing-approaches">
+            <!-- BLOCK 08: EXISTING APPROACHES (CUSTOM) -->
+            <div class="uber-existing-frame" id="uber-existing-approaches">
                 <h3 class="cs-section-heading">Existing Approaches</h3>
-                <p class="cs-body-text">
-                    Current ride-hailing apps mostly rely on a generic spinning loader or a map with moving dots, which
-                    often fails to communicate the actual difficulty or progress of the search.
-                </p>
-            </div>
-        </div>
-
-        <!-- BLOCK 09: IDEATION & PROCESS -->
-        <div class="cs-text-section" id="uber-process">
-            <h3 class="cs-section-heading">Ideation & Process</h3>
-
-            <div class="cs-process-cols">
-                <!-- Left Column -->
-                <div class="cs-process-col">
-                    <h4 class="cs-process-subheading">How I approached it</h4>
-                    <ul class="cs-process-list">
-                        <li>Conducted 5 user interviews</li>
-                        <li>Analyzed 50+ App Store reviews</li>
-                        <li>Mapped out current emotional journey</li>
-                    </ul>
-                </div>
-
-                <!-- Right Column -->
-                <div class="cs-process-col">
-                    <h4 class="cs-process-subheading">Key insights found</h4>
-                    <ul class="cs-process-list">
-                        <li>Lack of feedback = App failure</li>
-                        <li>Timeouts are too abrupt</li>
-                        <li>Visual cues are too generic</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- BLOCK 10: DESIGN EXECUTION -->
-        <div class="cs-text-section" id="uber-design">
-            <!-- Header spanning full width -->
-            <h3 class="cs-section-heading">Design Execution</h3>
-            <p class="cs-execution-subtext">Process is currently in progress (ideation phase):</p>
-
-
-            <div class="cs-exec-grid">
-                <!-- Row 1: Mockups (Horizontal) -->
-                <div class="cs-exec-col-mockups">
-                    <div class="cs-mockup-wrapper">
-                        <img src="assets/design_assets/smartmeet_img/cs1_sm1.png" alt="Uber Step 1"
-                            class="cs-exec-mockup" style="opacity: 0.5; filter: grayscale(100%);">
-                    </div>
-                    <div class="cs-mockup-wrapper">
-                        <img src="assets/design_assets/smartmeet_img/cs1_sm2.png" alt="Uber Step 2"
-                            class="cs-exec-mockup" style="opacity: 0.8; filter: grayscale(100%);">
-                    </div>
-                    <div class="cs-mockup-wrapper">
-                        <img src="assets/design_assets/smartmeet_img/cs1_sm3.png" alt="Uber Step 3"
-                            class="cs-exec-mockup" style="opacity: 0.5; filter: grayscale(100%);">
-                    </div>
-                </div>
-
-                <!-- Row 2: Timeline (Horizontal) -->
-                <div class="cs-exec-timeline-horizontal">
-                    <div class="cs-timeline-track-horz"></div>
-                    <div class="cs-timeline-wrapper">
-                        <div class="cs-timeline-node-horz">1</div>
-                    </div>
-                    <div class="cs-timeline-wrapper">
-                        <div class="cs-timeline-node-horz">2</div>
-                    </div>
-                    <div class="cs-timeline-wrapper">
-                        <div class="cs-timeline-node-horz">3</div>
-                    </div>
-                </div>
-
-                <!-- Row 3: Content (Horizontal Labels) -->
-                <div class="cs-exec-row-content">
-                    <div class="cs-content-wrapper">
-                        <div class="cs-label-group">
-                            <h4 class="cs-exec-label">Problem Framing</h4>
-                            <p class="cs-exec-sublabel">Defining the gap..</p>
-                            <ul class="cs-exec-step-bullets">
-                                <li>Research synthesis</li>
-                                <li>Persona creation</li>
-                                <li>Journey mapping</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="cs-content-wrapper">
-                        <div class="cs-label-group">
-                            <h4 class="cs-exec-label">Flow Ideation</h4>
-                            <p class="cs-exec-sublabel">Exploring solutions</p>
-                            <ul class="cs-exec-step-bullets">
-                                <li>Wireframing feedback cues</li>
-                                <li>Testing progress states</li>
-                                <li>Refining timeout logic</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="cs-content-wrapper">
-                        <div class="cs-label-group">
-                            <h4 class="cs-exec-label">Visual Design</h4>
-                            <p class="cs-exec-sublabel">In Progress</p>
-                            <ul class="cs-exec-step-bullets">
-                                <li>High-fidelity mockups</li>
-                                <li>Micro-interactions</li>
-                                <li>Accessibility review</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- BLOCK 11: USABILITY TESTING -->
-        <div class="cs-text-section" id="uber-validation">
-            <h3 class="cs-usability-heading">Validation Plan</h3>
-            <div class="cs-usability-group">
-                <p class="cs-usability-question">Status</p>
-                <p class="cs-usability-description">Validation phase to be scheduled after high-fidelity prototyping.
-                </p>
-            </div>
-        </div>
-
-
-        <!-- BLOCK 12: FINAL OUTCOME -->
-        <div class="cs-outcome-section" id="uber-outcome">
-            <div class="cs-outcome-container">
-                <h3 class="cs-outcome-title">Outcome – Ongoing exploration focused on problem framing and flow
-                    ideation.</h3>
-                <ul class="cs-outcome-bullets">
-                    <li>Comprehensive problem analysis</li>
-                    <li>Evidence-based flow redesign</li>
-                    <li>Foundation for visual execution</li>
+                <ul class="uber-existing-list">
+                    <li class="uber-existing-item">
+                        <span class="uber-item-title">Manual Attendance –</span>
+                        <span class="uber-item-desc">Faculty recorded attendance manually or through spreadsheets,
+                            slowing the process and increasing errors.</span>
+                    </li>
+                    <li class="uber-existing-item">
+                        <span class="uber-item-title">Unstructured Meal Access –</span>
+                        <span class="uber-item-desc">Students relied on verbal confirmation or staff checks to access
+                            meal allowances.</span>
+                    </li>
+                    <li class="uber-existing-item">
+                        <span class="uber-item-title">Limited Balance Visibility –</span>
+                        <span class="uber-item-desc">Students could not clearly track remaining daily allowance or
+                            previous purchases.</span>
+                    </li>
+                    <li class="uber-existing-item">
+                        <span class="uber-item-title">Operational Delays –</span>
+                        <span class="uber-item-desc">Faculty and store staff experienced delays when managing large
+                            groups during sessions.</span>
+                    </li>
+                    <li class="uber-existing-item">
+                        <span class="uber-item-title">Lack of Real-time Feedback –</span>
+                        <span class="uber-item-desc">Students were unsure whether attendance scans or transactions
+                            were successfully recorded.</span>
+                    </li>
                 </ul>
-                <div class="cs-cta-row">
-                    <h2 class="cs-cta-text">I’m glad you reached here !</h2>
-                    <a href="#" class="cs-cta-button" id="uber-next-case-study-btn">View Next Case Study</a>
+            </div>
+
+            <!-- BLOCK 09: IDEATION & PROCESS -->
+            <div class="cs-text-section" id="uber-process">
+                <h3 class="cs-section-heading">Ideation & Process</h3>
+
+                <div class="cs-process-cols">
+                    <!-- Left Column -->
+                    <div class="cs-process-col">
+                        <h4 class="cs-process-subheading">How I approached it</h4>
+                        <ul class="cs-process-list">
+                            <li>Studied the academy program workflow</li>
+                            <li>Mapped real-world operational scenarios</li>
+                            <li>Focused on reducing navigation during time-sensitive tasks</li>
+                        </ul>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="cs-process-col">
+                        <h4 class="cs-process-subheading">Key decisions Made</h4>
+                        <ul class="cs-process-list">
+                            <li>Introduced context-aware home screen</li>
+                            <li>Made scanner the primary operational interface</li>
+                            <li>Added real-time feedback for validation and transactions</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
 
+            <!-- BLOCK 10: DESIGN EXECUTION -->
+            <div class="cs-execution-section" id="uber-design">
+                <h3 class="cs-section-heading">Design Execution</h3>
+                <p class="cs-execution-subtext">Overall App is summarized to 3 main steps:</p>
+
+                <div class="cs-exec-grid">
+                    <!-- Row 1: Mockups (Horizontal) -->
+                    <div class="cs-exec-col-mockups">
+                        <div class="cs-mockup-wrapper">
+                            <img src="assets/design_assets/kaust_case_study/attendance_qr_stud.svg" alt="Step 1 Mockup"
+                                class="cs-exec-mockup">
+                        </div>
+                        <div class="cs-mockup-wrapper">
+                            <img src="assets/design_assets/kaust_case_study/meal_qr_stud.svg" alt="Step 2 Mockup"
+                                class="cs-exec-mockup">
+                        </div>
+                        <div class="cs-mockup-wrapper">
+                            <img src="assets/design_assets/kaust_case_study/transaction_history_stud.svg"
+                                alt="Step 3 Mockup" class="cs-exec-mockup">
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Timeline (Horizontal) -->
+                    <div class="cs-exec-timeline-horizontal">
+                        <div class="cs-timeline-track-horz"></div>
+                        <div class="cs-timeline-wrapper">
+                            <div class="cs-timeline-node-horz">1</div>
+                        </div>
+                        <div class="cs-timeline-wrapper">
+                            <div class="cs-timeline-node-horz">2</div>
+                        </div>
+                        <div class="cs-timeline-wrapper">
+                            <div class="cs-timeline-node-horz">3</div>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Content (Horizontal Labels) -->
+                    <div class="cs-exec-row-content">
+                        <div class="cs-content-wrapper">
+                            <div class="cs-label-group">
+                                <h4 class="cs-exec-label">Attendance Check-in</h4>
+                                <p class="cs-exec-sublabel">A Student can..</p>
+                                <ul class="cs-exec-step-bullets">
+                                    <li>Scan faculty-provided QR codes</li>
+                                    <li>Verify presence in real-time</li>
+                                    <li>View subject-wise attendance</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="cs-content-wrapper">
+                            <div class="cs-label-group">
+                                <h4 class="cs-exec-label">Meal Allowance Access</h4>
+                                <p class="cs-exec-sublabel">A Student can..</p>
+                                <ul class="cs-exec-step-bullets">
+                                    <li>Generate unique QR for meals</li>
+                                    <li>Check daily allowance status</li>
+                                    <li>View menu and transaction logs</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="cs-content-wrapper">
+                            <div class="cs-label-group">
+                                <h4 class="cs-exec-label">Transaction Tracking</h4>
+                                <p class="cs-exec-sublabel">A Student can..</p>
+                                <ul class="cs-exec-step-bullets">
+                                    <li>View detailed history of all logs</li>
+                                    <li>Monitor balance and usage</li>
+                                    <li>Get instant digital receipts</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BLOCK 10.5: FACULTY FEATURES -->
+            <div class="cs-faculty-section" id="uber-faculty">
+                <h3 class="cs-section-heading">Also the features for Faculty & Store staff</h3>
+                <p class="cs-execution-subtext">The system also supports faculty and store staff with tools for scanning
+                    attendance, tracking sessions, and reviewing transaction summaries efficiently.</p>
+
+                <div class="cs-faculty-grid">
+                    <div class="cs-faculty-item left">
+                        <img src="assets/design_assets/kaust_case_study/attendance_tracking_faculty.svg"
+                            alt="Attendance Tracking" class="cs-faculty-mockup">
+                    </div>
+                    <div class="cs-faculty-item center">
+                        <img src="assets/design_assets/kaust_case_study/live_qr_faculty.png" alt="Live QR Scanning"
+                            class="cs-faculty-mockup">
+                    </div>
+                    <div class="cs-faculty-item right">
+                        <img src="assets/design_assets/kaust_case_study/eod_store.svg" alt="Daily Sales Summary"
+                            class="cs-faculty-mockup">
+                    </div>
+                </div>
+            </div>
+
+            <!-- BLOCK 11: USABILITY TESTING -->
+            <div class="cs-text-section" id="uber-validation">
+                <h3 class="cs-usability-heading">Usability Testing & Validation</h3>
+                <div class="cs-usability-group">
+                    <p class="cs-usability-question">Who tested it ?</p>
+                    <p class="cs-usability-description">Tested with a small group of students and faculty members in the
+                        acad program.</p>
+                </div>
+                <div class="cs-usability-group">
+                    <p class="cs-usability-question">What I observed ?</p>
+                    <p class="cs-usability-description">Early tests showed students sometimes struggled with
+                        understanding QR scanning success vs. meal allowance verification.</p>
+                </div>
+                <div class="cs-usability-group">
+                    <p class="cs-usability-question">What changed ?</p>
+                    <p class="cs-usability-description">I introduced explicit confirmation screens and haptic feedback
+                        for successful scans to improve confidence.</p>
+                </div>
+            </div>
+
+            <!-- BLOCK 12: FINAL OUTCOME -->
+            <div class="cs-outcome-section" id="uber-outcome">
+                <div class="cs-outcome-container">
+                    <h3 class="cs-outcome-title">Final Outcome – A unified operational ecosystem for campus life.</h3>
+                    <ul class="cs-outcome-bullets">
+                        <li>Replaced manual papers with automated QR check-ins</li>
+                        <li>Integrated meal allowance tracking into a single app</li>
+                        <li>Positive feedback from academy staff and students</li>
+                    </ul>
+                    <div class="cs-cta-row">
+                        <h2 class="cs-cta-text">I’m glad you reached here !</h2>
+                        <a href="#" class="cs-cta-button" id="uber-next-case-study-btn">View Next Case Study</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
